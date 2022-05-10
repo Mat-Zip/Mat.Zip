@@ -5,6 +5,7 @@
       <router-link to="/mypage">Category 2</router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
+    <!-- 수정확인 -->
     <router-view/>
   </div>
 </template>
