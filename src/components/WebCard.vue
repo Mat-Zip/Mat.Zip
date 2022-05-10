@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- 버튼 서랍 -->
-    
+
     <!-- 날짜 일력창 -->
     <div class="dateinput" v-if="modal">
       <input type="datetime-local" v-model="datetime">
@@ -19,6 +19,13 @@
         <li>{{ place.name }}</li>
         <li>{{ place.address }}</li>
       </ul>
+
+        <span class="arrowUp arup1 blink"></span>
+        <span class="arrowUp arup2 blink"></span>
+        <span class="arrowUp arup3 blink"></span>
+        <span class="arrowDown ardown1 blink"></span>
+        <span class="arrowDown ardown2 blink"></span>
+        <span class="arrowDown ardown3 blink"></span>
     </div>
     <!-- 카드 뒷면 -->
     <div class="back card">
@@ -86,6 +93,55 @@ export default {
 </script>
 
 <style scoped>
+
+.arrowUp {
+  position: absolute;
+  padding: 12px 1px;
+  width: 0.5px;
+  background: black;
+  top: 120px;
+  transform: rotate(150deg);
+}
+.arrowDown {
+  position: absolute;
+  padding: 12px 1px;
+  background: black;
+  top: 140px;
+  transform: rotate(-150deg);
+}
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+.blink {
+  animation: blink-effect 0.5s infinite;
+}
+.arup1 {
+  right: 10px;
+  animation-delay: 0.3s;
+}
+.arup2 {
+  right: 20px;
+  animation-delay: 0.2s;
+}
+.arup3 {
+  right: 30px;
+  animation-delay: 0.1s;
+}
+.ardown1 {
+  right: 10px;
+  animation-delay: 0.3s;
+}
+.ardown2 {
+  right: 20px;
+  animation-delay: 0.2s;
+}
+.ardown3 {
+  right: 30px;
+  animation-delay: 0.1s;
+}
+
 .container {
     width: 30%;
     height: 300px;
@@ -142,6 +198,7 @@ button:hover {
 }
 
 .likedplace {
-  color: red;
+  color: white;
+  background: red;
 }
 </style>
