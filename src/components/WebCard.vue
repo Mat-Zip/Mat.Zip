@@ -10,7 +10,7 @@
     <!-- 카드 앞면 -->
     <div class="front card">
       <div class="button-bar">
-        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" /></button>
+        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button>
         <button><font-awesome-icon icon="fa-regular fa-map" /></button><!--@click="map"-->
         <button><font-awesome-icon icon="fa-regular fa-calendar" /></button><!--@click="modal=!modal"-->
       </div>
@@ -23,7 +23,7 @@
     <!-- 카드 뒷면 -->
     <div class="back card">
       <div class="button-bar">
-        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" /></button><!--@click="like"-->
+        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button><!--@click="like"-->
         <button><font-awesome-icon icon="fa-regular fa-map" /></button><!--@click="map"-->
         <button><font-awesome-icon icon="fa-regular fa-calendar" /></button><!--@click="modal=!modal"-->
       </div>
@@ -50,8 +50,14 @@ export default {
   },
   methods: {
     addLike: function() {
-      // 장소의 아이디를 유저의 데이터에 추가
-      this.$store.commit('addLikePlace', this.place);
+      // Liked에 없다면 장소의 아이디를 유저의 데이터에 추가
+      if(!this.$store.getters.getLiked.some((el) => this.place.id==el.id)) {
+        this.$store.commit('addLikePlace', {id: this.place.id, name: this.place.name});
+      }
+      // Liked에 있다면 삭제
+      else {
+        this.$store.commit('deleteLikePlace', this.place.id);
+      }
     },
     /*map: function() {
       // maps 라우터를 따로 지정 후 params.id 값으로 장소의 도로명 주소를 넘겨주면 서버에서 변환 후 그 지점을 센터로 하는 지도 페이지로 push
@@ -65,6 +71,16 @@ export default {
       };
       this.$store.state.userdate.push(nDate);
     }*/
+  },
+  computed: {
+    check() {
+      if(this.$store.getters.getLiked.some((item) => item.id==this.place.id)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
   }
 }
 </script>
@@ -113,6 +129,7 @@ ul {
 button {
   background-color: white;
   border: 1px solid black;
+  border-radius: 50%;
   padding: 5px 7px;
 }
 
@@ -124,7 +141,7 @@ button:hover {
   float: right;
 }
 
-.liked-place {
+.likedplace {
   color: red;
 }
 </style>

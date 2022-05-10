@@ -11,14 +11,20 @@ export default new Vuex.Store({
   },
   getters: {
     getLikedPlaces(state) {
-      const result = state.places.filter((item) => state.liked.includes(item));
+      const result = state.places.filter((item) => state.liked.some((el) => item.id==el.id));
       return result;
+    },
+    getLiked(state) {
+      return state.liked;
     }
   },
   mutations: {
     addLikePlace(state, payload) {
-      console.log(payload);
       state.liked.push(payload);
+    },
+    deleteLikePlace(state, id) {
+      const i=state.liked.findIndex((item) => item.id==id);
+      state.liked.splice(i, 1);
     }
   },
   actions: {

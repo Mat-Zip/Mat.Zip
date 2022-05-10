@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
       <router-link to="/">Category 1</router-link> |
-      <router-link to="/about">Category 2</router-link>
+      <router-link to="/mypage">Category 2</router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <router-view/>

@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- 받아온 data를 카드로 생성 -->
     <web-card v-for="(place,i) in $store.state.places" :key="i" :place="place"></web-card>
   </div>
 </template>
