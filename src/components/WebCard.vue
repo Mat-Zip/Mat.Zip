@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- 버튼 서랍 -->
-    <p>(준용)오늘 점심은 국밥 무려 영재국밥</p>
+    
     <!-- 날짜 일력창 -->
     <div class="dateinput" v-if="modal">
       <input type="datetime-local" v-model="datetime">
