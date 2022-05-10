@@ -2,6 +2,7 @@
   <div class="container">
     <!-- 버튼 서랍 -->
     
+    <p>구자경</p>
     <!-- 날짜 일력창 -->
     <div class="dateinput" v-if="modal">
       <input type="datetime-local" v-model="datetime">
