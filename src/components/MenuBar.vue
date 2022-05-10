@@ -5,6 +5,7 @@
       <div v-if="!logged">
         <ul>
           <li>회원가입</li>
+          <button @click="showBar = !showBar">버튼</button>
         </ul>
       </div>
       <div v-if="logged">
@@ -15,7 +16,7 @@
       </div>
     </div>
     </transition>
-    <div @click="showBar=!showBar"><font-awesome-icon icon="fa-regular fa-user" /></div>
+    <div class="sidebtn" @click="showBar=!showBar"><font-awesome-icon icon="fa-regular fa-user" /></div>
   </div>
 </template>
 
@@ -41,12 +42,16 @@ export default {
   width: 300px;
   height: 100vh;
   background-color: lightblue;
+  z-index: 2;
 }
 
 #schedule ul {
   list-style: none;
 }
-
+.sidebtn {
+  position: absolute;
+  right: -250px;
+}
 .slide-enter-active {
   transition:all .5s ease-out;
 }
@@ -54,9 +59,9 @@ export default {
   transition: all .4s ease-in;
 }
 .slide-enter, .slide-leave-to {
-  right: -22%;
+  left: 300px;
 }
 .slide-enter-to, .slide-leave {
-  right: 0%;
+  left:  0px;
 }
 </style>
