@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     places: data,
-    schedules: data2,
+    scds: data2,
     liked: []
   },
   getters: {

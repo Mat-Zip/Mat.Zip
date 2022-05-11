@@ -2,15 +2,11 @@
   {
     "id" : 0,
     "name" : "플라스틱",
-    "dates" : {
-      "year" : 2022,
-      "month" : 4,
-      "day" : 12
-    },
-    "times" : {
-      "hour" : 12,
-      "minute" : 30
-    }
+    "year" : 2022,
+    "month" : 4,
+    "day" : 12,
+    "hour" : 12,
+    "minute" : 30
   },
   {
     "id" : 3,

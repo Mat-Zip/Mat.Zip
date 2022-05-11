@@ -3,16 +3,16 @@
     <p>calendar</p>
     <v-calendar
       :masks="masks"
-      :schedules="$store.state.schedules"
+      :attributes="schedules"
       disable-page-swipe
       is-expanded
       locale="en"
     >
-      <template v-slot:day-content="{day, schedules}">
-        <span class="day-label">{{ day.day }}</span>
+      <template v-slot:day-content="{day, attributes}">
+        <span>{{ day.day }}</span>
         <div>
-          <p v-for="(sche, i) in schedules" :key="i">
-            {{sche.name}}
+          <p v-for="(attr, i) in attributes" :key="i">
+            {{attr.customData.name}}
           </p>
         </div>
       </template>
@@ -20,27 +20,44 @@
 
     <p>date picker</p>
     <v-date-picker mode="dateTime" v-model="times" /><br>
-    <button @click="cl">log</button>
+    <button @click="log">log</button>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    // const year = $store.state.schedules.year;
-    // const month = $store.state.schedules.month;
-    // const day = $store.state.schedules.day;
+    // const name = this.$store.state.scds
+    // const year = this.$store.state.scds.year
+    // const month = this.$store.state.scds.month
+    // const day = this.$store.state.scds.day
     return {
       times: [],
       masks: {
         weekdays: 'WWWW',
       },
-      schedules: []
+      schedules: [
+        {
+          customData: {
+            name: "test",
+          },
+          dates: new Date(2022, 4, 1)
+        },
+        {
+          customData: {
+            name: "test",
+          },
+          dates: new Date(2022, 4, 2)
+        },
+      ]
     };
   },
+  computed: {
+    
+  },
   methods: {
-    cl() {
-      return console.log(this.times)
+    log() {
+      return console.log(this.$store.state.scds[0].year)
     }
   },
 };
