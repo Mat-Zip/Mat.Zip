@@ -19,6 +19,13 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/MyView.vue')
     }
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: function () {
+      return import('../views/CalendarView.vue')
+    }
   }
 ]
 

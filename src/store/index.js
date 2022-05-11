@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import data from '../dummy.json'
+import data2 from '../datesdummy.json'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     places: data,
+    schedules: data2,
     liked: []
   },
   getters: {

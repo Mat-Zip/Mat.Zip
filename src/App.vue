@@ -2,7 +2,8 @@
   <div id="app">
     <nav>
       <router-link to="/">Category 1</router-link> |
-      <router-link to="/mypage">Category 2</router-link>
+      <router-link to="/mypage">Category 2</router-link> | 
+      <router-link to="/calendar">Category 3</router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <!-- 수정확인 -->
