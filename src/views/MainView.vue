@@ -2,7 +2,13 @@
   <div class="home">
     <!-- 받아온 data를 카드로 생성 -->
     <web-card v-for="(place,i) in $store.getters.getPlaces" :key="i" :place="place"></web-card>
-    <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace"><div class="modal-content"><router-view/></div></div>
+    <transition name="fade">
+    <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
+      <div class="modal-content">
+        <router-view/>
+      </div>
+    </div>
+    </transition>
   </div>
 </template>
 
@@ -24,11 +30,23 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all .5s ease-in;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave,
+.fade-enter-to {
+  opacity: 1;
+}
+
 .home {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  width: 65%;
+  width: 80vw;
+  height: 100vh;
   margin: auto;
 }
 
@@ -38,8 +56,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: black;
-  opacity: 0.5;
+  background-color: rgba(00, 00, 00, 0.7);
 }
 
 .modal-route>.modal-content {
