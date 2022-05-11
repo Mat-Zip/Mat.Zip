@@ -2,7 +2,10 @@
   <div class="home">
     <!-- 받아온 data를 카드로 생성 -->
     <web-card v-for="(place,i) in $store.getters.getPlaces" :key="i" :place="place"></web-card>
-    <modal-comp/>
+
+    <transition name="fade">
+      <modal-comp/>
+    </transition>
   </div>
 </template>
 
@@ -19,11 +22,23 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all .5s ease-in;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave,
+.fade-enter-to {
+  opacity: 1;
+}
+
 .home {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  width: 65%;
+  width: 80vw;
+  height: 100vh;
   margin: auto;
 }
 </style>

@@ -7,18 +7,13 @@
     </div>
     <!-- 카드 앞면 -->
     <div class="front card">
+      <img src="../assets/1.jpg" alt="">
       <!-- <img :src="`./assets/place/${place.image}`" alt=""> -->
       <ul>
         <li>{{ place.name }}</li>
         <li>{{ place.address }}</li>
       </ul>
 
-        <span class="arrowUp arup1 blink"></span>
-        <span class="arrowUp arup2 blink"></span>
-        <span class="arrowUp arup3 blink"></span>
-        <span class="arrowDown ardown1 blink"></span>
-        <span class="arrowDown ardown2 blink"></span>
-        <span class="arrowDown ardown3 blink"></span>
     </div>
     <!-- 카드 뒷면 -->
     <div class="back card">
@@ -32,7 +27,11 @@
         <li>{{ place.telephone }}</li>
         <li>{{ place.time }}</li>
       </ul>
-      <a @click="showDetail">자세히 보기</a>
+
+      <div class="readmore">
+        <a @click="showDetail">READ MORE</a>
+      </div>
+
     </div>
   </div>
 </template>
@@ -92,126 +91,5 @@ export default {
 </script>
 
 <style scoped>
-
-.arrowUp {
-  position: absolute;
-  padding: 12px 1px;
-  width: 0.5px;
-  background: black;
-  top: 120px;
-  transform: rotate(150deg);
-}
-
-.arrowDown {
-  position: absolute;
-  padding: 12px 1px;
-  background: black;
-  top: 140px;
-  transform: rotate(-150deg);
-}
-
-@keyframes blink-effect {
-  50% {
-    opacity: 0;
-  }
-}
-
-.blink {
-  animation: blink-effect 0.5s infinite;
-}
-
-.arup1 {
-  right: 10px;
-  animation-delay: 0.3s;
-}
-
-.arup2 {
-  right: 20px;
-  animation-delay: 0.2s;
-}
-
-.arup3 {
-  right: 30px;
-  animation-delay: 0.1s;
-}
-
-.ardown1 {
-  right: 10px;
-  animation-delay: 0.3s;
-}
-
-.ardown2 {
-  right: 20px;
-  animation-delay: 0.2s;
-}
-
-.ardown3 {
-  right: 30px;
-  animation-delay: 0.1s;
-}
-
-.container {
-    width: 30%;
-    height: 300px;
-    perspective: 100rem;
-    margin: 10px;
-}
-
-.card {
-    width: 300px;
-    height: 300px;
-    /* 뒷면 가시성 */
-    backface-visibility: hidden;
-    transition: 1s;
-}
-
-.front {
-    position: absolute;
-    background-color: yellowgreen;
-    /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
-    transform: rotateY(0deg);
-}
-
-.back {
-    position: absolute;
-    background-color: palevioletred;
-    transform: rotateY(-180deg);
-}
-
-.container:hover .front {    
-    transform: rotateY(180deg);
-}
-
-.container:hover .back {    
-    transform: rotateY(0deg);
-}
-
-ul {
-  list-style-type: none;
-}
-
-button {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 50%;
-  padding: 5px 7px;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-.button-bar {
-  float: right;
-}
-
-.likedplace {
-  color: white;
-  background: red;
-}
-
-a:hover {
-  color: white;
-  cursor: pointer;
-}
+@import "./WebCard.css";
 </style>
