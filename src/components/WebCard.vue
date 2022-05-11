@@ -7,18 +7,19 @@
     </div>
     <!-- 카드 앞면 -->
     <div class="front card">
+      <img src="../assets/1.jpg" alt="">
       <!-- <img :src="`./assets/place/${place.image}`" alt=""> -->
       <ul>
         <li>{{ place.name }}</li>
         <li>{{ place.address }}</li>
       </ul>
 
-        <span class="arrowUp arup1 blink"></span>
-        <span class="arrowUp arup2 blink"></span>
-        <span class="arrowUp arup3 blink"></span>
-        <span class="arrowDown ardown1 blink"></span>
-        <span class="arrowDown ardown2 blink"></span>
-        <span class="arrowDown ardown3 blink"></span>
+      <span class="arrowUp arup1 blink"></span>
+      <span class="arrowUp arup2 blink"></span>
+      <span class="arrowUp arup3 blink"></span>
+      <span class="arrowDown ardown1 blink"></span>
+      <span class="arrowDown ardown2 blink"></span>
+      <span class="arrowDown ardown3 blink"></span>
     </div>
     <!-- 카드 뒷면 -->
     <div class="back card">
@@ -32,7 +33,11 @@
         <li>{{ place.telephone }}</li>
         <li>{{ place.time }}</li>
       </ul>
-      <a @click="showDetail">자세히 보기</a>
+
+      <div class="readmore">
+        <a @click="showDetail">READ MORE</a>
+      </div>
+
     </div>
   </div>
 </template>
@@ -91,19 +96,27 @@ export default {
 </script>
 
 <style scoped>
+img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: -1;
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+}
 
 .arrowUp {
   position: absolute;
-  padding: 12px 1px;
-  width: 0.5px;
+  padding: 7px 1px;
   background: black;
-  top: 120px;
+  top: 128px;
   transform: rotate(150deg);
 }
 
 .arrowDown {
   position: absolute;
-  padding: 12px 1px;
+  padding: 7px 1px;
   background: black;
   top: 140px;
   transform: rotate(-150deg);
@@ -116,7 +129,7 @@ export default {
 }
 
 .blink {
-  animation: blink-effect 0.5s infinite;
+  animation: blink-effect 0.7s infinite;
 }
 
 .arup1 {
@@ -125,12 +138,12 @@ export default {
 }
 
 .arup2 {
-  right: 20px;
+  right: 15px;
   animation-delay: 0.2s;
 }
 
 .arup3 {
-  right: 30px;
+  right: 20px;
   animation-delay: 0.1s;
 }
 
@@ -140,12 +153,12 @@ export default {
 }
 
 .ardown2 {
-  right: 20px;
+  right: 15px;
   animation-delay: 0.2s;
 }
 
 .ardown3 {
-  right: 30px;
+  right: 20px;
   animation-delay: 0.1s;
 }
 
@@ -154,6 +167,7 @@ export default {
     height: 300px;
     perspective: 100rem;
     margin: 10px;
+    perspective: 800px;
 }
 
 .card {
@@ -166,14 +180,18 @@ export default {
 
 .front {
     position: absolute;
-    background-color: yellowgreen;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px gray;
     /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
     transform: rotateY(0deg);
 }
 
 .back {
     position: absolute;
-    background-color: palevioletred;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px gray;
     transform: rotateY(-180deg);
 }
 
@@ -181,8 +199,25 @@ export default {
     transform: rotateY(180deg);
 }
 
-.container:hover .back {    
+.container:hover .back {   
     transform: rotateY(0deg);
+    background-color: gray;
+}
+
+.readmore {
+  position : absolute;
+  right: 10px;
+  bottom: 10px;
+  width : 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: gray;
+  transition-delay: 0.6s;
+  transition-duration: 1s;
+}
+.container:hover .back .readmore {
+  color: white;
 }
 
 ul {
@@ -209,8 +244,4 @@ button:hover {
   background: red;
 }
 
-a:hover {
-  color: white;
-  cursor: pointer;
-}
 </style>
