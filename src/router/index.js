@@ -8,7 +8,10 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: MainView
+    component: MainView,
+    children: [
+      {path: 'detail/:id', component: () => import('../views/DetailView.vue')}
+    ]
   },
   {
     path: '/mypage',
@@ -18,7 +21,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/MyView.vue')
-    }
+    },
+    children: [
+      {path: 'detail/:id', component: () => import('../views/DetailView.vue')}
+    ]
   }
 ]
 

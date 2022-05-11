@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <!-- 버튼 서랍 -->
-
     <!-- 날짜 일력창 -->
     <div class="dateinput" v-if="modal">
       <input type="datetime-local" v-model="datetime">
@@ -9,11 +7,6 @@
     </div>
     <!-- 카드 앞면 -->
     <div class="front card">
-      <div class="button-bar">
-        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button>
-        <button><font-awesome-icon icon="fa-regular fa-map" /></button><!--@click="map"-->
-        <button><font-awesome-icon icon="fa-regular fa-calendar" /></button><!--@click="modal=!modal"-->
-      </div>
       <!-- <img :src="`./assets/place/${place.image}`" alt=""> -->
       <ul>
         <li>{{ place.name }}</li>
@@ -30,7 +23,7 @@
     <!-- 카드 뒷면 -->
     <div class="back card">
       <div class="button-bar">
-        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button><!--@click="like"-->
+        <button @click.stop="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button><!--@click="like"-->
         <button><font-awesome-icon icon="fa-regular fa-map" /></button><!--@click="map"-->
         <button><font-awesome-icon icon="fa-regular fa-calendar" /></button><!--@click="modal=!modal"-->
       </div>
@@ -39,6 +32,7 @@
         <li>{{ place.telephone }}</li>
         <li>{{ place.time }}</li>
       </ul>
+      <a @click="showDetail">자세히 보기</a>
     </div>
   </div>
 </template>
@@ -66,6 +60,10 @@ export default {
         this.$store.commit('deleteLikePlace', this.place.id);
       }
     },
+    showDetail: function() {
+      this.$router.push(`/detail/${this.place.id}`);
+      this.$store.commit('setShowModal', true);
+    }
     /*map: function() {
       // maps 라우터를 따로 지정 후 params.id 값으로 장소의 도로명 주소를 넘겨주면 서버에서 변환 후 그 지점을 센터로 하는 지도 페이지로 push
       this.$router.push(`/maps/${this.place.address}`);
@@ -102,6 +100,7 @@ export default {
   top: 120px;
   transform: rotate(150deg);
 }
+
 .arrowDown {
   position: absolute;
   padding: 12px 1px;
@@ -109,34 +108,42 @@ export default {
   top: 140px;
   transform: rotate(-150deg);
 }
+
 @keyframes blink-effect {
   50% {
     opacity: 0;
   }
 }
+
 .blink {
   animation: blink-effect 0.5s infinite;
 }
+
 .arup1 {
   right: 10px;
   animation-delay: 0.3s;
 }
+
 .arup2 {
   right: 20px;
   animation-delay: 0.2s;
 }
+
 .arup3 {
   right: 30px;
   animation-delay: 0.1s;
 }
+
 .ardown1 {
   right: 10px;
   animation-delay: 0.3s;
 }
+
 .ardown2 {
   right: 20px;
   animation-delay: 0.2s;
 }
+
 .ardown3 {
   right: 30px;
   animation-delay: 0.1s;
@@ -200,5 +207,10 @@ button:hover {
 .likedplace {
   color: white;
   background: red;
+}
+
+a:hover {
+  color: white;
+  cursor: pointer;
 }
 </style>

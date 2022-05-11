@@ -5,6 +5,7 @@
       <div v-if="!logged">
         <ul>
           <li>회원가입</li>
+          <li @click="$router.push('/mypage')">마이페이지</li>
           <button @click="showBar = !showBar">버튼</button>
         </ul>
       </div>

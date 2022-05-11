@@ -10,11 +10,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // font awesome icons 추가
 import { faHeart, faMap, faCalendar, faUser,} from '@fortawesome/free-regular-svg-icons'
 
+
 library.add(faHeart, faMap, faCalendar, faUser,)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
+
 
 new Vue({
   router,
