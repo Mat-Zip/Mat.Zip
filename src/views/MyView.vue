@@ -21,7 +21,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 65%;
+  width: 80vw;
+  height: 100vh;
   margin: auto;
 }
 </style>
