@@ -7,7 +7,6 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
     component: MainView,
     children: [
       {path: 'detail/:id', component: () => import('../views/DetailView.vue')}

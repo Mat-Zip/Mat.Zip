@@ -60,7 +60,8 @@ export default {
       }
     },
     showDetail: function() {
-      this.$router.push(`/detail/${this.place.id}`);
+      let currentPath=this.$route.path=="/" ? "" : this.$route.path;
+      this.$router.push(`${currentPath}/detail/${this.place.id}`);
       this.$store.commit('setShowModal', true);
     }
     /*map: function() {
