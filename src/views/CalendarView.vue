@@ -13,13 +13,15 @@
         <div>
           <p v-for="(attr, i) in attributes" :key="i">
             {{attr.customData.name}}
+            {{attr.customData.date}}
           </p>
         </div>
       </template>
     </v-calendar>
 
     <p>date picker</p>
-    <v-date-picker mode="dateTime" v-model="times" /><br>
+    <v-date-picker mode="dateTime" v-model="times" />
+    <br>
     <button @click="log">log</button>
   </div>
 </template>
@@ -27,38 +29,31 @@
 <script>
 export default {
   data() {
-    // const name = this.$store.state.scds
-    // const year = this.$store.state.scds.year
-    // const month = this.$store.state.scds.month
-    // const day = this.$store.state.scds.day
     return {
       times: [],
       masks: {
         weekdays: 'WWWW',
       },
-      schedules: [
-        {
-          customData: {
-            name: "test",
-          },
-          dates: new Date(2022, 4, 1)
-        },
-        {
-          customData: {
-            name: "test",
-          },
-          dates: new Date(2022, 4, 2)
-        },
-      ]
+      schedules: []
     };
-  },
-  computed: {
-    
   },
   methods: {
     log() {
       return console.log(this.$store.state.scds[0].year)
-    }
+    },
   },
+  created() {
+    const scd = this.$store.state.scds
+    for(let i in scd) {
+      const schedule= {
+        customData: {
+          name: scd[i].name,
+          date: scd[i].hour+":"+scd[i].minute
+        },
+        dates: new Date(scd[i].year, scd[i].month, scd[i].day)
+      }
+      this.schedules.push(schedule);
+    }
+  }
 };
 </script>
