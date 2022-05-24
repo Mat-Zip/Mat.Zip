@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     log() {
-      return console.log(this.$store.state.scds[0].year)
+      return console.log(this.$store.state.scds[0])
     },
   },
   created() {

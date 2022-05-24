@@ -1,8 +1,9 @@
 <template>
   <transition name="fade">
   <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
+  <slot></slot>
     <div class="modal-content">
-      <slot></slot>
+      
       <router-view/>
     </div>
   </div>
