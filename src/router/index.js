@@ -9,7 +9,14 @@ const routes = [
     path: '/',
     component: MainView,
     children: [
-      {path: 'detail/:id', component: () => import('../views/DetailView.vue')}
+      {
+        path: 'detail/:id',
+        component: () => import('../views/DetailView.vue')
+      },
+      {
+        path: 'map/:id',
+        component: () => import('../views/MapView.vue')
+      }
     ]
   },
   {
@@ -22,7 +29,14 @@ const routes = [
       return import(/* webpackChunkName: "about" */ '../views/MyView.vue')
     },
     children: [
-      {path: 'detail/:id', component: () => import('../views/DetailView.vue')}
+      {
+        path: 'detail/:id',
+        component: () => import('../views/DetailView.vue')
+      },
+      {
+        path: 'map/:id',
+        component: () => import('../views/MapView.vue')
+      }
     ]
   }
 ]

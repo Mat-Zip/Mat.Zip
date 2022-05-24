@@ -85,8 +85,7 @@ button:hover {
 }
 
 .likedplace {
-    color: white;
-    background: red;
+    color: red;
 }
 
 @media (max-width : 1024px) {

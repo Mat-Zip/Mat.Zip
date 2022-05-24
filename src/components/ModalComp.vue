@@ -2,6 +2,7 @@
   <transition name="fade">
   <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
     <div class="modal-content">
+      <slot></slot>
       <router-view/>
     </div>
   </div>
@@ -10,10 +11,13 @@
 
 <script>
 export default {
+  props: {
+    parents: String
+  },
   methods: {
     backSpace() {
+      this.$router.push(this.parents);
       this.$store.commit('setShowModal', false);
-      this.$router.push('../');
     }
   }
 }
@@ -22,7 +26,7 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all .5s ease-in;
+  transition: all .33s ease-in;
 }
 .fade-enter,
 .fade-leave-to {

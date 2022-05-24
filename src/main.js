@@ -8,10 +8,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // font awesome icons 추가
-import { faHeart, faMap, faCalendar, faUser,} from '@fortawesome/free-regular-svg-icons'
+import { faHeart, faMap, faCalendar, faUser, faBarChart} from '@fortawesome/free-regular-svg-icons'
 
 
-library.add(faHeart, faMap, faCalendar, faUser,)
+library.add(faHeart, faMap, faCalendar, faUser, faBarChart)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
