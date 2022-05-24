@@ -34,7 +34,7 @@ export default new Vuex.Store({
       state.liked.splice(i, 1);
     },
     setShowModal(state, bool) {
-      state.showModal=bool;
+      state.showModal = bool;
     }
   },
   actions: {

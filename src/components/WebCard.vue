@@ -18,9 +18,7 @@
     <!-- 카드 뒷면 -->
     <div class="back card">
       <div class="button-bar">
-        <button @click.stop="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button><!--@click="like"-->
-        <button><font-awesome-icon icon="fa-regular fa-map" /></button><!--@click="map"-->
-        <button><font-awesome-icon icon="fa-regular fa-calendar" /></button><!--@click="modal=!modal"-->
+        <button @click.stop="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button>
       </div>
       <ul>
         <li>{{ place.signature }}</li>
