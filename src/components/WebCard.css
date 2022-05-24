@@ -1,0 +1,100 @@
+img {
+    z-index: -1;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.container {
+    width: 30%;
+    height: 50%;
+    perspective: 800px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    /* 뒷면 가시성 */
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.front {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px gray;
+    /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
+    transform: rotateY(0deg);
+}
+
+.back {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px gray;
+    z-index: -1;
+}
+
+.container:hover .front {    
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+
+.container:hover .back {   
+    transform: rotateY(0deg);
+    background-color: gray;
+}
+
+.readmore {
+    position : absolute;
+    right: 10px;
+    bottom: 10px;
+    width : 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: gray;
+    transition-delay: 0.6s;
+    transition-duration: 1s;
+}
+.container:hover .back .readmore {
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 5px 7px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.button-bar {
+    float: right;
+}
+
+.likedplace {
+    color: red;
+}
+
+@media (max-width : 1024px) {
+    .container {
+        width: 45%;
+    }
+}
+@media (max-width : 768px) { 
+    .container {
+        width: 100%;
+    }
+}

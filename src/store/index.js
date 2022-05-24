@@ -9,15 +9,22 @@ export default new Vuex.Store({
   state: {
     places: data,
     scds: data2,
-    liked: []
+    liked: [],
+    showModal: false
   },
   getters: {
+    getPlaces(state) {
+      return state.places;
+    },
     getLikedPlaces(state) {
       const result = state.places.filter((item) => state.liked.some((el) => item.id==el.id));
       return result;
     },
     getLiked(state) {
       return state.liked;
+    },
+    getShowModal(state) {
+      return state.showModal;
     }
   },
   mutations: {
@@ -27,6 +34,9 @@ export default new Vuex.Store({
     deleteLikePlace(state, id) {
       const i=state.liked.findIndex((item) => item.id==id);
       state.liked.splice(i, 1);
+    },
+    setShowModal(state, bool) {
+      state.showModal = bool;
     }
   },
   actions: {

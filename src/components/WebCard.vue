@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <!-- 버튼 서랍 -->
-    <p>(준용)오늘 점심은 국밥 무려 영재국밥</p>
     <!-- 날짜 일력창 -->
     <div class="dateinput" v-if="modal">
       <input type="datetime-local" v-model="datetime">
@@ -9,29 +7,29 @@
     </div>
     <!-- 카드 앞면 -->
     <div class="front card">
-      <div class="button-bar">
-        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button>
-        <button><font-awesome-icon icon="fa-regular fa-map" /></button><!--@click="map"-->
-        <button><font-awesome-icon icon="fa-regular fa-calendar" /></button><!--@click="modal=!modal"-->
-      </div>
+      <img src="../assets/1.jpg" alt="">
       <!-- <img :src="`./assets/place/${place.image}`" alt=""> -->
       <ul>
         <li>{{ place.name }}</li>
         <li>{{ place.address }}</li>
       </ul>
+
     </div>
     <!-- 카드 뒷면 -->
     <div class="back card">
       <div class="button-bar">
-        <button @click="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button><!--@click="like"-->
-        <button><font-awesome-icon icon="fa-regular fa-map" /></button><!--@click="map"-->
-        <button><font-awesome-icon icon="fa-regular fa-calendar" /></button><!--@click="modal=!modal"-->
+        <button @click.stop="addLike"><font-awesome-icon icon="fa-regular fa-heart" :class="{'likedplace': check}"/></button>
       </div>
       <ul>
         <li>{{ place.signature }}</li>
         <li>{{ place.telephone }}</li>
         <li>{{ place.time }}</li>
       </ul>
+
+      <div class="readmore">
+        <a @click="showDetail">READ MORE</a>
+      </div>
+
     </div>
   </div>
 </template>
@@ -59,6 +57,11 @@ export default {
         this.$store.commit('deleteLikePlace', this.place.id);
       }
     },
+    showDetail: function() {
+      let currentPath=this.$route.path=="/" ? "" : this.$route.path;
+      this.$router.push(`${currentPath}/detail/${this.place.id}`);
+      this.$store.commit('setShowModal', true);
+    }
     /*map: function() {
       // maps 라우터를 따로 지정 후 params.id 값으로 장소의 도로명 주소를 넘겨주면 서버에서 변환 후 그 지점을 센터로 하는 지도 페이지로 push
       this.$router.push(`/maps/${this.place.address}`);
@@ -86,62 +89,5 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    width: 30%;
-    height: 300px;
-    perspective: 100rem;
-    margin: 10px;
-}
-
-.card {
-    width: 300px;
-    height: 300px;
-    /* 뒷면 가시성 */
-    backface-visibility: hidden;
-    transition: 1s;
-}
-
-.front {
-    position: absolute;
-    background-color: yellowgreen;
-    /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
-    transform: rotateY(0deg);
-}
-
-.back {
-    position: absolute;
-    background-color: palevioletred;
-    transform: rotateY(-180deg);
-}
-
-.container:hover .front {    
-    transform: rotateY(180deg);
-}
-
-.container:hover .back {    
-    transform: rotateY(0deg);
-}
-
-ul {
-  list-style-type: none;
-}
-
-button {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 50%;
-  padding: 5px 7px;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-.button-bar {
-  float: right;
-}
-
-.likedplace {
-  color: red;
-}
+@import "./WebCard.css";
 </style>

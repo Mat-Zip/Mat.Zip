@@ -1,12 +1,10 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Category 1</router-link> |
-      <router-link to="/mypage">Category 2</router-link> | 
-      <router-link to="/calendar">Category 3</router-link>
+      <router-link to="/">Main</router-link> |
+      <router-link to="/calendar">Calendar</router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
-    <!-- 수정확인 -->
     <router-view/>
   </div>
 </template>
@@ -45,7 +43,7 @@ nav a.router-link-exact-active {
 .menu-bar1 {
   position: fixed;
   top: 20px;
-  right: 20px;
+  right: 270px;
   width: 25px;
   height: 25px;
   z-index: 1000;
