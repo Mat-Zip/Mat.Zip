@@ -19,7 +19,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // font awesome icons 추가
 import { faHeart, faMap, faCalendar, faUser, faBarChart} from '@fortawesome/free-regular-svg-icons'
 
-
 library.add(faHeart, faMap, faCalendar, faUser, faBarChart)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

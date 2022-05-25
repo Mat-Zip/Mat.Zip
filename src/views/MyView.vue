@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <!-- MainView 주석 참조 -->
     <web-card v-for="place in $store.getters.getLikedPlaces" :key="place.id" :place="place"></web-card>
     <modal-comp :parents="currentURL">
       <button @click="$router.push(`/mypage/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
