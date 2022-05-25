@@ -5,9 +5,11 @@
     <!-- 모달창 생성(props=현재 주소) -->
     <modal-comp :parents="currentURL">
       <!-- 모달 컴포넌트의 <slot> 자리에 들어갈 버튼 -->
-      <button @click="$router.push(`/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
-      <button @click="$router.push(`/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
-      <button><font-awesome-icon icon="fa-regular fa-calendar" /></button>
+      <div class="modal-btn">
+        <button @click="$router.push(`/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
+        <button @click="$router.push(`/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
+        <button><font-awesome-icon icon="fa-regular fa-calendar" /></button>
+      </div>
     </modal-comp>
   </div>
 </template>
@@ -37,4 +39,11 @@ export default {
   height: 100vh;
   margin: auto;
 }
+
+.modal-btn {
+  position: fixed;
+  top:7%;
+  left: 10%;
+}
+
 </style>
