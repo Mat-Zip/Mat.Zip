@@ -2,6 +2,7 @@
   <div id="app">
     <nav>
       <router-link to="/">Main</router-link> |
+      <router-link to="/calendar">Calendar</router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <router-view/>

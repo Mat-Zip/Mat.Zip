@@ -28,7 +28,7 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/MyView.vue')
     },
-    children: [
+    children:[
       {
         path: 'detail/:id',
         component: () => import('../views/DetailView.vue')
@@ -38,7 +38,14 @@ const routes = [
         component: () => import('../views/MapView.vue')
       }
     ]
-  }
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: function () {
+      return import('../views/CalendarView.vue')
+    }
+    }
 ]
 
 const router = new VueRouter({

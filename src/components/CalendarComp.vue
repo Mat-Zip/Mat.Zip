@@ -1,11 +1,12 @@
 <template>
-    <div class="calendar">
-        
-    </div>
+	<div class="calendar-comp">
+		
+  </div>
 </template>
 
 <script>
 export default {
-    name: CalendarComp
+    component
 }
 </script>
+
