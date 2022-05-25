@@ -2,7 +2,7 @@
   <div class="detail">
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="(place, i) in places" :key="i">
-        <img :src="require(`@/assets/shop/${place.img}.png`)"/>
+        <!-- <img :src="require(`@/assets/shop/${place[$route.params.id].img}.png`)"/> -->
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -11,6 +11,7 @@
       <h1>{{ $route.params.id }}</h1>
       <h1>title 블라블라</h1>
       <p>intro 블라블라블라블라블라블라블라블라블라블라블라</p>
+      <button @click="cl">console.log</button>
     </div>
   </div>
 </template>
@@ -35,6 +36,11 @@ export default {
         },
       },
     };
+  },
+  methods: {
+    cl() {
+      console.log(this.place[this.$route.params.id].img);
+    }
   },
 };
 </script>
