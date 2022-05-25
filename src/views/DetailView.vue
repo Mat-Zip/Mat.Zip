@@ -1,22 +1,61 @@
 <template>
   <div class="detail">
-    <div class="img">
-      <img src="" alt="">
-    </div>
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide v-for="(place, i) in places" :key="i">
+        <img :src="require(`@/assets/shop/${place.img}.png`)"/>
+      </swiper-slide>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
     <div class="intro">
       <h1>{{ $route.params.id }}</h1>
       <h1>title 블라블라</h1>
-      <p>intro 블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라</p>
+      <p>intro 블라블라블라블라블라블라블라블라블라블라블라</p>
     </div>
   </div>
 </template>
+
+<script>
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
+
+export default {
+  components: { swiper, swiperSlide },
+  data() {
+    return {
+      places: this.$store.state.places,
+      index: 0,
+      swiperOption: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: false,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
+    };
+  },
+};
+</script>
 
 <style scoped>
 .detail {
   display: flex;
 }
 
-.img {
+.swiper {
+  width: 50%;
+  height: 109.3vh;
+}
+
+/* .swiper .swiper-slide {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+} */
+
+.intro {
   width: 50%;
 }
 </style>
