@@ -6,7 +6,7 @@
         "telephone" : "0507-1308-4429",
         "time" : "11:00 ~ 24:00",
         "signature" : "아인슈페너",
-        "img" : ["logo0.png", "logo0 copy.png", "logo0 copy 2.png"]
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 1,
@@ -15,7 +15,7 @@
         "telephone" : "0507-1368-0052",
         "time" : "12:00 ~ 21:00",
         "signature" : "샤케라토",
-        "img" : ["logo1", "logo1 copy", "logo1 copy 2"]
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 2,
@@ -24,7 +24,7 @@
         "telephone" : "0507-1373-7339",
         "time" : "13:00 ~ 19:00 (개별)",
         "signature" : "블랙라떼",
-        "img" : ["logo2", "logo2 copy", "logo2 copy 2"]
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 3,
@@ -33,7 +33,7 @@
         "telephone" : "010-3856-5309",
         "time" : "11:30 ~ 22:00",
         "signature" : "엑셀런트라떼",
-        "img" : ["logo3", "logo3 copy", "logo3 copy 2"]
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 4,
@@ -42,7 +42,7 @@
         "telephone" : "0507-1344-8032",
         "time" : "11:00 ~ 23:00",
         "signature" : "블랙라떼",
-        "img" : ["logo4", "logo4 copy", "logo4 copy 2"]
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 5,
@@ -51,7 +51,7 @@
         "telephone" : "0507-1390-7825",
         "time" : "12:00 ~ 21:00",
         "signature" : "드립커피",
-        "img" : ["logo5", "logo5 copy", "logo5 copy 2"]
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 6,
@@ -60,7 +60,7 @@
         "telephone" : "070-8230-1116",
         "time" : "11:00 ~ 23:00",
         "signature" : "신기라떼",
-        "img" : ["logo6", "logo6 copy", "logo6 copy 2"]
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 7,
@@ -69,7 +69,7 @@
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
         "signature" : "쿼피",
-        "img" : ["logo7", "logo7 copy", "logo7 copy 2"]
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 8,
@@ -78,7 +78,7 @@
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
         "signature" : "쿼피",
-        "img" : ["logo8", "logo8 copy", "logo8 copy 2"]
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 9,
@@ -87,7 +87,7 @@
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
         "signature" : "쿼피",
-        "img" : ["logo9", "logo9 copy", "logo9 copy 2"]
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 10,
@@ -96,7 +96,7 @@
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
         "signature" : "쿼피",
-        "img" : ["logo10", "logo10 copy", "logo10 copy 2"]
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 11,
@@ -105,7 +105,7 @@
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
         "signature" : "쿼피",
-        "img" : ["logo11", "logo11 copy", "logo11 copy 2"]
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 12,
@@ -114,7 +114,7 @@
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
         "signature" : "쿼피",
-        "img" : ["logo12", "logo12 copy", "logo12 copy 2"]
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 13,
@@ -123,6 +123,6 @@
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
         "signature" : "쿼피",
-        "img" : ["logo13", "logo13 copy", "logo13 copy 2"]
+        "img" : ["1.png", "2.png", "3.png"]
     }
 ]

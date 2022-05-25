@@ -1,8 +1,8 @@
 <template>
   <div class="detail">
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide v-for="(img, i) in this.$store.state.places[$route.params.id].img" :key="i">
-        <img :src="require(`@/assets/shop/${img}`)"/>
+      <swiper-slide v-for="(img, i) in $store.state.places[$route.params.id].img" :key="i">
+        <img :src="require(`@/assets/카페정보/${$store.state.places[$route.params.id].name}/${img}`)"/>
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -27,7 +27,7 @@ export default {
       index: 0,
       swiperOption: {
         slidesPerView: 1,
-        spaceBetween: 30,
+        spaceBetween: 0,
         loop: false,
         navigation: {
           nextEl: ".swiper-button-next",
