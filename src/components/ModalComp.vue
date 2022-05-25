@@ -4,7 +4,7 @@
     <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
       <!-- 커스텀 버튼 -->
       <slot></slot>
-      <button @click="backSpace">X</button>
+      <button class="close_btn" @click="backSpace">X</button>
       <!-- 모달 컨텐츠 -->
       <div class="modal-content">
         <router-view/>
@@ -59,4 +59,15 @@ export default {
   transform: translate(-50%, -50%);
   background: white;
 }
+
+.close_btn {
+  border: 0px;
+  box-shadow: 0 0;
+  background-color: transparent;
+  position: fixed;
+  color: white;
+  top: 8%;
+  right: 9%;
+}
+
 </style>
