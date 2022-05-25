@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @click="SideMenuOff">
     <nav>
       <router-link to="/">Main</router-link> |
     </nav>
@@ -14,6 +14,11 @@ import MenuBar from './components/MenuBar.vue'
 export default {
   components: {
     MenuBar
+  },
+  methods : {
+    SideMenuOff: function() {
+      this.$store.commit('setShowSideMenu', false);
+    }
   }
 }
 </script>

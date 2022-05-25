@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     places: data,
     liked: [],
-    showModal: false
+    showModal: false,
+    showSideMenu : false,
   },
   getters: {
     getPlaces(state) {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     },
     getShowModal(state) {
       return state.showModal;
+    },
+    getShowSideMenu(state){
+      return state.showSideMenu;
     }
   },
   mutations: {
@@ -35,6 +39,9 @@ export default new Vuex.Store({
     },
     setShowModal(state, bool) {
       state.showModal = bool;
+    },
+    setShowSideMenu(state, bool) {
+      state.showSideMenu = bool;
     }
   },
   actions: {
