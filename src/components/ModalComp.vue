@@ -1,19 +1,22 @@
 <template>
   <transition name="fade">
-  <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
-  <slot></slot>
-    <div class="modal-content">
-      
-      <router-view/>
+    <!-- 전체 모달창 onclick=>모달창 닫기 -->
+    <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
+      <!-- 커스텀 버튼 -->
+      <slot></slot>
+      <button @click="backSpace">X</button>
+      <!-- 모달 컨텐츠 -->
+      <div class="modal-content">
+        <router-view/>
+      </div>
     </div>
-  </div>
   </transition>
 </template>
 
 <script>
 export default {
   props: {
-    parents: String
+    parents: String // backSpace로 돌아갈 부모컴포넌트 URL
   },
   methods: {
     backSpace() {

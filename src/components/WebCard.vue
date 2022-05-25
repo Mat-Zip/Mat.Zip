@@ -1,10 +1,5 @@
 <template>
   <div class="container">
-    <!-- 날짜 일력창 -->
-    <div class="dateinput" v-if="modal">
-      <input type="datetime-local" v-model="datetime">
-      <button>추가</button><!--@click="addsche(place.id)"-->
-    </div>
     <!-- 카드 앞면 -->
     <div class="front card">
       <img src="../assets/1.jpg" alt="">
@@ -40,12 +35,6 @@ export default {
     // props로 장소 객체만 전달받으면 알아서 출력
     place: Object
   },
-  data() {
-    return ({
-      datetime: "",
-      modal: false
-    })
-  },
   methods: {
     addLike: function() {
       // Liked에 없다면 장소의 아이디를 유저의 데이터에 추가
@@ -58,25 +47,14 @@ export default {
       }
     },
     showDetail: function() {
+      // 현재 주소가 / 일 경우 생기는 에러 방지
       let currentPath=this.$route.path=="/" ? "" : this.$route.path;
       this.$router.push(`${currentPath}/detail/${this.place.id}`);
       this.$store.commit('setShowModal', true);
     }
-    /*map: function() {
-      // maps 라우터를 따로 지정 후 params.id 값으로 장소의 도로명 주소를 넘겨주면 서버에서 변환 후 그 지점을 센터로 하는 지도 페이지로 push
-      this.$router.push(`/maps/${this.place.address}`);
-    },
-    addsche: function(id) {
-      // 전송버튼을 누르면 날짜와 장소의 이름을 객체로 만들어서 유저의 데이터에 추가
-      const nDate={
-        id: id,
-        datetime: this.datetime
-      };
-      this.$store.state.userdate.push(nDate);
-    }*/
   },
   computed: {
-    check() {
+    check() { // 좋아요 눌렀는지 체크 -> style 변경
       if(this.$store.getters.getLiked.some((item) => item.id==this.place.id)) {
         return true;
       }
