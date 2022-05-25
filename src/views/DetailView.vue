@@ -1,8 +1,8 @@
 <template>
   <div class="detail">
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide v-for="(place, i) in places" :key="i">
-        <!-- <img :src="require(`@/assets/shop/${place[$route.params.id].img}.png`)"/> -->
+      <swiper-slide v-for="(img, i) in this.$store.state.places[$route.params.id].img" :key="i">
+        <img :src="require(`@/assets/shop/${img}`)"/>
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -24,7 +24,6 @@ export default {
   components: { swiper, swiperSlide },
   data() {
     return {
-      places: this.$store.state.places,
       index: 0,
       swiperOption: {
         slidesPerView: 1,
@@ -40,8 +39,8 @@ export default {
   methods: {
     cl() {
       console.log(this.place[this.$route.params.id].img);
-    }
-  },
+    },
+  }
 };
 </script>
 
