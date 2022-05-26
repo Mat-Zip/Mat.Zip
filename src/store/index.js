@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import data from '../dummy.json'
 import data2 from '../datesdummy.json'
+import coord from '../coordinate.json'
 
 Vue.use(Vuex)
 
@@ -9,6 +10,7 @@ export default new Vuex.Store({
   state: {
     places: data,
     scds: data2,
+    locations: coord,
     liked: [],
     showModal: false
   },
@@ -25,6 +27,9 @@ export default new Vuex.Store({
     },
     getShowModal(state) {
       return state.showModal;
+    },
+    getLocations(state) {
+      return state.locations;
     }
   },
   mutations: {
