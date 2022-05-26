@@ -1,8 +1,8 @@
 img {
     z-index: -1;
     width: 100%;
-    height: 80%;
-    object-fit: cover;
+    height: 100%;
+    border-radius: 20px;
 }
 
 .container {
@@ -19,47 +19,78 @@ img {
     height: 100%;
     /* 뒷면 가시성 */
     backface-visibility: hidden;
-    transition: 1s;
+    transition: 0.5s;
+    border-radius: 20px;
 }
 
 .front {
     position: absolute;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid gray;
     box-shadow: 5px 5px 5px gray;
     /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
-    transform: rotateY(0deg);
 }
 
 .back {
     position: absolute;
-    background-color: white;
     border: 1px solid black;
     box-shadow: 5px 5px 5px gray;
-    z-index: -1;
-}
-
-.container:hover .front {    
-    transform: rotateY(180deg);
+    color: white;
     opacity: 0;
 }
 
-.container:hover .back {   
-    transform: rotateY(0deg);
-    background-color: gray;
+.frontcard-text {
+    position: absolute;
+    top: 80%;
+    right: 10%;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #e0e0e0;
+    transition-duration: 0.3s;
+}
+
+.backcard-text {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 20px;
+    top: 0;
+    opacity: 0.5;
+}
+
+.container:hover .front {   
+    z-index: -2; 
+    opacity: 1;
+}
+
+.container:hover .back {
+    opacity: 1;
+}
+
+.container:hover .back .overlay {    
+    z-index: -1;
+}
+
+.container:hover .frontcard-text {
+    color: transparent;
 }
 
 .readmore {
     position : absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 5%;
+    top: 85%;
     width : 120px;
     height: 40px;
     line-height: 40px;
     text-align: center;
-    color: gray;
-    transition-delay: 0.6s;
-    transition-duration: 1s;
+    color: black;
+    transition-delay: 0.3s;
+    transition-duration: 0.5s;
 }
 .container:hover .back .readmore {
     color: white;
@@ -70,10 +101,15 @@ ul {
 }
 
 button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
     background-color: white;
     border: 1px solid black;
     border-radius: 50%;
-    padding: 5px 7px;
+    box-shadow:  4px 4px 5px #202020;
+    margin: 5px 5px;
+    color: black;
 }
 
 button:hover {

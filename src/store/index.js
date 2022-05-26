@@ -12,7 +12,8 @@ export default new Vuex.Store({
     scds: data2,
     locations: coord,
     liked: [],
-    showModal: false
+    showModal: false,
+    showSideMenu : false,
   },
   getters: {
     getPlaces(state) {
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     },
     getLocations(state) {
       return state.locations;
+    },
+    getShowSideMenu(state){
+      return state.showSideMenu;
     }
   },
   mutations: {
@@ -42,6 +46,9 @@ export default new Vuex.Store({
     },
     setShowModal(state, bool) {
       state.showModal = bool;
+    },
+    setShowSideMenu(state, bool) {
+      state.showSideMenu = bool;
     }
   },
   actions: {

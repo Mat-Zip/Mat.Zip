@@ -1,12 +1,11 @@
 <template>
   <div id="menu-bar">
     <transition name="slide">
-    <div v-if="showBar" id="schedule">
+    <div v-if="$store.getters.getShowSideMenu" id="schedule">
       <div v-if="!logged">
         <ul>
           <li>회원가입</li>
           <li @click="$router.push('/mypage')">마이페이지</li>
-          <button @click="showBar = !showBar">버튼</button>
         </ul>
       </div>
       <div v-if="logged">
@@ -17,7 +16,7 @@
       </div>
     </div>
     </transition>
-    <div class="sidebtn" @click="showBar=!showBar"><font-awesome-icon icon="fa-regular fa-user" /></div>
+    <div class="sidebtn" @click.stop="showSideMenu"><font-awesome-icon icon="fa-regular fa-user" /></div>
   </div>
 </template>
 
@@ -28,6 +27,11 @@ export default {
     return {
       showBar: false,
       logged: false
+    }
+  },
+  methods : {
+    showSideMenu : function() {
+      this.$store.commit('setShowSideMenu', true);
     }
   }
 }
