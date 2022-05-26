@@ -26,14 +26,12 @@ img {
 .front {
     position: absolute;
     background-color: white;
-    border: 1px solid gray;
     box-shadow: 5px 5px 5px gray;
     /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
 }
 
 .back {
     position: absolute;
-    border: 1px solid black;
     box-shadow: 5px 5px 5px gray;
     color: white;
     opacity: 0;
@@ -41,7 +39,7 @@ img {
 
 .frontcard-text {
     position: absolute;
-    top: 80%;
+    top: 85%;
     right: 10%;
     font-size: 20px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -50,6 +48,9 @@ img {
 }
 
 .backcard-text {
+    position: absolute;
+    left: -5%;
+    top: 5%;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -82,8 +83,8 @@ img {
 
 .readmore {
     position : absolute;
-    right: 5%;
-    top: 85%;
+    right: 6%;
+    top: 84%;
     width : 120px;
     height: 40px;
     line-height: 40px;
@@ -91,6 +92,8 @@ img {
     color: black;
     transition-delay: 0.3s;
     transition-duration: 0.5s;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
 }
 .container:hover .back .readmore {
     color: white;
