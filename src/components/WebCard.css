@@ -26,7 +26,7 @@ img {
 .front {
     position: absolute;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid gray;
     box-shadow: 5px 5px 5px gray;
     /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
 }

@@ -5,7 +5,8 @@
         "address" : "부산 부산진구 서전로37번길 18 1층",
         "telephone" : "0507-1308-4429",
         "time" : "11:00 ~ 24:00",
-        "signature" : "아인슈페너"
+        "signature" : "아인슈페너",
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 1,
@@ -13,7 +14,8 @@
         "address" : "부산 부산진구 서전로58번길 37",
         "telephone" : "0507-1368-0052",
         "time" : "12:00 ~ 21:00",
-        "signature" : "샤케라토"
+        "signature" : "샤케라토",
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 2,
@@ -21,7 +23,8 @@
         "address" : "부산 부산진구 전포대로223번길 14-1 2층",
         "telephone" : "0507-1373-7339",
         "time" : "13:00 ~ 19:00 (개별)",
-        "signature" : "블랙라떼"
+        "signature" : "블랙라떼",
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 3,
@@ -29,7 +32,8 @@
         "address" : "부산 부산진구 전포대로 186번길 37",
         "telephone" : "010-3856-5309",
         "time" : "11:30 ~ 22:00",
-        "signature" : "엑셀런트라떼"
+        "signature" : "엑셀런트라떼",
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 4,
@@ -37,7 +41,8 @@
         "address" : "부산 금정구 부산대학로38번길 21 1층",
         "telephone" : "0507-1344-8032",
         "time" : "11:00 ~ 23:00",
-        "signature" : "블랙라떼"
+        "signature" : "블랙라떼",
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 5,
@@ -45,7 +50,8 @@
         "address" : "부산 영도구 와치로 65",
         "telephone" : "0507-1390-7825",
         "time" : "12:00 ~ 21:00",
-        "signature" : "드립커피"
+        "signature" : "드립커피",
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 6,
@@ -53,7 +59,8 @@
         "address" : "부산 영도구 와치로51번길 2",
         "telephone" : "070-8230-1116",
         "time" : "11:00 ~ 23:00",
-        "signature" : "신기라떼"
+        "signature" : "신기라떼",
+        "img" : ["1.jpg", "2.jpg", "3.jpg"]
     },
     {
         "id" : 7,
@@ -61,7 +68,8 @@
         "address" : "부산 사상구 사상로356번길 16",
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
-        "signature" : "쿼피"
+        "signature" : "쿼피",
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 8,
@@ -69,7 +77,8 @@
         "address" : "부산 사상구 사상로356번길 16",
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
-        "signature" : "쿼피"
+        "signature" : "쿼피",
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 9,
@@ -77,7 +86,8 @@
         "address" : "부산 사상구 사상로356번길 16",
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
-        "signature" : "쿼피"
+        "signature" : "쿼피",
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 10,
@@ -85,7 +95,8 @@
         "address" : "부산 사상구 사상로356번길 16",
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
-        "signature" : "쿼피"
+        "signature" : "쿼피",
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 11,
@@ -93,7 +104,8 @@
         "address" : "부산 사상구 사상로356번길 16",
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
-        "signature" : "쿼피"
+        "signature" : "쿼피",
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 12,
@@ -101,7 +113,8 @@
         "address" : "부산 사상구 사상로356번길 16",
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
-        "signature" : "쿼피"
+        "signature" : "쿼피",
+        "img" : ["1.png", "2.png", "3.png"]
     },
     {
         "id" : 13,
@@ -109,6 +122,7 @@
         "address" : "부산 사상구 사상로356번길 16",
         "telephone" : "0507-1493-5597",
         "time" : "11:00 ~ 22:00",
-        "signature" : "쿼피"
+        "signature" : "쿼피",
+        "img" : ["1.png", "2.png", "3.png"]
     }
 ]

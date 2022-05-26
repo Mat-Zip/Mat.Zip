@@ -2,8 +2,7 @@
   <div class="container">
     <!-- 카드 앞면 -->
     <div class="front card">
-      <img src="../assets/1.jpg" alt="" />
-      <!-- <img :src="`./assets/place/${place.image}`" alt=""> -->
+      <img :src="require(`@/assets/카페정보/${place.name}/${place.img[0]}`)" alt="">
       <ul class="frontcard-text">
         <li>{{ place.name }}</li>
       </ul>
