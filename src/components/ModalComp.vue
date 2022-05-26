@@ -68,6 +68,7 @@ export default {
   color: white;
   top: 8%;
   right: 9%;
+  cursor: pointer;
 }
 
 </style>
