@@ -5,7 +5,7 @@
     <modal-comp :parents="currentURL">
       <button @click="$router.push(`/mypage/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
       <button @click="$router.push(`/mypage/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
-      <button><font-awesome-icon icon="fa-regular fa-calendar" /></button>
+      <button @click="$router.push(`/datepicker/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
     </modal-comp>
   </div>
 </template>

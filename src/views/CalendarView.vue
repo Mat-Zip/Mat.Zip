@@ -1,6 +1,5 @@
 <template>
   <div class="text-center section">
-    <p>calendar</p>
     <v-calendar
       :masks="masks"
       :attributes="schedules"
@@ -18,11 +17,6 @@
         </div>
       </template>
     </v-calendar>
-
-    <p>date picker</p>
-    <v-date-picker mode="dateTime" v-model="times" />
-    <br>
-    <button @click="log">log</button>
   </div>
 </template>
 
@@ -36,11 +30,6 @@ export default {
       },
       schedules: []
     };
-  },
-  methods: {
-    log() {
-      return console.log()
-    },
   },
   created() {
     const scd = this.$store.state.scds
