@@ -1,8 +1,7 @@
 <template>
   <div id="app" @click="SideMenuOff">
     <nav>
-      <router-link to="/">Main</router-link> |
-      <router-link to="/calendar">Calendar</router-link>
+      <router-link to="/">Main</router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <router-view/>
@@ -25,11 +24,16 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  background-color: #fcfcfc;
 }
 
 nav {
