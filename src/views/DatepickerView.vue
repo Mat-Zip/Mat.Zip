@@ -9,8 +9,6 @@
     />
     <select v-model="selectedPlace">
       <option v-for="p in placeList" :key="p.id">
-        {{ p.count }}
-        {{ p.id }}
         {{ p.name }}
       </option>
     </select>
@@ -32,26 +30,31 @@ export default {
   },
   methods: {
     addSchedule() {
-      const name = this.selectedPlace.name;
+      const id = this.$store.state.scds.length;
+      const name = this.selectedPlace;
       const year = this.date.getFullYear();
-      const month = this.date.getMonth() + 1;
+      const month = this.date.getMonth();
       const date = this.date.getDate();
       const hour = this.date.getHours();
       const minute = this.date.getMinutes();
 
-      const scheInfo = { name, year, month, date, hour, minute };
+      const scheInfo = { id, name, year, month, date, hour, minute };
 
-      return console.log(scheInfo);
+      if (name != "") {
+        return this.$store.state.scds.push(scheInfo);
+
+      } else {
+        alert("장소 선택하셈여");
+      }
     },
     log() {
-      return console.log();
+      return console.log(this.$store.state.scds.length);
     },
   },
   created() {
     const plc = this.$store.state.places;
     for (let i in plc) {
       const place = {
-        count: plc.length,
         id: plc[i].id,
         name: plc[i].name,
       };

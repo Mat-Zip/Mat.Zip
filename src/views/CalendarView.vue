@@ -38,7 +38,7 @@ export default {
       const schedule= {
         customData: {
           name: scd[i].name,
-          date: scd[i].hour+":"+scd[i].minute
+          date: scd[i].hour+":"+String(scd[i].minute).padStart(2, "0")
         },
         dates: new Date(scd[i].year, scd[i].month, scd[i].date)
       }
