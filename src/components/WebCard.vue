@@ -2,7 +2,7 @@
   <div class="container">
     <!-- 카드 앞면 -->
     <div class="front card">
-      <img :src="require(`@/assets/카페정보/${place.name}/${place.img[0]}`)" alt="">
+      <img class="card-img" :src="require(`@/assets/카페정보/${place.name}/${place.img[0]}`)" alt="">
       <ul class="frontcard-text">
         <li>{{ place.name }}</li>
       </ul>
@@ -10,7 +10,7 @@
     <!-- 카드 뒷면 -->
     <div class="back card">
       <div class="button-bar">
-        <button @click.stop="addLike">
+        <button class="icon_btn" @click.stop="addLike">
           <font-awesome-icon
             icon="fa-regular fa-heart"
             :class="{ likedplace: check }"

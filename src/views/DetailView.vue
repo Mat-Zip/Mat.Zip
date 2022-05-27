@@ -2,7 +2,7 @@
   <div class="detail">
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="(img, i) in place.img" :key="i">
-        <img :src="require(`@/assets/카페정보/${place.name}/${img}`)" />
+        <img class="slide-img" :src="require(`@/assets/카페정보/${place.name}/${img}`)" />
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
@@ -41,11 +41,13 @@ export default {
 <style scoped>
 .detail {
   display: flex;
+  height: 100%;
+  width: 100%;
 }
 
 .swiper {
   width: 50%;
-  height: 109.3vh;
+  height: 100%;
 }
 
 .swiper .swiper-slide {
@@ -53,6 +55,14 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.slide-img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .intro {

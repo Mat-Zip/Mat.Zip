@@ -3,6 +3,14 @@ import Vuex from 'vuex'
 import data from '../dummy.json'
 import data2 from '../datesdummy.json'
 import coord from '../coordinate.json'
+import '@/datasources/firebase'
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  
+} from 'firebase/auth'
+import router from '@/router'
+const auth = getAuth();
 
 Vue.use(Vuex)
 
@@ -14,6 +22,7 @@ export default new Vuex.Store({
     liked: [],
     showModal: false,
     showSideMenu : false,
+    user : null
   },
   getters: {
     getPlaces(state) {
@@ -49,9 +58,25 @@ export default new Vuex.Store({
     },
     setShowSideMenu(state, bool) {
       state.showSideMenu = bool;
+    },
+    setUser(state,payload) {
+      state.user = payload;
     }
   },
   actions: {
+    emailLogin({commit}, payload) {
+      signInWithEmailAndPassword(auth, payload.userid, payload.userpw)
+      .then( (userinfo)=>{
+        commit('setUser', {
+          uid : userinfo.user.uid,
+          name : userinfo.user.displayname
+        });
+        router.push('/main')
+      })
+      .catch( (err)=>{
+        console.log(err);
+      })
+    }
   },
   modules: {
   }
