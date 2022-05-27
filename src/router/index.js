@@ -45,7 +45,14 @@ const routes = [
     component: function () {
       return import('../views/CalendarView.vue')
     }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: function () {
+      return import('../views/LoginView.vue')
     }
+  }
 ]
 
 const router = new VueRouter({

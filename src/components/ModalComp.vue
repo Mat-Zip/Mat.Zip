@@ -3,7 +3,9 @@
     <!-- 전체 모달창 onclick=>모달창 닫기 -->
     <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
       <!-- 커스텀 버튼 -->
-      <slot></slot>
+      <div class="modal-btn">
+        <slot></slot>
+      </div>
       <button class="close_btn" @click="backSpace">X</button>
       <!-- 모달 컨텐츠 -->
       <div class="modal-content">
@@ -69,6 +71,12 @@ export default {
   top: 8%;
   right: 9%;
   cursor: pointer;
+}
+
+.modal-btn {
+  position: fixed;
+  top:7%;
+  left: 10%;
 }
 
 </style>
