@@ -6,6 +6,7 @@
       disable-page-swipe
       is-expanded
       locale="en"
+      is-dark
     >
       <template v-slot:day-content="{day, attributes}">
         <span>{{ day.day }}</span>
@@ -39,7 +40,7 @@ export default {
           name: scd[i].name,
           date: scd[i].hour+":"+scd[i].minute
         },
-        dates: new Date(scd[i].year, scd[i].month, scd[i].day)
+        dates: new Date(scd[i].year, scd[i].month, scd[i].date)
       }
       this.schedules.push(schedule);
     }
