@@ -3,9 +3,9 @@
     <!-- MainView 주석 참조 -->
     <web-card v-for="place in $store.getters.getLikedPlaces" :key="place.id" :place="place"></web-card>
     <modal-comp :parents="currentURL">
-      <button @click="$router.push(`/mypage/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
-      <button @click="$router.push(`/mypage/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
-      <button><font-awesome-icon icon="fa-regular fa-calendar" /></button>
+        <button class="icon_btn" @click="$router.push(`/mypage/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
+        <button class="icon_btn" @click="$router.push(`/mypage/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
+        <button class="icon_btn"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
     </modal-comp>
   </div>
 </template>
