@@ -1,48 +1,73 @@
 <template>
-    <!-- in component -->
-<naver-map
-  :zoom="16"
-  :center="$store.getters.getLocations[$route.params.id].position"
-  style="width: 100%; height: 100%;"
-  :options="{
-        zoomControl: true,
-        zoomControlOptions: {
-            style: this.$navers.naver.maps.ZoomControlStyle.SMALL,
-            position: this.$navers.naver.maps.Position.TOP_RIGHT
-        }
-    }"
->
-  <naver-map-marker v-for="(option, i) in markerOptions" :key="i" :options="option.imageIconScaledSize"/>
-</naver-map>
+  <div id="map"></div>
 </template>
 
 <script>
-// script
 export default {
-  name: 'App',
-  data() {
-    return {
-      dialogVisible: false,
-      markerOptions: []
+  mounted() {
+    if(!window.kakao||!window.kakao.maps)
+    {
+      const script=document.createElement('script');
+      /* global kakao */
+      script.src=`//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${process.env.VUE_APP_KAKAOMAP_KEY}`;
+      script.addEventListener('load', ()=>{
+        kakao.maps.load(this.initMap);
+      });
+      document.head.appendChild(script);
+    }
+    else
+    {
+      this.initMap();
     }
   },
-  created() {
-    for(let i in this.$store.getters.getLocations)
-    {
-      const markerOption={
-        imageIconScaledSize: {
-          position: this.$store.getters.getLocations[i].position,
-          icon: {
-            url: '/favicon.ico',
-            size: { width: 20, height: 20},
-            scaledSize: { width: 20, height: 20},
-            origin: { x:0, y:0 },
-            anchor: { x: 10, y: 20 }
-          }
+  data() {
+    return ({
+      map: null,
+      markers: []
+    })
+  },
+  methods: {
+    initMap() {
+      const centerId=this.$store.getters.getLocations[this.$route.params.id].position;
+      const container=document.getElementById('map');
+      const options={
+        center: new kakao.maps.LatLng(centerId.lat, centerId.lng),
+        level: 5
+      };
+      this.map=new kakao.maps.Map(container, options);
+      this.displayMarker()
+    },
+    displayMarker() {
+      if(this.markers.length>0)
+      {
+        for(let i in this.markers)
+        {
+          this.markers[i].setMap(null);
         }
       }
-      this.markerOptions.push(markerOption);
+      else
+      {
+        for(let item of this.$store.getters.getLocations)
+        {
+          const markerPosition=new kakao.maps.LatLng(item.position.lat, item.position.lng);
+          const markerImage=new kakao.maps.MarkerImage('/favicon.ico', new kakao.maps.Size(25,25), {offset: new kakao.maps.Point(12,25)});
+          const newMarker=new kakao.maps.Marker({
+            map: this.map,
+            position: markerPosition,
+            image: markerImage
+          });
+          
+          this.markers.push(newMarker);
+        }
+      }
     }
   }
-};
+}
 </script>
+
+<style scoped>
+#map {
+  width: 100%;
+  height: 100%;
+}
+</style>
