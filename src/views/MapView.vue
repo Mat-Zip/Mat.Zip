@@ -56,6 +56,7 @@ export default {
             position: markerPosition,
             image: markerImage
           });
+          
           this.markers.push(newMarker);
         }
       }
