@@ -23,13 +23,6 @@ library.add(faHeart, faMap, faCalendar, faUser, faBarChart, faArrowAltCircleLeft
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-import VueNaverMap from 'vue-naver-map'
-
-Vue.use(VueNaverMap, {
-  key: 'tlhsvldx17',
-  libraries: ['geocoder']
-})
-
 Vue.config.productionTip = false
 
 
