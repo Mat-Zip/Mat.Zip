@@ -1,54 +1,67 @@
 <template>
   <div id="menu-bar">
     <transition name="slide">
-    <div v-if="$store.getters.getShowSideMenu" id="schedule">
-      <div v-if="!logged" class="sidebar-content">
+      <div v-if="$store.getters.getShowSideMenu" id="schedule">
+        <div v-if="!logged" class="sidebar-content">
+          <div class="sidebar-text">
+            <p @click="$router.push('/register')">회원가입</p>
+          </div>
+          <div class="arrow">
+            <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
+          </div>
 
-        <div class="sidebar-text">
-          <p>회원가입</p>
-        </div>
-        <div class="arrow"><font-awesome-icon icon="far fa-arrow-alt-circle-left" /></div>
-        
-        <div class="sidebar-text">
-          <p @click="$router.push('/mypage')">마이페이지</p>
-        </div>
-        <div class="arrow"><font-awesome-icon icon="far fa-arrow-alt-circle-left" /></div>
+          <div class="sidebar-text">
+            <p @click="$router.push('/login')">로그인</p>
+          </div>
+          <div class="arrow">
+            <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
+          </div>
 
-        <div class="sidebar-text">
-          <p @click="$router.push('/calendar')">캘린더</p>
+          <div class="sidebar-text">
+            <p @click="$router.push('/mypage')">마이페이지</p>
+          </div>
+          <div class="arrow">
+            <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
+          </div>
+
+          <div class="sidebar-text">
+            <p @click="$router.push('/calendar')">캘린더</p>
+          </div>
+          <div class="arrow">
+            <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
+          </div>
         </div>
-        <div class="arrow"><font-awesome-icon icon="far fa-arrow-alt-circle-left" /></div>
-      
-      </div>
-      <div v-if="logged">
-        <div class="sidebar-text">
-          <p>마이페이지</p>
+        <div v-if="logged">
+          <div class="sidebar-text">
+            <p>마이페이지</p>
+          </div>
+          <div class="sidebar-text">
+            <p>일정</p>
+          </div>
         </div>
-        <div class="sidebar-text">
-          <p>일정</p>
-        </div>     
       </div>
-    </div>
     </transition>
-    <div class="sidebtn" @click.stop="showSideMenu"><font-awesome-icon icon="fa-regular fa-user" /></div>
+    <div class="sidebtn" @click.stop="showSideMenu">
+      <font-awesome-icon icon="fa-regular fa-user" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'GPBar',
-  data: function() {
+  name: "GPBar",
+  data: function () {
     return {
       showBar: false,
-      logged: false
-    }
+      logged: false,
+    };
   },
-  methods : {
-    showSideMenu : function() {
-      this.$store.commit('setShowSideMenu', true);
-    }
-  }
-}
+  methods: {
+    showSideMenu: function () {
+      this.$store.commit("setShowSideMenu", true);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -72,15 +85,14 @@ export default {
   position: absolute;
   top: 15px;
   text-align: center;
-  
 }
 .sidebar-text {
   display: inline-block;
   width: 55%;
-  height : 50px;
+  height: 50px;
   background-color: transparent;
-  transition-duration: .5s;
-  font-family: 'Noto Sans KR', sans-serif;
+  transition-duration: 0.5s;
+  font-family: "Noto Sans KR", sans-serif;
   cursor: pointer;
 }
 .sidebar-text:hover {
@@ -88,14 +100,17 @@ export default {
   color: white;
 }
 @keyframes arrow {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .sidebar-text:hover + .arrow {
   color: white;
   animation: arrow 0.5s infinite alternate;
   transform: translateX(-40px);
-  
 }
 .arrow {
   position: absolute;
@@ -112,15 +127,17 @@ export default {
   font-size: 20px;
 }
 .slide-enter-active {
-  transition:all .5s ease-out;
+  transition: all 0.5s ease-out;
 }
 .slide-leave-active {
-  transition: all .4s ease-in;
+  transition: all 0.4s ease-in;
 }
-.slide-enter, .slide-leave-to {
+.slide-enter,
+.slide-leave-to {
   left: 300px;
 }
-.slide-enter-to, .slide-leave {
-  left:  0px;
+.slide-enter-to,
+.slide-leave {
+  left: 0px;
 }
 </style>

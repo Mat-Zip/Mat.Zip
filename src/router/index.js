@@ -20,7 +20,7 @@ const routes = [
       {
         path: "datepicker/:id",
         component: () => import("../views/DatepickerView.vue"),
-      },
+      }
     ],
   },
   {
@@ -40,28 +40,32 @@ const routes = [
       {
         path: "map/:id",
         component: () => import("../views/MapView.vue"),
-      },
-      {
-        path: "datepicker/:id",
-        component: () => import("../views/DatepickerView.vue"),
-      },
+      }
     ],
   },
   {
     path: "/calendar",
     name: "calendar",
     component: function () {
-      return import('../views/CalendarView.vue')
-    }
+      return import("../views/CalendarView.vue");
+    },
   },
   {
-    path: '/login',
-    name: 'login',
+    path: "/login",
+    name: "login",
+
     component: function () {
-      return import('../views/LoginView.vue')
-    }
-  }
-]
+      return import("../views/LoginView.vue");
+    },
+  },
+  {
+    path: "/register",
+    name: "login",
+    component: function () {
+      return import("../views/RegisterView.vue");
+    },
+  },
+];
 
 const router = new VueRouter({
   mode: "history",
