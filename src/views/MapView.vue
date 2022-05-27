@@ -23,32 +23,41 @@ export default {
   data() {
     return ({
       map: null,
-      marker: null,
-      lat: 37,
-      lng: 127
+      markers: []
     })
   },
   methods: {
     initMap() {
+      const centerId=this.$store.getters.getLocations[this.$route.params.id].position;
       const container=document.getElementById('map');
       const options={
-        center: new kakao.maps.LatLng(37,127),
+        center: new kakao.maps.LatLng(centerId.lat, centerId.lng),
         level: 5
       };
       this.map=new kakao.maps.Map(container, options);
-      this.displayMarker(this.lat, this.lng)
+      this.displayMarker()
     },
-    displayMarker(lat, lng) {
-      if(this.marker!=null)
+    displayMarker() {
+      if(this.markers.length>0)
       {
-        this.marker.setMap(null);
+        for(let i in this.markers)
+        {
+          this.markers[i].setMap(null);
+        }
       }
-      else{
-        const mPosition=new kakao.maps.LatLng(lat, lng)
-        this.marker=new kakao.maps.Marker({
-          map: this.map,
-          position: mPosition
-        });
+      else
+      {
+        for(let item of this.$store.getters.getLocations)
+        {
+          const markerPosition=new kakao.maps.LatLng(item.position.lat, item.position.lng);
+          const markerImage=new kakao.maps.MarkerImage('/favicon.ico', new kakao.maps.Size(25,25), {offset: new kakao.maps.Point(12,25)});
+          const newMarker=new kakao.maps.Marker({
+            map: this.map,
+            position: markerPosition,
+            image: markerImage
+          });
+          this.markers.push(newMarker);
+        }
       }
     }
   }
