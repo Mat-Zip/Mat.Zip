@@ -17,6 +17,10 @@ const routes = [
         path: "map/:id",
         component: () => import("../views/MapView.vue"),
       },
+      {
+        path: "datepicker/:id",
+        component: () => import("../views/DatepickerView.vue"),
+      }
     ],
   },
   {
@@ -36,7 +40,7 @@ const routes = [
       {
         path: "map/:id",
         component: () => import("../views/MapView.vue"),
-      },
+      }
     ],
   },
   {
@@ -49,6 +53,7 @@ const routes = [
   {
     path: "/login",
     name: "login",
+
     component: function () {
       return import("../views/LoginView.vue");
     },
