@@ -3,6 +3,7 @@
     <div class="login-container">
       <img class="login-image" src="../assets/logo.png" alt="" width="30px">
       <h2>부산인데</h2>
+      <h2>부산인데2</h2>
       <form>
         <div class="login-box">
           <input class="login-text" type="text" placeholder="ID" v-model="userID">
