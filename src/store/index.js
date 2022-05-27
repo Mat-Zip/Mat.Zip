@@ -1,18 +1,20 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import data from '../dummy.json'
-import data2 from '../datesdummy.json'
-import coord from '../coordinate.json'
-import '@/datasources/firebase'
+import Vue from "vue";
+import Vuex from "vuex";
+import data from "../dummy.json";
+import data2 from "../datesdummy.json";
+import coord from "../coordinate.json";
+import "@/datasources/firebase";
 import {
   getAuth,
   signInWithEmailAndPassword,
-  
-} from 'firebase/auth'
-import router from '@/router'
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import router from "@/router";
 const auth = getAuth();
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -21,15 +23,17 @@ export default new Vuex.Store({
     locations: coord,
     liked: [],
     showModal: false,
-    showSideMenu : false,
-    user : null
+    showSideMenu: false,
+    user: null,
   },
   getters: {
     getPlaces(state) {
       return state.places;
     },
     getLikedPlaces(state) {
-      const result = state.places.filter((item) => state.liked.some((el) => item.id==el.id));
+      const result = state.places.filter((item) =>
+        state.liked.some((el) => item.id == el.id)
+      );
       return result;
     },
     getLiked(state) {
@@ -41,16 +45,16 @@ export default new Vuex.Store({
     getLocations(state) {
       return state.locations;
     },
-    getShowSideMenu(state){
+    getShowSideMenu(state) {
       return state.showSideMenu;
-    }
+    },
   },
   mutations: {
     addLikePlace(state, payload) {
       state.liked.push(payload);
     },
     deleteLikePlace(state, id) {
-      const i=state.liked.findIndex((item) => item.id==id);
+      const i = state.liked.findIndex((item) => item.id == id);
       state.liked.splice(i, 1);
     },
     setShowModal(state, bool) {
@@ -59,25 +63,53 @@ export default new Vuex.Store({
     setShowSideMenu(state, bool) {
       state.showSideMenu = bool;
     },
-    setUser(state,payload) {
+    setUser(state, payload) {
       state.user = payload;
-    }
+    },
   },
   actions: {
-    emailLogin({commit}, payload) {
+    emailLogin({ commit }, payload) {
       signInWithEmailAndPassword(auth, payload.userid, payload.userpw)
-      .then( (userinfo)=>{
-        commit('setUser', {
-          uid : userinfo.user.uid,
-          name : userinfo.user.displayname
+        .then((userinfo) => {
+          commit("setUser", {
+            id: userinfo.user.uid,
+            name: userinfo.user.displayname,
+          });
+          router.push("/");
+        })
+        .catch((err) => {
+          console.log(err.message);
         });
-        router.push('/main')
-      })
-      .catch( (err)=>{
-        console.log(err);
-      })
-    }
+    },
+    googleLogin({ commit }) {
+      const oProvider = new GoogleAuthProvider();
+      oProvider.addScope("profile");
+      oProvider.addScope("email");
+      signInWithPopup(auth, oProvider)
+        .then((userinfo) => {
+          commit("setUser", {
+            id: userinfo.user.uid,
+            name: userinfo.user.displayname,
+          });
+          router.push("/");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
+    registerUser({ commit }, payload) {
+      createUserWithEmailAndPassword(auth, payload.userid, payload.userpw)
+        .then((userinfo) => {
+          commit("setUser", {
+            id: userinfo.user.uid,
+            name: userinfo.user.displayname,
+          });
+          router.push("/");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+});

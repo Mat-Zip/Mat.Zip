@@ -2,13 +2,13 @@
   <div class="login">
     <div class="login-container">
       <img class="login-image" src="../assets/logo.png" alt="" width="30px" />
-      <h2>부산인데</h2>
+      <h2>회원가입인데</h2>
       <form>
         <div class="login-box">
           <input
             class="login-text"
             type="text"
-            placeholder="ID"
+            placeholder="ID(email)"
             v-model="userID"
           />
         </div>
@@ -16,15 +16,12 @@
           <input
             class="login-text"
             type="password"
-            placeholder="password"
+            placeholder="password(6자이상)"
             v-model="userPW"
           />
         </div>
-        <button class="login-btn email" @click.prevent="emailLogin()">
-          LOGIN
-        </button>
-        <button class="login-btn google" @click.prevent="googleLogin()">
-          Google Login
+        <button class="login-btn email" @click.prevent="registerUser()">
+          회원가입
         </button>
       </form>
     </div>
@@ -40,14 +37,11 @@ export default {
     };
   },
   methods: {
-    emailLogin() {
-      this.$store.dispatch("emailLogin", {
+    registerUser() {
+      this.$store.dispatch("registerUser", {
         userid: this.userID,
         userpw: this.userPW,
       });
-    },
-    googleLogin() {
-      this.$store.dispatch("googleLogin");
     },
   },
 };

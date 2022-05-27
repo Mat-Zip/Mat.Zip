@@ -4,23 +4,23 @@
       <router-link to="/">Main</router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import MenuBar from './components/MenuBar.vue'
+import MenuBar from "./components/MenuBar.vue";
 
 export default {
   components: {
-    MenuBar
+    MenuBar,
   },
-  methods : {
-    SideMenuOff: function() {
-      this.$store.commit('setShowSideMenu', false);
-    }
-  }
-}
+  methods: {
+    SideMenuOff: function () {
+      this.$store.commit("setShowSideMenu", false);
+    },
+  },
+};
 </script>
 
 <style>
