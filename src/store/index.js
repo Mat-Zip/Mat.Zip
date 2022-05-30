@@ -50,6 +50,9 @@ export default new Vuex.Store({
     },
     getSchedules(state) {
       return state.schedules;
+    },
+    getLogged(state) {
+      return state.user != null;
     }
   },
   mutations: {
