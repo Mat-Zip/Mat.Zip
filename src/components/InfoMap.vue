@@ -1,13 +1,13 @@
 <template>
     <div class="info_window">
-        <h1>{{ id }}</h1>
+        <h1>{{ place.name }}</h1>
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        id: Number
+        place: Object
     }
 }
 </script>
@@ -18,8 +18,8 @@ export default {
   overflow: hidden;
   top: 10px;
   left: 10px;
-  width: 50px;
-  height: 50px;
+  width: 300px;
+  height: 100%;
   z-index: 1;
   background-color: white;
 }

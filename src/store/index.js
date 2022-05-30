@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import data from '../dummy.json'
-import data2 from '../datesdummy.json'
+import PlaceData from '../dummy.json'
+import ScheduleData from '../datesdummy.json'
 import coord from '../coordinate.json'
 import '@/datasources/firebase'
 import {
@@ -16,8 +16,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    places: data,
-    scds: data2,
+    places: PlaceData,
+    schedules: ScheduleData,
     locations: coord,
     liked: [],
     showModal: false,
@@ -43,6 +43,9 @@ export default new Vuex.Store({
     },
     getShowSideMenu(state){
       return state.showSideMenu;
+    },
+    getSchedules(state) {
+      return state.schedules;
     }
   },
   mutations: {

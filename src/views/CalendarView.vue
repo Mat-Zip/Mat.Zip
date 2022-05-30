@@ -43,7 +43,7 @@ export default {
     },
   },
   created() {
-    const scd = this.$store.state.scds
+    const scd = this.$store.getters.getSchedules
     for(let i in scd) {
       const schedule= {
         customData: {
