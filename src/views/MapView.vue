@@ -1,9 +1,17 @@
 <template>
-  <div id="map"></div>
+  <div class="map_wrap">
+    <div id="map"></div>
+    <info-map v-show="showInfoMap" :place="infoPlace" />
+  </div>
 </template>
 
 <script>
+import InfoMap from "../components/InfoMap.vue"
+
 export default {
+  components: {
+    InfoMap
+  },
   mounted() {
     if(!window.kakao||!window.kakao.maps)
     {
@@ -23,7 +31,9 @@ export default {
   data() {
     return ({
       map: null,
-      markers: []
+      markers: [],
+      infoPlace: {},
+      showInfoMap: false
     })
   },
   methods: {
@@ -32,7 +42,7 @@ export default {
       const container=document.getElementById('map');
       const options={
         center: new kakao.maps.LatLng(centerId.lat, centerId.lng),
-        level: 5
+        level: 3
       };
       this.map=new kakao.maps.Map(container, options);
       this.displayMarker()
@@ -58,7 +68,15 @@ export default {
           });
           
           this.markers.push(newMarker);
+
+          kakao.maps.event.addListener(newMarker, 'click', this.showInfo(item.id).bind(this))
         }
+      }
+    },
+    showInfo(id) {
+      return function() {
+        this.infoPlace=this.$store.getters.getPlaces[id];
+        this.showInfoMap=true;
       }
     }
   }
@@ -69,5 +87,14 @@ export default {
 #map {
   width: 100%;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.map_wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 </style>
