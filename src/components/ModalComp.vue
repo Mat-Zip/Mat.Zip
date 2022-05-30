@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <!-- 전체 모달창 onclick=>모달창 닫기 -->
-    <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
+    <div v-show="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
       <!-- 커스텀 버튼 -->
       <div class="modal-btn">
         <slot></slot>
