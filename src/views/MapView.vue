@@ -1,9 +1,17 @@
 <template>
-  <div id="map"></div>
+  <div class="map_wrap">
+    <div id="map"></div>
+    <info-map :id="tempId"></info-map>
+  </div>
 </template>
 
 <script>
+import InfoMap from "../components/InfoMap.vue"
+
 export default {
+  components: {
+    InfoMap
+  },
   mounted() {
     if(!window.kakao||!window.kakao.maps)
     {
@@ -23,7 +31,8 @@ export default {
   data() {
     return ({
       map: null,
-      markers: []
+      markers: [],
+      tempId: 1
     })
   },
   methods: {
@@ -69,5 +78,20 @@ export default {
 #map {
   width: 100%;
   height: 100%;
+}
+
+.map_wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.info_window {
+  position: absolute;
+  overflow: hidden;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
 }
 </style>
