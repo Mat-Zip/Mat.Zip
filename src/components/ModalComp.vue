@@ -25,7 +25,7 @@ export default {
       this.$router.push(this.parents);
       this.$store.commit('setShowModal', false);
     }
-  }
+  },
 }
 </script>
 

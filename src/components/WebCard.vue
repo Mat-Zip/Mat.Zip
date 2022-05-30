@@ -43,8 +43,7 @@ export default {
       // Liked에 없다면 장소의 아이디를 유저의 데이터에 추가
       if (!this.$store.getters.getLiked.some((el) => this.place.id == el.id)) {
         this.$store.commit("addLikePlace", {
-          id: this.place.id,
-          name: this.place.name,
+          id: this.place.id
         });
       }
       // Liked에 있다면 삭제
