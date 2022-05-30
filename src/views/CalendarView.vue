@@ -1,12 +1,12 @@
 <template>
   <div class="text-center section">
-    <p>calendar</p>
     <v-calendar
       :masks="masks"
       :attributes="schedules"
       disable-page-swipe
       is-expanded
       locale="en"
+      is-dark
     >
       <template v-slot:day-content="{day, attributes}">
         <span>{{ day.day }}</span>
@@ -18,11 +18,6 @@
         </div>
       </template>
     </v-calendar>
-
-    <p>date picker</p>
-    <v-date-picker mode="dateTime" v-model="times" />
-    <br>
-    <button @click="log">log</button>
   </div>
 </template>
 
@@ -37,20 +32,15 @@ export default {
       schedules: []
     };
   },
-  methods: {
-    log() {
-      return console.log()
-    },
-  },
   created() {
     const scd = this.$store.getters.getSchedules
     for(let i in scd) {
       const schedule= {
         customData: {
           name: scd[i].name,
-          date: scd[i].hour+":"+scd[i].minute
+          date: scd[i].hour+":"+String(scd[i].minute).padStart(2, "0")
         },
-        dates: new Date(scd[i].year, scd[i].month, scd[i].day)
+        dates: new Date(scd[i].year, scd[i].month, scd[i].date)
       }
       this.schedules.push(schedule);
     }
