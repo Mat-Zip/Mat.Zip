@@ -1,7 +1,9 @@
 <template>
   <div class="map_wrap">
     <div id="map"></div>
-    <info-map v-show="showInfoMap" :place="infoPlace" />
+    <transition name="info">
+      <info-map v-show="showInfoMap" :place="infoPlace" />
+    </transition>
   </div>
 </template>
 
@@ -78,7 +80,7 @@ export default {
         this.infoPlace=this.$store.getters.getPlaces[id];
         this.showInfoMap=true;
       }
-    }
+    },
   }
 }
 </script>
@@ -96,5 +98,17 @@ export default {
   height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.info-enter-active, .info-leave-active {
+  transition: all 0.5s ease-out;
+}
+.info-enter,
+.info-leave-to {
+  left: -300px;
+}
+.info-enter-to,
+.info-leave {
+  left: 0px;
 }
 </style>
