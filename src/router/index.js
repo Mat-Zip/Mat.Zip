@@ -60,7 +60,7 @@ const routes = [
   },
   {
     path: "/register",
-    name: "login",
+    name: "register",
     component: function () {
       return import("../views/RegisterView.vue");
     },

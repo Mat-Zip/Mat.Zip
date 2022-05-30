@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import PlaceData from '../dummy.json'
 import ScheduleData from '../datesdummy.json'
-import coord from '../coordinate.json'
+import CoordData from '../coordinate.json'
 import '@/datasources/firebase'
 import {
   getAuth,
@@ -20,7 +20,7 @@ export default new Vuex.Store({
   state: {
     places: PlaceData,
     schedules: ScheduleData,
-    locations: coord,
+    locations: CoordData,
     liked: [],
     showModal: false,
     showSideMenu: false,

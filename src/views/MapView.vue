@@ -1,7 +1,7 @@
 <template>
   <div class="map_wrap">
     <div id="map"></div>
-    <info-map :place="infoPlace" />
+    <info-map v-show="showInfoMap" :place="infoPlace" />
   </div>
 </template>
 
@@ -32,7 +32,8 @@ export default {
     return ({
       map: null,
       markers: [],
-      infoPlace: {}
+      infoPlace: {},
+      showInfoMap: false
     })
   },
   methods: {
@@ -68,13 +69,14 @@ export default {
           
           this.markers.push(newMarker);
 
-          kakao.maps.event.addListener(newMarker, 'click', this.changeId(item.id).bind(this))
+          kakao.maps.event.addListener(newMarker, 'click', this.showInfo(item.id).bind(this))
         }
       }
     },
-    changeId(id) {
+    showInfo(id) {
       return function() {
         this.infoPlace=this.$store.getters.getPlaces[id];
+        this.showInfoMap=true;
       }
     }
   }
