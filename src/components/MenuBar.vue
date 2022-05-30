@@ -1,8 +1,9 @@
 <template>
   <div id="menu-bar">
     <transition name="slide">
-      <div v-if="$store.getters.getShowSideMenu" id="schedule">
-        <div v-if="!logged" class="sidebar-content">
+      <div v-show="$store.getters.getShowSideMenu" id="schedule">
+        <!-- 로그인 하기 전 -->
+        <div v-show="!logged" class="sidebar-content">
           <div class="sidebar-text">
             <p @click="$router.push('/register')">회원가입</p>
           </div>
@@ -16,27 +17,20 @@
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
-
+        </div>
+        <!-- 로그인 후 -->
+        <div v-show="logged" class="sidebar-content">
           <div class="sidebar-text">
             <p @click="$router.push('/mypage')">마이페이지</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
-
           <div class="sidebar-text">
             <p @click="$router.push('/calendar')">캘린더</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
-          </div>
-        </div>
-        <div v-if="logged">
-          <div class="sidebar-text">
-            <p>마이페이지</p>
-          </div>
-          <div class="sidebar-text">
-            <p>일정</p>
           </div>
         </div>
       </div>
@@ -49,11 +43,10 @@
 
 <script>
 export default {
-  name: "GPBar",
+  name: "MenuBar",
   data: function () {
     return {
-      showBar: false,
-      logged: false,
+      showBar: false
     };
   },
   methods: {
@@ -61,6 +54,11 @@ export default {
       this.$store.commit("setShowSideMenu", true);
     },
   },
+  computed: {
+    logged() {
+      return this.$store.getters.getLogged;
+    }
+  }
 };
 </script>
 
@@ -130,7 +128,7 @@ export default {
   transition: all 0.5s ease-out;
 }
 .slide-leave-active {
-  transition: all 0.4s ease-in;
+  transition: all 0.35s ease-in;
 }
 .slide-enter,
 .slide-leave-to {
