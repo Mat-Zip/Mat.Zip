@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCXe15joxPtrg8XLMuklW_VZhnzmTKaJCg",
+    apiKey: process.env.VUE_APP_FIREBASE_KEY,
     authDomain: "vue-team-project.firebaseapp.com"
 };
 

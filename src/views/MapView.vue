@@ -1,7 +1,7 @@
 <template>
   <div class="map_wrap">
     <div id="map"></div>
-    <info-map :id="tempId"></info-map>
+    <info-map :id="tempId" />
   </div>
 </template>
 
@@ -78,20 +78,14 @@ export default {
 #map {
   width: 100%;
   height: 100%;
-}
-
-.map_wrap {
   position: relative;
   overflow: hidden;
 }
 
-.info_window {
-  position: absolute;
+.map_wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
   overflow: hidden;
-  top: 10px;
-  left: 10px;
-  width: 50px;
-  height: 50px;
-  z-index: 1;
 }
 </style>
