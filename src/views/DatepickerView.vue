@@ -7,15 +7,13 @@
       is-dark
       :minute-increment="5"
     />
-    <select v-model="selectedPlace">
+    <!--<select v-model="selectedPlace">
       <option v-for="p in placeList" :key="p.id">
         {{ p.name }}
       </option>
-    </select>
+    </select>-->
     <br />
     <button @click="addSchedule">addSchedule</button>
-    <br />
-    <button @click="log">console.log</button>
   </div>
 </template>
 
@@ -23,15 +21,13 @@
 export default {
   data() {
     return {
-      date: new Date(),
-      placeList: [],
-      selectedPlace: "",
+      date: new Date()
     };
   },
   methods: {
     addSchedule() {
-      const id = this.$store.state.scds.length;
-      const name = this.selectedPlace;
+      const id = this.$store.getters.getSchedules.length;
+      const name = this.$store.getters.getPlaces[this.$route.params.id].name;
       const year = this.date.getFullYear();
       const month = this.date.getMonth();
       const date = this.date.getDate();
@@ -40,26 +36,8 @@ export default {
 
       const scheInfo = { id, name, year, month, date, hour, minute };
 
-      if (name != "") {
-        return this.$store.state.scds.push(scheInfo);
-
-      } else {
-        alert("장소 선택하셈여");
-      }
-    },
-    log() {
-      return console.log(this.$store.state.scds.length);
-    },
-  },
-  created() {
-    const plc = this.$store.state.places;
-    for (let i in plc) {
-      const place = {
-        id: plc[i].id,
-        name: plc[i].name,
-      };
-      this.placeList.push(place);
+      this.$store.commit('addSchedule', scheInfo);
     }
-  },
+  }
 };
 </script>

@@ -69,6 +69,9 @@ export default new Vuex.Store({
     setUser(state, payload) {
       state.user = payload;
     },
+    addSchedule(state, payload) {
+      state.schedules.push(payload);
+    }
   },
   actions: {
     emailLogin({ commit }, payload) {
