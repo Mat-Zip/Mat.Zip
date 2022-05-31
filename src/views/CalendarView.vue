@@ -10,3 +10,10 @@ export default {
   components: { CldComp },
 };
 </script>
+
+<style scoped>
+.cld-view {
+  width: 70vw;
+  margin: auto;
+}
+</style>

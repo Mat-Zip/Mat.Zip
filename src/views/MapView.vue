@@ -1,9 +1,7 @@
 <template>
   <div class="map_wrap">
     <div id="map"></div>
-    <transition name="info">
-      <info-map v-show="showInfoMap" :place="infoPlace" />
-    </transition>
+    <info-map v-if="showInfoMap" :place="infoPlace" />
   </div>
 </template>
 
