@@ -25,7 +25,7 @@ export default {
   overflow: hidden;
   top: -0.3px;
   left: -0.3px;
-  width: 33%;
+  width: 28%;
   height: 100%;
   z-index: 1;
   background-color: white;

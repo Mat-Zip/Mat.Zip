@@ -32,6 +32,12 @@
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
+          <div class="sidebar-text">
+            <p @click="Logout">로그아웃</p>
+          </div>
+          <div class="arrow">
+            <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
+          </div>
         </div>
       </div>
     </transition>
@@ -53,6 +59,9 @@ export default {
     showSideMenu: function () {
       this.$store.commit("setShowSideMenu", true);
     },
+    Logout : function() {
+      this.$store.dispatch("logout");
+    }
   },
   computed: {
     logged() {

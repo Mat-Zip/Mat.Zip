@@ -49,12 +49,16 @@ export default {
 </script>
 
 <style scoped>
+
 .custom-calendar {
   height: 100vh;
   border-radius: 20px;
+  font-weight : bold;
 }
 
 .cld-date-box {
   height: 15vh;
+  font-size: 12px;
+  font-weight : normal;
 }
 </style>
