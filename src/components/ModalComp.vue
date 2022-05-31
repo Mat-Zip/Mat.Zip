@@ -1,14 +1,14 @@
 <template>
   <transition name="fade">
     <!-- 전체 모달창 onclick=>모달창 닫기 -->
-    <div v-show="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
+    <div v-show="$store.getters.getShowModal" class="modal_route" @click.self="backSpace">
       <!-- 커스텀 버튼 -->
-      <div class="modal-btn">
+      <div class="modal_btn_box">
         <slot></slot>
       </div>
       <button class="close_btn" @click="backSpace">X</button>
       <!-- 모달 컨텐츠 -->
-      <div class="modal-content">
+      <div class="modal_content">
         <router-view/>
       </div>
     </div>
@@ -43,7 +43,7 @@ export default {
   opacity: 1;
 }
 
-.modal-route {
+.modal_route {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -52,8 +52,8 @@ export default {
   background-color: rgba(00, 00, 00, 0.5);
 }
 
-.modal-route>.modal-content {
-  width: 80%;
+.modal_route>.modal_content {
+  width: 65%;
   height: 70%;
   position: absolute;
   top: 50%;
@@ -70,18 +70,17 @@ export default {
   background-color: transparent;
   position: fixed;
   color: white;
-  top: 8%;
-  right: 9%;
+  top: 9%;
+  right: 16.5%;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
 }
 
-.modal-btn {
+.modal_btn_box {
   position: fixed;
-  top:7%;
-  left: 10%;
+  top:9%;
+  left: 17.5%;
 }
-
 </style>

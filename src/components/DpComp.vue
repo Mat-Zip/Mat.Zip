@@ -6,7 +6,7 @@
       is-expanded
       is-dark
       :minute-increment="5"
-      class="custom-datepicker"
+      class="custom_datepicker"
     >
     </v-date-picker>
     <button @click="addSchedule">addSchedule</button>
@@ -39,8 +39,7 @@ export default {
 </script>
 
 <style scoped>
-
-.custom-datepicker {
+.custom_datepicker {
   border-radius: 20px 20px 0 0;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="dp-view">
+  <div class="dp_view">
     <dp-comp />
   </div>
 </template>

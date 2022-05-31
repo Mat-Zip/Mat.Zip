@@ -1,5 +1,5 @@
 <template>
-  <div class="cld-view">
+  <div class="cld_view">
     <cld-comp />
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style scoped>
-.cld-view {
+.cld_view {
   width: 70vw;
   margin: auto;
 }
