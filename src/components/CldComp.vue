@@ -1,20 +1,22 @@
 <template>
-  <div class="calendar">
+  <div class="cld-comp">
     <v-calendar
       :masks="masks"
       :attributes="schedules"
       disable-page-swipe
+      locale="kr"
       is-expanded
-      locale="en"
-      class="custom-calendar"
+      class="cld"
     >
       <template v-slot:day-content="{ day, attributes }">
-        <span>{{ day.day }}</span>
-        <div class="cld-date-box">
-          <p v-for="(attr, i) in attributes" :key="i">
-            {{ attr.customData.name }}
-            {{ attr.customData.date }}
-          </p>
+        <div class="cld-dates">
+          <span>{{ day.day }}</span>
+          <div class="cld-sche">
+            <div v-for="(attr, i) in attributes" :key="i">
+              <h4>{{ attr.customData.name }}</h4>
+              <p>{{ attr.customData.date }}</p>
+            </div>
+          </div>
         </div>
       </template>
     </v-calendar>
@@ -49,12 +51,17 @@ export default {
 </script>
 
 <style scoped>
-.custom-calendar {
-  height: 100vh;
-  border-radius: 20px;
+.cld {
+  height: 100%;
 }
 
-.cld-date-box {
-  height: 15vh;
+.cld-dates {
+  overflow: hidden;
+}
+
+.cld-sche {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 </style>

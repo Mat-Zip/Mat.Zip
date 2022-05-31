@@ -1,12 +1,12 @@
 <template>
-  <div class="datepicker">
+  <div class="dp-comp">
     <v-date-picker
       mode="dateTime"
       v-model="date"
-      is-expanded
       is-dark
       :minute-increment="5"
-      class="custom-datepicker"
+      is-expanded
+      class="dp"
     >
     </v-date-picker>
     <button @click="addSchedule">addSchedule</button>
@@ -39,12 +39,7 @@ export default {
 </script>
 
 <style scoped>
-
-.custom-datepicker {
-  border-radius: 20px 20px 0 0;
-}
-
-.dp-box {
-  height: 15vh;
+.dp {
+  height: 100%;
 }
 </style>
