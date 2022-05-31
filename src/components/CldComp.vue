@@ -6,11 +6,11 @@
       disable-page-swipe
       is-expanded
       locale="en"
-      class="custom-calendar"
+      class="custom_calendar"
     >
       <template v-slot:day-content="{ day, attributes }">
         <span>{{ day.day }}</span>
-        <div class="cld-date-box">
+        <div class="cld_date_box">
           <p v-for="(attr, i) in attributes" :key="i">
             {{ attr.customData.name }}
             {{ attr.customData.date }}
@@ -50,13 +50,13 @@ export default {
 
 <style scoped>
 
-.custom-calendar {
+.custom_calendar {
   height: 100vh;
   border-radius: 20px;
   font-weight : bold;
 }
 
-.cld-date-box {
+.cld_date_box {
   height: 15vh;
   font-size: 12px;
   font-weight : normal;

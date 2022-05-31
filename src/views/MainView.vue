@@ -5,11 +5,9 @@
     <!-- 모달창 생성(props=현재 주소) -->
     <modal-comp :parents="currentURL">
       <!-- 모달 컴포넌트의 <slot> 자리에 들어갈 버튼 -->
-      <div class="modal-btn-box">
-        <button class="modal-btn" @click="$router.push(`/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
-        <button class="modal-btn" @click="$router.push(`/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
-        <button class="modal-btn" @click="$router.push(`/datepicker/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
-      </div>
+      <button class="modal_btn" @click="$router.push(`/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
+      <button class="modal_btn" @click="$router.push(`/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
+      <button class="modal_btn" @click="$router.push(`/datepicker/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
     </modal-comp>
   </div>
 </template>
@@ -34,19 +32,12 @@ export default {
 <style scoped>
 
 .home {
-  justify-content: center;
   width: 80vw;
   height: 100vh;
   margin: auto;
 }
 
-.modal-btn-box {
-  position: fixed;
-  top:7%;
-  left: 10%;
-}
-
-.modal-btn {
+.modal_btn {
   width: 40px;
   height: 40px;
   font-size: 20px;
@@ -58,5 +49,4 @@ export default {
   color: black;
   cursor: pointer;
 }
-
 </style>

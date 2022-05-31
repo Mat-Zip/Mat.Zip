@@ -1,17 +1,17 @@
 <template>
-  <div id="menu-bar">
+  <div id="menu_bar">
     <transition name="slide">
       <div v-show="$store.getters.getShowSideMenu" id="schedule">
         <!-- 로그인 하기 전 -->
-        <div v-show="!logged" class="sidebar-content">
-          <div class="sidebar-text">
+        <div v-show="!logged" class="sidebar_content">
+          <div class="sidebar_text">
             <p @click="$router.push('/register')">회원가입</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
 
-          <div class="sidebar-text">
+          <div class="sidebar_text">
             <p @click="$router.push('/login')">로그인</p>
           </div>
           <div class="arrow">
@@ -19,20 +19,20 @@
           </div>
         </div>
         <!-- 로그인 후 -->
-        <div v-show="logged" class="sidebar-content">
-          <div class="sidebar-text">
+        <div v-show="logged" class="sidebar_content">
+          <div class="sidebar_text">
             <p @click="$router.push('/mypage')">마이페이지</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
-          <div class="sidebar-text">
+          <div class="sidebar_text">
             <p @click="$router.push('/calendar')">캘린더</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
-          <div class="sidebar-text">
+          <div class="sidebar_text">
             <p @click="Logout">로그아웃</p>
           </div>
           <div class="arrow">
@@ -41,7 +41,7 @@
         </div>
       </div>
     </transition>
-    <div class="sidebtn" @click.stop="showSideMenu">
+    <div class="side_btn" @click.stop="showSideMenu">
       <font-awesome-icon icon="fa-regular fa-user" />
     </div>
   </div>
@@ -74,7 +74,7 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
 
-.menu-bar {
+.menu_bar {
   position: relative;
 }
 
@@ -86,14 +86,14 @@ export default {
   background-color: rgba(00, 00, 00, 0.5);
   z-index: 2;
 }
-.sidebar-content {
+.sidebar_content {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 15px;
   text-align: center;
 }
-.sidebar-text {
+.sidebar_text {
   display: inline-block;
   width: 55%;
   height: 50px;
@@ -102,7 +102,7 @@ export default {
   font-family: "Noto Sans KR", sans-serif;
   cursor: pointer;
 }
-.sidebar-text:hover {
+.sidebar_text:hover {
   transform: translateX(-10px);
   color: white;
 }
@@ -114,7 +114,7 @@ export default {
     opacity: 1;
   }
 }
-.sidebar-text:hover + .arrow {
+.sidebar_text:hover + .arrow {
   color: white;
   animation: arrow 0.5s infinite alternate;
   transform: translateX(-40px);
@@ -127,7 +127,7 @@ export default {
   color: transparent;
   transition-duration: 0.5s;
 }
-.sidebtn {
+.side_btn {
   position: absolute;
   top: 15px;
   right: -250px;
