@@ -1,6 +1,6 @@
 <template>
     <div class="info_window">
-        <img class="info-img" :src="require(`../assets/카페정보/${place.name}/${place.img[0]}`)">
+        <img class="info-img" :src="require(`@/assets/카페정보/${place.name}/${place.img[0]}`)">
         <div class="info-text">
             <h1>{{ place.name }}</h1> <br>
             <p>{{ place.address }}</p>
@@ -23,17 +23,20 @@ export default {
 .info_window {
   position: absolute;
   overflow: hidden;
-  top: 0px;
-  left: 0px;
-  width: 300px;
+  top: -0.3px;
+  left: -0.3px;
+  width: 33%;
   height: 100%;
   z-index: 1;
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 20px 0 0 20px;
 }
 .info-img {
     object-fit: cover;
-    height: 300px;
+    width: 100%;
+    height: 55%;
+    border-radius: 20px 0 0 0;
 }
 .info-text {
     position: absolute;

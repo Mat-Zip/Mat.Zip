@@ -51,7 +51,7 @@ export default {
 <style scoped>
 .custom-calendar {
   height: 100vh;
-  border-radius: 0px;
+  border-radius: 20px;
 }
 
 .cld-date-box {

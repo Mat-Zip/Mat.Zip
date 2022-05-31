@@ -46,9 +46,11 @@ export default {
 }
 
 .swiper {
-  width: 50%;
-  height: 100%;
-  border-radius: 20px 0 0 20px;
+  width: 45%;
+  height: 92.3%;
+  border-radius: 20px;
+  left: 0.5%;
+  top: 2.5%;
 }
 
 .swiper .swiper-slide {
@@ -67,6 +69,7 @@ export default {
 }
 
 .intro {
+  margin-top: 3%;
   width: 50%;
 }
 </style>
