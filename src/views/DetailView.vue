@@ -2,7 +2,7 @@
   <div class="detail">
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="(img, i) in place.img" :key="i">
-        <img class="slide-img" :src="require(`@/assets/카페정보/${place.name}/${img}`)" />
+        <img class="slide-img" :src="require(`@/assets/place/${place.name}/${img}`)" />
       </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
