@@ -11,3 +11,7 @@ export default {
   components: { DpComp, CldComp },
 };
 </script>
+
+<style scoped>
+  
+</style>

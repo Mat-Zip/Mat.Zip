@@ -17,11 +17,20 @@
           />
         </button>
       </div>
-      <ul class="backcard-text">
-        <li>{{ place.signature }}</li>
-        <li>{{ place.telephone }}</li>
-        <li>{{ place.time }}</li>
-      </ul>
+      <table class="backcard-text">
+        <tr>
+          <td>시그니쳐 : </td>
+          <td>{{ place.signature }}</td>
+        </tr>
+        <tr>
+          <td>TEL : </td>
+          <td>{{ place.telephone }}</td>
+        </tr>
+        <tr>
+          <td>OPEN : </td>
+          <td>{{ place.time }}</td>
+        </tr>
+      </table>
       <div class="readmore">
         <a @click="showDetail">READ MORE</a>
       </div>

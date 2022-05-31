@@ -39,8 +39,9 @@ export default {
 </script>
 
 <style scoped>
+
 .custom-datepicker {
-  border-radius: 0px;
+  border-radius: 20px 20px 0 0;
 }
 
 .dp-box {

@@ -1,7 +1,7 @@
 <template>
   <div class="map_wrap">
     <div id="map"></div>
-    <info-map v-show="showInfoMap" :place="infoPlace" />
+    <info-map v-if="showInfoMap" :place="infoPlace" />
   </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
       };
       this.map=new kakao.maps.Map(container, options);
       this.displayMarker()
+      kakao.maps.event.addListener(this.map, 'click', ()=>{this.showInfoMap=false})
     },
     displayMarker() {
       if(this.markers.length>0)
@@ -75,10 +76,17 @@ export default {
     },
     showInfo(id) {
       return function() {
-        this.infoPlace=this.$store.getters.getPlaces[id];
-        this.showInfoMap=true;
+        if(this.infoPlace==this.$store.getters.getPlaces[id]&&this.showInfoMap==true)
+        {
+          this.showInfoMap=false;
+        }
+        else
+        {
+          this.infoPlace=this.$store.getters.getPlaces[id];
+          this.showInfoMap=true;
+        }
       }
-    }
+    },
   }
 }
 </script>
@@ -89,6 +97,7 @@ export default {
   height: 100%;
   position: relative;
   overflow: hidden;
+  border-radius:20px;
 }
 
 .map_wrap {
@@ -96,5 +105,17 @@ export default {
   height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.info-enter-active, .info-leave-active {
+  transition: all 0.5s ease-out;
+}
+.info-enter,
+.info-leave-to {
+  opacity: 0;
+}
+.info-enter-to,
+.info-leave {
+  opacity: 1;
 }
 </style>

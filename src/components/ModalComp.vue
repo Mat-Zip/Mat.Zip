@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <!-- 전체 모달창 onclick=>모달창 닫기 -->
-    <div v-if="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
+    <div v-show="$store.getters.getShowModal" class="modal-route" @click.self="backSpace">
       <!-- 커스텀 버튼 -->
       <div class="modal-btn">
         <slot></slot>
@@ -60,6 +60,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #404040;
 }
 
 .close_btn {
