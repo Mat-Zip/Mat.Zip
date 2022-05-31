@@ -73,6 +73,9 @@ export default {
   top: 8%;
   right: 9%;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
 }
 
 .modal-btn {

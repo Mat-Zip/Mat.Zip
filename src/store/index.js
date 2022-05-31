@@ -53,7 +53,7 @@ export default new Vuex.Store({
     },
     getLogged(state) {
       return state.user != null;
-    }
+    },
   },
   mutations: {
     addLikePlace(state, payload) {
@@ -74,7 +74,7 @@ export default new Vuex.Store({
     },
     addSchedule(state, payload) {
       state.schedules.push(payload);
-    }
+    },
   },
   actions: {
     emailLogin({ commit }, payload) {
@@ -84,6 +84,7 @@ export default new Vuex.Store({
             id: userinfo.user.uid,
             name: userinfo.user.displayname,
           });
+          commit("setShowModal", false);
           router.push("/");
         })
         .catch((err) => {
@@ -100,6 +101,7 @@ export default new Vuex.Store({
             id: userinfo.user.uid,
             name: userinfo.user.displayname,
           });
+          commit("setShowModal", false);
           router.push("/");
         })
         .catch((err) => {
@@ -118,6 +120,18 @@ export default new Vuex.Store({
         .catch((err) => {
           console.log(err.message);
         });
+    },
+    logout({ commit }) {
+      const user = auth.currentUser;
+      user.delete()
+        .then(() => {
+          commit('setUser', null);
+          router.push("/");
+          window.alert("로그아웃 하였습니다.");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        })
     },
   },
   modules: {},
