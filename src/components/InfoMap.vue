@@ -1,6 +1,6 @@
 <template>
     <div class="info_window">
-        <img class="info-img" :src="require(`@/assets/카페정보/${place.name}/${place.img[0]}`)">
+        <img class="info-img" :src="require(`@/assets/place/${place.name}/${place.img[0]}`)">
         <div class="info-text">
             <h1>{{ place.name }}</h1> <br>
             <p>{{ place.address }}</p>
