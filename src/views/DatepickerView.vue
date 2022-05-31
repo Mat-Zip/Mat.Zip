@@ -10,3 +10,7 @@ export default {
   components: { DpComp },
 };
 </script>
+
+<style scoped>
+  
+</style>

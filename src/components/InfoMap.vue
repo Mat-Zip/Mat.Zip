@@ -29,7 +29,6 @@ export default {
   height: 100%;
   z-index: 1;
   background-color: white;
-  border: 1px solid black;
   font-family: 'Noto Sans KR', sans-serif;
 }
 .info-img {

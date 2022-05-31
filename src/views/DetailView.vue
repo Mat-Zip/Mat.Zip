@@ -48,6 +48,7 @@ export default {
 .swiper {
   width: 50%;
   height: 100%;
+  border-radius: 20px 0 0 20px;
 }
 
 .swiper .swiper-slide {
