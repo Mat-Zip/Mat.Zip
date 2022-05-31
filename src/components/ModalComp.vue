@@ -60,6 +60,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #404040;
 }
 
 .close_btn {

@@ -99,6 +99,7 @@ export default {
   height: 100%;
   position: relative;
   overflow: hidden;
+  border-radius:20px;
 }
 
 .map_wrap {
@@ -113,10 +114,10 @@ export default {
 }
 .info-enter,
 .info-leave-to {
-  left: -300px;
+  opacity: 0;
 }
 .info-enter-to,
 .info-leave {
-  left: 0px;
+  opacity: 1;
 }
 </style>
