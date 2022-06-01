@@ -33,6 +33,19 @@ export default {
       const scheInfo = { id, name, year, month, date, hour, minute };
 
       this.$store.commit("addSchedule", scheInfo);
+
+      const newAlert={
+        text: "일정이 추가되었습니다",
+        funcName1: "확인하기",
+        func1: ()=>{
+          this.$router.push('/calendar');
+          this.$store.commit('setShowModal', false);
+          this.$store.commit('setAlertData', null);
+        },
+        func2: null
+      }
+
+      this.$store.commit('setAlertData', newAlert);
     },
   },
 };

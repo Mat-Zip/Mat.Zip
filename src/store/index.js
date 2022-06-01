@@ -22,6 +22,7 @@ export default new Vuex.Store({
     schedules: ScheduleData,
     locations: CoordData,
     liked: [],
+    alertData: null,
     showModal: false,
     showSideMenu: false,
     user: null,
@@ -54,6 +55,9 @@ export default new Vuex.Store({
     getLogged(state) {
       return state.user != null;
     },
+    getAlertData(state) {
+      return state.alertData;
+    }
   },
   mutations: {
     addLikePlace(state, payload) {
@@ -75,6 +79,9 @@ export default new Vuex.Store({
     addSchedule(state, payload) {
       state.schedules.push(payload);
     },
+    setAlertData(state, payload) {
+      state.alertData = payload;
+    }
   },
   actions: {
     emailLogin({ commit }, payload) {
