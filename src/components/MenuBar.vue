@@ -163,17 +163,17 @@ span {
   display: block;
   position: absolute;
   background-color: black;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
 }
 
 span:nth-child(1) {
-    top: 3px;
+  top: 3px;
 }
 span:nth-child(2) {
-    top: 10px;
+  top: 10px;
 }
 span:nth-child(3) {
-    top: 17px;
+  top: 17px;
 }
 
 .sideOn:nth-child(1) {
@@ -182,7 +182,8 @@ span:nth-child(3) {
   top: 0px;
 }
 .sideOn:nth-child(2) {
-  transform: rotate(360deg);
+  right: 220px;
+  top: 0px;
   opacity: 0;
 }
 .sideOn:nth-child(3) {
