@@ -106,16 +106,4 @@ export default {
   position: relative;
   overflow: hidden;
 }
-
-.info-enter-active, .info-leave-active {
-  transition: all 0.5s ease-out;
-}
-.info-enter,
-.info-leave-to {
-  opacity: 0;
-}
-.info-enter-to,
-.info-leave {
-  opacity: 1;
-}
 </style>

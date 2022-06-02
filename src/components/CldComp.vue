@@ -54,12 +54,14 @@ export default {
 .cld {
   height: 100%;
   border-radius: 0px;
+  font-weight: bold;
 }
 
 .cld-dates {
   width: 16vh;
   height: 12vh;
   overflow: hidden;
+  font-weight : normal;
 }
 
 .cld-sche {

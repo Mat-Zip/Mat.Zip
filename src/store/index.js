@@ -22,6 +22,7 @@ export default new Vuex.Store({
     schedules: ScheduleData,
     locations: CoordData,
     liked: [],
+    alertData: null,
     showModal: false,
     showSideMenu: false,
     user: null,
@@ -53,6 +54,9 @@ export default new Vuex.Store({
     },
     getLogged(state) {
       return state.user != null;
+    },
+    getAlertData(state) {
+      return state.alertData;
     }
   },
   mutations: {
@@ -74,6 +78,9 @@ export default new Vuex.Store({
     },
     addSchedule(state, payload) {
       state.schedules.push(payload);
+    },
+    setAlertData(state, payload) {
+      state.alertData = payload;
     }
   },
   actions: {
@@ -84,6 +91,7 @@ export default new Vuex.Store({
             id: userinfo.user.uid,
             name: userinfo.user.displayname,
           });
+          commit("setShowModal", false);
           router.push("/");
         })
         .catch((err) => {
@@ -100,6 +108,7 @@ export default new Vuex.Store({
             id: userinfo.user.uid,
             name: userinfo.user.displayname,
           });
+          commit("setShowModal", false);
           router.push("/");
         })
         .catch((err) => {
@@ -118,6 +127,24 @@ export default new Vuex.Store({
         .catch((err) => {
           console.log(err.message);
         });
+    },
+    logout({ commit }) {
+      const user = auth.currentUser;
+      user.delete()
+        .then(() => {
+          commit('setUser', null);
+          router.push("/");
+          commit('setAlertData', {
+            alertText: "로그아웃되었습니다",
+            buttonText1: "확인",
+            buttonFunc1: () => {
+              commit('setAlertData', null);
+            }
+          })
+        })
+        .catch((err) => {
+          console.log(err.message);
+        })
     },
   },
   modules: {},
