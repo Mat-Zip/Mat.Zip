@@ -5,15 +5,18 @@
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <router-view />
+    <alert-comp v-if="$store.getters.getAlertData" :alertData="$store.getters.getAlertData"></alert-comp>
   </div>
 </template>
 
 <script>
+import AlertComp from './components/AlertComp.vue';
 import MenuBar from "./components/MenuBar.vue";
 
 export default {
   components: {
     MenuBar,
+    AlertComp,
   },
   methods: {
     SideMenuOff: function () {

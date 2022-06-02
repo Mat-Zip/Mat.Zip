@@ -7,7 +7,7 @@
       <!-- 모달 컴포넌트의 <slot> 자리에 들어갈 버튼 -->
       <button class="modal_btn" @click="$router.push(`/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
       <button class="modal_btn" @click="$router.push(`/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
-      <button class="modal_btn" @click="$router.push(`/datepicker/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
+      <button class="modal_btn" @click="toDatePicker"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
     </modal-comp>
   </div>
 </template>
@@ -25,6 +25,30 @@ export default {
     return ({
       currentURL: this.$route.path
     })
+  },
+  methods: {
+    toDatePicker() {
+      if(this.$store.getters.getLogged) {
+        this.$router.push(`/datepicker/${this.$route.params.id}`).catch(()=>{});
+      }
+      else {
+        this.$store.commit('setAlertData', {
+          alertText: "로그인이 필요한 서비스입니다",
+          buttonText1: "회원가입",
+          buttonFunc1: ()=>{
+            this.$router.push('/resister');
+            this.$store.commit('setShowModal', false);
+            this.$store.commit('setAlertData', null);
+          },
+          buttonText2: "로그인",
+          buttonFunc2: ()=>{
+            this.$router.push('/login');
+            this.$store.commit('setShowModal', false);
+            this.$store.commit('setAlertData', null);
+          }
+        })
+      }
+    }
   }
 }
 </script>
