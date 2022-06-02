@@ -134,7 +134,13 @@ export default new Vuex.Store({
         .then(() => {
           commit('setUser', null);
           router.push("/");
-          window.alert("로그아웃 하였습니다.");
+          commit('setAlertData', {
+            alertText: "로그아웃되었습니다",
+            buttonText1: "확인",
+            buttonFunc1: () => {
+              commit('setAlertData', null);
+            }
+          })
         })
         .catch((err) => {
           console.log(err.message);

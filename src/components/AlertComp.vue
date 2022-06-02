@@ -1,8 +1,9 @@
 <template>
     <div class="alert">
-        <h1>{{ alertData.text }}</h1>
-        <button v-if="alertData.func1" @click="alertData.func1">{{ alertData.funcName1 }}</button>
-        <button v-if="alertData.func2" @click="alertData.func2">{{ alertData.funcName2 }}</button>
+        <button @click="$store.commit('setAlertData', null)">X</button>
+        <h1>{{ alertData.alertText }}</h1>
+        <button v-if="alertData.buttonFunc1" @click="alertData.buttonFunc1">{{ alertData.buttonText1 }}</button>
+        <button v-if="alertData.buttonFunc2" @click="alertData.buttonFunc2">{{ alertData.buttonText2 }}</button>
     </div>
 </template>
 
@@ -17,10 +18,10 @@ export default {
 <style scoped>
 .alert {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
+    top: 35%;
+    left: 35%;
+    width: 30%;
+    height: 30%;
     text-align: center;
     background-color: black;
     color: white;

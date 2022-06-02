@@ -49,15 +49,34 @@ export default {
   },
   methods: {
     addLike: function () {
-      // Liked에 없다면 장소의 아이디를 유저의 데이터에 추가
-      if (!this.$store.getters.getLiked.some((el) => this.place.id == el.id)) {
-        this.$store.commit("addLikePlace", {
-          id: this.place.id
-        });
+      if(this.$store.getters.getLogged) {
+        // Liked에 없다면 장소의 아이디를 유저의 데이터에 추가
+        if (!this.$store.getters.getLiked.some((el) => this.place.id == el.id)) {
+          this.$store.commit("addLikePlace", {
+            id: this.place.id
+          });
+        }
+        // Liked에 있다면 삭제
+        else {
+          this.$store.commit("deleteLikePlace", this.place.id);
+        }
       }
-      // Liked에 있다면 삭제
       else {
-        this.$store.commit("deleteLikePlace", this.place.id);
+        this.$store.commit('setAlertData', {
+          alertText: "로그인이 필요한 서비스입니다",
+          buttonText1: "회원가입",
+          buttonFunc1: ()=>{
+            this.$router.push('/resister');
+            this.$store.commit('setShowModal', false);
+            this.$store.commit('setAlertData', null);
+          },
+          buttonText2: "로그인",
+          buttonFunc2: ()=>{
+            this.$router.push('/login');
+            this.$store.commit('setShowModal', false);
+            this.$store.commit('setAlertData', null);
+          }
+        })
       }
     },
     showDetail: function () {
