@@ -1,9 +1,10 @@
 <template>
-    <div class="alert">
+    <div class="alert_wrap">
         <button class="alert_close" @click="$store.commit('setAlertData', null)">X</button>
         <h2 class="alert_text">{{ alertData.alertText }}</h2>
         <button v-if="alertData.buttonFunc1" @click="alertData.buttonFunc1">{{ alertData.buttonText1 }}</button>
         <button v-if="alertData.buttonFunc2" @click="alertData.buttonFunc2">{{ alertData.buttonText2 }}</button>
+    </div>
     </div>
 </template>
 
@@ -16,8 +17,17 @@ export default {
 </script>
 
 <style scoped>
-.alert {
+.alert_wrap {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(2px);
+}
+
+.alert {
+    position: absolute;
     top: 35%;
     left: 35%;
     width: 35%;

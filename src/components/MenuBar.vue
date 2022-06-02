@@ -49,7 +49,6 @@
 
 <script>
 export default {
-  name: "MenuBar",
   data: function () {
     return {
       showBar: false
