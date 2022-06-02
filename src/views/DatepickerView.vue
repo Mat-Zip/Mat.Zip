@@ -1,16 +1,25 @@
 <template>
-  <div class="dp_view">
-    <dp-comp />
+  <div>
+    <dp-comp class="dp-comp" :isRoutingDpView="true" />
+    <cld-comp class="cld-comp" :isRoutingDpView="true" />
   </div>
 </template>
 <script>
 import DpComp from "@/components/DpComp.vue";
-
+import CldComp from "@/components/CldComp.vue";
 export default {
-  components: { DpComp },
+  components: { DpComp, CldComp },
 };
 </script>
 
 <style scoped>
-  
+.dp-comp {
+  float: left;
+  width: 20%;
+}
+
+.cld-comp {
+  float: right;
+  width: 80%;
+}
 </style>
