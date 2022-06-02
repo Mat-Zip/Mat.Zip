@@ -158,9 +158,9 @@ export default {
 }
 
 span {
-  height: 4px;
+  height: 3px;
   width: 30px;
-  border-radius: 50%;
+  border-radius: 30%;
   right: 5px;
   display: block;
   position: absolute;
