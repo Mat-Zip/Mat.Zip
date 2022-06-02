@@ -49,7 +49,6 @@
 
 <script>
 export default {
-  name: "MenuBar",
   data: function () {
     return {
       showBar: false
@@ -57,7 +56,9 @@ export default {
   },
   methods: {
     showSideMenu: function () {
-      this.$store.commit("setShowSideMenu", true);
+      if(this.$store.getters.getAlertData==null&&!this.$store.getters.getShowModal) {
+        this.$store.commit("setShowSideMenu", true);
+      }
     },
     Logout : function() {
       this.$store.dispatch("logout");
