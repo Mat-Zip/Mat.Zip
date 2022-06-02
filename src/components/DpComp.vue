@@ -1,20 +1,23 @@
 <template>
-  <div class="datepicker">
+  <div class="dp-comp">
     <v-date-picker
       mode="dateTime"
       v-model="date"
-      is-expanded
       is-dark
       :minute-increment="5"
-      class="custom_datepicker"
+      is-expanded
+      :class="currentClass"
     >
     </v-date-picker>
-    <button @click="addSchedule">addSchedule</button>
+    <button @click="addSchedule" class="add-btn">일정 추가</button>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    isRoutingDpView: Boolean,
+  },
   data() {
     return {
       date: new Date(),
@@ -34,28 +37,47 @@ export default {
 
       this.$store.commit("addSchedule", scheInfo);
 
-      const newAlert={
+      const newAlert = {
         alertText: "일정이 추가되었습니다",
         buttonText1: "확인하기",
-        buttonFunc1: ()=>{
-          this.$router.push('/calendar');
-          this.$store.commit('setShowModal', false);
-          this.$store.commit('setAlertData', null);
-        }
-      }
+        buttonFunc1: () => {
+          this.$router.push("/calendar");
+          this.$store.commit("setShowModal", false);
+          this.$store.commit("setAlertData", null);
+        },
+      };
 
-      this.$store.commit('setAlertData', newAlert);
+      this.$store.commit("setAlertData", newAlert);
+    },
+  },
+  computed: {
+    currentClass() {
+      return this.isRoutingDpView ? "dp_dpview" : "dp_view";
     },
   },
 };
 </script>
 
 <style scoped>
-.custom_datepicker {
-  border-radius: 20px 20px 0 0;
+.dp_dpview {
+  height: 70vh;
+  border-radius: 20px 0 0 20px;
 }
 
-.dp-box {
-  height: 15vh;
+.dp_view {
+  border-radius: 20px;
+}
+
+.add-btn {
+  position: absolute;
+  top: 330px;
+  left: 33px;
+  z-index: 1;
+
+  padding: 8px;
+  background-color: rgb(74, 85, 104);
+  border-radius: 4px;
+  border-style: none;
+  color: white;
 }
 </style>

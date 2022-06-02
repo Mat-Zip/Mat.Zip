@@ -1,20 +1,22 @@
 <template>
-  <div class="calendar">
+  <div class="cld-comp">
     <v-calendar
       :masks="masks"
       :attributes="schedules"
       disable-page-swipe
+      locale="kr"
       is-expanded
-      locale="en"
-      class="custom_calendar"
+      :class="currentClass"
     >
       <template v-slot:day-content="{ day, attributes }">
-        <span>{{ day.day }}</span>
-        <div class="cld_date_box">
-          <p v-for="(attr, i) in attributes" :key="i">
-            {{ attr.customData.name }}
-            {{ attr.customData.date }}
-          </p>
+        <div class="cld-dates">
+          <span>{{ day.day }}</span>
+          <div class="cld-sche">
+            <div v-for="(attr, i) in attributes" :key="i">
+              <h4>{{ attr.customData.name }}</h4>
+              <p>{{ attr.customData.date }}</p>
+            </div>
+          </div>
         </div>
       </template>
     </v-calendar>
@@ -23,6 +25,9 @@
 
 <script>
 export default {
+  props: {
+    isRoutingDpView: Boolean,
+  },
   data() {
     return {
       times: [],
@@ -45,20 +50,35 @@ export default {
       this.schedules.push(schedule);
     }
   },
+  computed: {
+    currentClass() {
+      return this.isRoutingDpView ? "cld_dpview" : "cld_view";
+    },
+  },
 };
 </script>
 
 <style scoped>
-
-.custom_calendar {
-  height: 100vh;
-  border-radius: 20px;
-  font-weight : bold;
+.cld_dpview {
+  height: 70vh;
+  border-radius: 0 20px 20px 0;
 }
 
-.cld_date_box {
-  height: 15vh;
-  font-size: 12px;
-  font-weight : normal;
+.cld_view {
+  border-radius: 20px;
+}
+
+.cld-dates {
+  width: 12vh;
+  height: 12vh;
+  overflow: auto;
+}
+
+.cld-dates::-webkit-scrollbar {
+  display: none;
+}
+
+.cld-sche {
+  overflow: hidden;
 }
 </style>
