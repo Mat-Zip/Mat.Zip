@@ -3,7 +3,7 @@
     <nav>
       <router-link to="/">Main</router-link>
     </nav>
-    <menu-bar class="menu-bar1"></menu-bar>
+    <menu-bar v-if="!$store.getters.getShowModal" class="menu-bar1"></menu-bar>
     <router-view />
     <alert-comp v-if="$store.getters.getAlertData" :alertData="$store.getters.getAlertData"></alert-comp>
   </div>
@@ -58,6 +58,6 @@ nav a.router-link-exact-active {
   right: 270px;
   width: 25px;
   height: 25px;
-  z-index: 1000;
+  z-index: 100;
 }
 </style>
