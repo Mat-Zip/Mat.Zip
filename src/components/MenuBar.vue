@@ -139,6 +139,8 @@ export default {
   top: 15px;
   right: -250px;
   font-size: 20px;
+  width: 30px;
+  height: 30px;
 }
 .slide-enter-active {
   transition: all 0.5s ease-out;
@@ -158,7 +160,7 @@ export default {
 span {
   height: 4px;
   width: 30px;
-  border-radius: 40%;
+  border-radius: 50%;
   right: 5px;
   display: block;
   position: absolute;
