@@ -6,7 +6,7 @@
       disable-page-swipe
       locale="kr"
       is-expanded
-      class="cld"
+      :class="currentClass"
     >
       <template v-slot:day-content="{ day, attributes }">
         <div class="cld-dates">
@@ -25,6 +25,9 @@
 
 <script>
 export default {
+  props: {
+    isRoutingDpView: Boolean,
+  },
   data() {
     return {
       times: [],
@@ -47,26 +50,35 @@ export default {
       this.schedules.push(schedule);
     }
   },
+  computed: {
+    currentClass() {
+      return this.isRoutingDpView ? "cld_dpview" : "cld_view";
+    },
+  },
 };
 </script>
 
 <style scoped>
-.cld {
-  height: 100%;
-  border-radius: 0px;
-  font-weight: bold;
+.cld_dpview {
+  height: 70vh;
+  border-radius: 0 20px 20px 0;
+}
+
+.cld_view {
+  border-radius: 20px;
 }
 
 .cld-dates {
-  width: 16vh;
+  width: 12vh;
   height: 12vh;
-  overflow: hidden;
-  font-weight : normal;
+  overflow: auto;
+}
+
+.cld-dates::-webkit-scrollbar {
+  display: none;
 }
 
 .cld-sche {
-  flex-shrink: 1;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow: hidden;
 }
 </style>

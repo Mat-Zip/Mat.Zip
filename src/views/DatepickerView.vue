@@ -1,7 +1,7 @@
 <template>
-  <div class="dp-view">
-    <dp-comp class="dp-comp" />
-    <cld-comp class="cld-comp" />
+  <div>
+    <dp-comp class="dp-comp" :isRoutingDpView="true" />
+    <cld-comp class="cld-comp" :isRoutingDpView="true" />
   </div>
 </template>
 <script>
@@ -13,19 +13,13 @@ export default {
 </script>
 
 <style scoped>
-.dp-view {
-  height: 70vh;
-}
-
 .dp-comp {
   float: left;
   width: 20%;
-  height: 100%;
 }
 
 .cld-comp {
   float: right;
   width: 80%;
-  height: 100%;
 }
 </style>
