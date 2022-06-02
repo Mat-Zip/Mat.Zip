@@ -5,7 +5,9 @@
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <router-view />
-    <alert-comp v-if="$store.getters.getAlertData" :alertData="$store.getters.getAlertData"></alert-comp>
+    <transition name="trans">
+      <alert-comp v-if="$store.getters.getAlertData" :alertData="$store.getters.getAlertData"></alert-comp>
+    </transition>
   </div>
 </template>
 
@@ -59,5 +61,18 @@ nav a.router-link-exact-active {
   width: 25px;
   height: 25px;
   z-index: 100;
+}
+
+.trans-enter-active,
+.trans-leave-active {
+  transition: all .2s ease;
+}
+.trans-enter,
+.trans-leave-to {
+  opacity: 0;
+}
+.trans-leave,
+.trans-enter-to {
+  opacity: 1;
 }
 </style>

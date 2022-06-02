@@ -1,6 +1,6 @@
 <template>
   <div class="cld_view">
-    <cld-comp />
+    <cld-comp :isRoutingDpView="false" />
   </div>
 </template>
 <script>
