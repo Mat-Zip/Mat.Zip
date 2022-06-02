@@ -80,8 +80,7 @@ router.beforeEach(function (to, from, next) {
   if (to.matched.some(function (routeInfo) {
     return routeInfo.meta.authRequired && !store.getters.getLogged;
   })) {
-    window.alert("로그인을 하셔야 접근 가능합니다.")
-    router.push('/login')
+    router.push('/login');
   } 
   else {
     next();
