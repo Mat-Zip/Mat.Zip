@@ -9,7 +9,7 @@
       class="dp"
     >
     </v-date-picker>
-    <button @click="addSchedule">addSchedule</button>
+    <button @click="addSchedule" class="add-btn">일정 추가</button>
   </div>
 </template>
 
@@ -41,5 +41,10 @@ export default {
 <style scoped>
 .dp {
   height: 100%;
+  border-radius: 0;
+}
+
+.add-btn {
+  z-index: 1;
 }
 </style>

@@ -9,25 +9,23 @@ import DpComp from "@/components/DpComp.vue";
 import CldComp from "@/components/CldComp.vue";
 export default {
   components: { DpComp, CldComp },
-  data() {
-    return {
-      dpRad: [20, 0, 0, 20],
-    };
-  },
 };
 </script>
 
 <style scoped>
 .dp-view {
-  display: flex;
   height: 70vh;
 }
 
 .dp-comp {
+  float: left;
   width: 20%;
+  height: 100%;
 }
 
 .cld-comp {
+  float: right;
   width: 80%;
+  height: 100%;
 }
 </style>

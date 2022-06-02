@@ -53,15 +53,18 @@ export default {
 <style scoped>
 .cld {
   height: 100%;
+  border-radius: 0px;
 }
 
 .cld-dates {
+  width: 16vh;
+  height: 12vh;
   overflow: hidden;
 }
 
 .cld-sche {
-  flex-grow: 1;
-  overflow-y: auto;
+  flex-shrink: 1;
   overflow-x: auto;
+  overflow-y: auto;
 }
 </style>
