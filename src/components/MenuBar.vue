@@ -42,7 +42,9 @@
       </div>
     </transition>
     <div class="side_btn" @click.stop="showSideMenu">
-      <font-awesome-icon icon="fa-regular fa-user" />
+      <span :class="hamburger"></span>
+      <span :class="hamburger"></span>
+      <span :class="hamburger"></span>
     </div>
   </div>
 </template>
@@ -51,13 +53,14 @@
 export default {
   data: function () {
     return {
-      showBar: false
+      showBar: false,
     };
   },
   methods: {
     showSideMenu: function () {
       if(this.$store.getters.getAlertData==null&&!this.$store.getters.getShowModal) {
         this.$store.commit("setShowSideMenu", true);
+        this.sidebar = true;
       }
     },
     Logout : function() {
@@ -67,6 +70,9 @@ export default {
   computed: {
     logged() {
       return this.$store.getters.getLogged;
+    },
+    hamburger() {
+      return this.$store.getters.getShowSideMenu ? "sideOn" : "";
     }
   }
 };
@@ -91,7 +97,7 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 15px;
+  top: 80px;
   text-align: center;
 }
 .sidebar_text {
@@ -147,5 +153,41 @@ export default {
 .slide-enter-to,
 .slide-leave {
   left: 0px;
+}
+
+span {
+  height: 4px;
+  width: 30px;
+  border-radius: 40%;
+  right: 5px;
+  display: block;
+  position: absolute;
+  background-color: black;
+  transition: all 0.5s ease;
+}
+
+span:nth-child(1) {
+    top: 3px;
+}
+span:nth-child(2) {
+    top: 10px;
+}
+span:nth-child(3) {
+    top: 17px;
+}
+
+.sideOn:nth-child(1) {
+  transform: rotate(45deg);
+  right: 220px;
+  top: 0px;
+}
+.sideOn:nth-child(2) {
+  transform: rotate(360deg);
+  opacity: 0;
+}
+.sideOn:nth-child(3) {
+  transform: rotate(-45deg);
+  right: 220px;
+  top: 0px;
 }
 </style>

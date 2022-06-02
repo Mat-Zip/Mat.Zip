@@ -1,10 +1,12 @@
 <template>
-    <div class="alert_wrap" @click.self="$store.commit('setAlertData', null)">
-        <div class="alert">
+    <div class="alert_wrap">
+        <div class="alert_box">
             <button class="alert_close" @click="$store.commit('setAlertData', null)">X</button>
             <h2 class="alert_text">{{ alertData.alertText }}</h2>
-            <button v-if="alertData.buttonFunc1" @click="alertData.buttonFunc1">{{ alertData.buttonText1 }}</button>
-            <button v-if="alertData.buttonFunc2" @click="alertData.buttonFunc2">{{ alertData.buttonText2 }}</button>
+            <div class="alert_btnbox">
+                <button class="alert_btn" v-if="alertData.buttonFunc1" @click="alertData.buttonFunc1">{{ alertData.buttonText1 }}</button>
+                <button class="alert_btn" v-if="alertData.buttonFunc2" @click="alertData.buttonFunc2">{{ alertData.buttonText2 }}</button>
+            </div>
         </div>
     </div>
 </template>
@@ -27,13 +29,12 @@ export default {
     backdrop-filter: blur(2px);
 }
 
-.alert {
+.alert_box {
     position: absolute;
-    top: 35%;
-    left: 35%;
-    width: 35%;
-    height: 25%;
-    text-align: center;
+    top: 200px;
+    left: 40%;
+    width: 350px;
+    height: 200px;
     background-color: white;
     border: 1px solid black;
     border-radius:20px;
@@ -41,7 +42,8 @@ export default {
 }
 .alert_close {
     position: absolute;
-    right: 0;
+    top : 5px;
+    right: 5px;
     border : none;
     background-color: white;
     border-radius:20px;
@@ -50,6 +52,15 @@ export default {
     position: absolute;
     top : 30%;
     font-family: 'Noto Sans KR', sans-serif;
-    white-space: pre-line;
+    left: 5%;
+}
+
+.alert_btnbox {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+.alert_btn {
+    margin-right: 10px;
 }
 </style>
