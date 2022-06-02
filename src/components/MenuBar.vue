@@ -182,6 +182,7 @@ span:nth-child(3) {
   top: 0px;
 }
 .sideOn:nth-child(2) {
+  transform: rotate(-90deg);
   right: 220px;
   top: 0px;
   opacity: 0;
