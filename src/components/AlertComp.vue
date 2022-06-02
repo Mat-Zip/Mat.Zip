@@ -1,10 +1,11 @@
 <template>
-    <div class="alert_wrap">
-        <button class="alert_close" @click="$store.commit('setAlertData', null)">X</button>
-        <h2 class="alert_text">{{ alertData.alertText }}</h2>
-        <button v-if="alertData.buttonFunc1" @click="alertData.buttonFunc1">{{ alertData.buttonText1 }}</button>
-        <button v-if="alertData.buttonFunc2" @click="alertData.buttonFunc2">{{ alertData.buttonText2 }}</button>
-    </div>
+    <div class="alert_wrap" @click.self="$store.commit('setAlertData', null)">
+        <div class="alert">
+            <button class="alert_close" @click="$store.commit('setAlertData', null)">X</button>
+            <h2 class="alert_text">{{ alertData.alertText }}</h2>
+            <button v-if="alertData.buttonFunc1" @click="alertData.buttonFunc1">{{ alertData.buttonText1 }}</button>
+            <button v-if="alertData.buttonFunc2" @click="alertData.buttonFunc2">{{ alertData.buttonText2 }}</button>
+        </div>
     </div>
 </template>
 
