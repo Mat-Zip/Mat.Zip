@@ -3,7 +3,7 @@
     <nav>
       <router-link to="/">Main</router-link>
     </nav>
-    <menu-bar v-if="!$store.getters.getShowModal" class="menu-bar1"></menu-bar>
+    <menu-bar class="menu-bar1"></menu-bar>
     <router-view />
     <alert-comp v-if="$store.getters.getAlertData" :alertData="$store.getters.getAlertData"></alert-comp>
   </div>

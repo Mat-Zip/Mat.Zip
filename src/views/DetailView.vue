@@ -23,7 +23,6 @@ export default {
   data() {
     return {
       place: this.$store.getters.getPlaces[this.$route.params.id],
-      index: 0,
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 0,
