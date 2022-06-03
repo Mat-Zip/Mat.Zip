@@ -1,46 +1,34 @@
 <template>
-  <div class="container">
-    <!-- 카드 앞면 -->
-    <div class="front card">
+  <div class="card">
+    <!-- 카드 정보 -->
+    <span class="cimg">
       <img
-        class="card-img"
+        class="i1"
         :src="require(`@/assets/place/${place.name}/${place.img[0]}`)"
-        alt=""
       />
-      <table class="frontcard-text">
-        <tr>
-          <td class="finfo1">{{ place.category }}</td>
-          <td class="finfo2">{{ place.name }}</td>
-        </tr>
-      </table>
-    </div>
-    <!-- 카드 뒷면 -->
-    <div class="back card">
-      <div class="button-bar">
-        <button class="icon_btn" @click.stop="addLike">
+    </span>
+    <span class="cinfo">
+      <p class="i1">{{ place.category }}</p>
+      <p class="i2">{{ place.name }}</p>
+    </span>
+
+    <!-- 카드 호버링 시 정보 -->
+    <div class="card-hover">
+      <span class="btn-bar">
+        <button class="like-btn" @click.stop="addLike">
           <font-awesome-icon
             icon="fa-regular fa-heart"
             :class="{ likedplace: check }"
           />
         </button>
-      </div>
-      <table class="backcard-text">
-        <tr>
-          <td class="binfo1">SIGNATURE : {{ place.signature }}</td>
-        </tr>
-        <tr>
-          <td class="binfo1">TEL : {{ place.telephone }}</td>
-        </tr>
-        <tr>
-          <td class="binfo1">OPEN : {{ place.time }}</td>
-        </tr>
-      </table>
-      <div class="readmore">
-        <a @click="showDetail">READ MORE</a>
-      </div>
-
-      <div class="overlay"></div>
+      </span>
+      <span class="hinfo">
+        <p class="i1">SIGNATURE : {{ place.signature }}</p>
+        <p class="i2">TEL : {{ place.telephone }}</p>
+        <p class="i3">OPEN : {{ place.time }}</p>
+      </span>
     </div>
+    <a class="readmore-btn" @click="showDetail">READ MORE</a>
   </div>
 </template>
 
@@ -70,7 +58,7 @@ export default {
           alertText: "로그인이 필요한 서비스입니다",
           buttonText1: "회원가입",
           buttonFunc1: () => {
-            this.$router.push("/resister");
+            this.$router.push("/register");
             this.$store.commit("setShowModal", false);
             this.$store.commit("setAlertData", null);
           },
