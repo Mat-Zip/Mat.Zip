@@ -26,16 +26,13 @@
       </div>
       <table class="backcard-text">
         <tr>
-          <td class="binfo1">SIGNATURE :</td>
-          <td class="binfo2">{{ place.signature }}</td>
+          <td class="binfo1">SIGNATURE : {{ place.signature }}</td>
         </tr>
         <tr>
-          <td class="binfo1">TEL :</td>
-          <td class="binfo2">{{ place.telephone }}</td>
+          <td class="binfo1">TEL : {{ place.telephone }}</td>
         </tr>
         <tr>
-          <td class="binfo1">OPEN :</td>
-          <td class="binfo2">{{ place.time }}</td>
+          <td class="binfo1">OPEN : {{ place.time }}</td>
         </tr>
       </table>
       <div class="readmore">
