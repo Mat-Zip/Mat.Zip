@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
     <div class="container">
       <!-- 받아온 data를 카드로 생성 -->
       <web-card
@@ -28,19 +27,8 @@
           <font-awesome-icon icon="fa-regular fa-calendar" />
         </button>
       </modal-comp>
+      <a v-show="isToTop" class="up_btn" @click="toTop"><font-awesome-icon icon="fa-regular fa-square-caret-up" /></a>
     </div>
-=======
-    <!-- 받아온 data를 카드로 생성 -->
-    <web-card v-for="(place,i) in $store.getters.getPlaces" :key="i" :place="place"></web-card>
-    <!-- 모달창 생성(props=현재 주소) -->
-    <modal-comp :parents="currentURL">
-      <!-- 모달 컴포넌트의 <slot> 자리에 들어갈 버튼 -->
-      <button class="modal_btn" @click="$router.push(`/detail/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-chart-bar" /></button>
-      <button class="modal_btn" @click="$router.push(`/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
-      <button class="modal_btn" @click="toDatePicker"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
-    </modal-comp>
-    <a class="up_btn" @click="toTop">맨위로</a>
->>>>>>> 58fae9480452dc7c519f3b2a5408d8530f192fa3
   </div>
 </template>
 
@@ -83,16 +71,16 @@ export default {
         });
       }
     },
-<<<<<<< HEAD
-  },
-};
-=======
     toTop() {
-      window.scroll({top: 0, behavior: 'smooth'});
+      window.scroll(0,0);
+    }
+  },
+  computed: {
+    isToTop() {
+      return !(this.$store.getters.getShowSideMenu||this.$store.getters.getShowModal);
     }
   }
 }
->>>>>>> 58fae9480452dc7c519f3b2a5408d8530f192fa3
 </script>
 
 <style scoped>
@@ -118,17 +106,13 @@ export default {
   /* border-radius: 50%;
   opacity: 0.7; */
 }
-<<<<<<< HEAD
-</style>
-=======
 
 .up_btn {
   width: 40px;
   height: 40px;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: #202020;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
 }
 </style>
->>>>>>> 58fae9480452dc7c519f3b2a5408d8530f192fa3
