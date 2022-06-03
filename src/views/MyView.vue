@@ -29,6 +29,7 @@
         <font-awesome-icon icon="fa-regular fa-calendar" />
       </button>
     </modal-comp>
+    <a class="up_btn" @click="toTop">맨위로</a>
   </div>
 </template>
 
@@ -70,8 +71,11 @@ export default {
         });
       }
     },
-  },
-};
+    toTop() {
+      window.scroll({top: 0, behavior: 'smooth'});
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -89,5 +93,14 @@ export default {
   background-color: white;
   border: none;
   border-radius: 50%;
+}
+
+.up_btn {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #202020;
 }
 </style>

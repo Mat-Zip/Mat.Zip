@@ -1,5 +1,5 @@
 <template>
-  <div class="cld-comp" :key="getScd.length">
+  <div class="cld-comp">
     <v-calendar
       :masks="masks"
       :attributes="schedules"
@@ -59,15 +59,15 @@ export default {
     getScd(el) {
       this.schedules=[];
       for (let item of el) {
-      const schedule = {
-        customData: {
-          name: item.name,
-          date: item.hour + ":" + String(item.minute).padStart(2, "0"),
-        },
-        dates: new Date(item.year, item.month, item.date),
-      };
-      this.schedules.push(schedule);
-    }
+        const schedule = {
+          customData: {
+            name: item.name,
+            date: item.hour + ":" + String(item.minute).padStart(2, "0"),
+          },
+          dates: new Date(item.year, item.month, item.date),
+        };
+        this.schedules.push(schedule);
+      }
     }
   }
 };
