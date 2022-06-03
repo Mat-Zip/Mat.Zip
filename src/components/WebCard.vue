@@ -2,10 +2,17 @@
   <div class="container">
     <!-- 카드 앞면 -->
     <div class="front card">
-      <img class="card-img" :src="require(`@/assets/place/${place.name}/${place.img[0]}`)" alt="">
-      <ul class="frontcard-text">
-        <li>{{ place.name }}</li>
-      </ul>
+      <img
+        class="card-img"
+        :src="require(`@/assets/place/${place.name}/${place.img[0]}`)"
+        alt=""
+      />
+      <table class="frontcard-text">
+        <tr>
+          <td class="finfo1">{{ place.category }}</td>
+          <td class="finfo2">{{ place.name }}</td>
+        </tr>
+      </table>
     </div>
     <!-- 카드 뒷면 -->
     <div class="back card">
@@ -19,16 +26,16 @@
       </div>
       <table class="backcard-text">
         <tr>
-          <td>시그니쳐 : </td>
-          <td>{{ place.signature }}</td>
+          <td class="binfo1">SIGNATURE :</td>
+          <td class="binfo2">{{ place.signature }}</td>
         </tr>
         <tr>
-          <td>TEL : </td>
-          <td>{{ place.telephone }}</td>
+          <td class="binfo1">TEL :</td>
+          <td class="binfo2">{{ place.telephone }}</td>
         </tr>
         <tr>
-          <td>OPEN : </td>
-          <td>{{ place.time }}</td>
+          <td class="binfo1">OPEN :</td>
+          <td class="binfo2">{{ place.time }}</td>
         </tr>
       </table>
       <div class="readmore">
@@ -37,7 +44,6 @@
 
       <div class="overlay"></div>
     </div>
-
   </div>
 </template>
 
@@ -49,34 +55,35 @@ export default {
   },
   methods: {
     addLike: function () {
-      if(this.$store.getters.getLogged) {
+      if (this.$store.getters.getLogged) {
         // Liked에 없다면 장소의 아이디를 유저의 데이터에 추가
-        if (!this.$store.getters.getLiked.some((el) => this.place.id == el.id)) {
+        if (
+          !this.$store.getters.getLiked.some((el) => this.place.id == el.id)
+        ) {
           this.$store.commit("addLikePlace", {
-            id: this.place.id
+            id: this.place.id,
           });
         }
         // Liked에 있다면 삭제
         else {
           this.$store.commit("deleteLikePlace", this.place.id);
         }
-      }
-      else {
-        this.$store.commit('setAlertData', {
+      } else {
+        this.$store.commit("setAlertData", {
           alertText: "로그인이 필요한 서비스입니다",
           buttonText1: "회원가입",
-          buttonFunc1: ()=>{
-            this.$router.push('/resister');
-            this.$store.commit('setShowModal', false);
-            this.$store.commit('setAlertData', null);
+          buttonFunc1: () => {
+            this.$router.push("/resister");
+            this.$store.commit("setShowModal", false);
+            this.$store.commit("setAlertData", null);
           },
           buttonText2: "로그인",
-          buttonFunc2: ()=>{
-            this.$router.push('/login');
-            this.$store.commit('setShowModal', false);
-            this.$store.commit('setAlertData', null);
-          }
-        })
+          buttonFunc2: () => {
+            this.$router.push("/login");
+            this.$store.commit("setShowModal", false);
+            this.$store.commit("setAlertData", null);
+          },
+        });
       }
     },
     showDetail: function () {
