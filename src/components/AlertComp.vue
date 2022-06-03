@@ -1,5 +1,5 @@
 <template>
-    <div class="alert_wrap">
+    <div class="alert_wrap" @click.self="$store.commit('setAlertData', null)">
         <div class="alert_box">
             <button class="alert_close" @click="$store.commit('setAlertData', null)">X</button>
             <h2 class="alert_text">{{ alertData.alertText }}</h2>
@@ -26,7 +26,7 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(2.5px);
 }
 
 .alert_box {

@@ -1,5 +1,5 @@
 <template>
-  <div class="cld-comp">
+  <div class="cld-comp" :key="getScd.length">
     <v-calendar
       :masks="masks"
       :attributes="schedules"
@@ -32,18 +32,17 @@ export default {
       masks: {
         weekdays: "WWWW",
       },
-      schedules: [],
+      schedules: []
     };
   },
   created() {
-    const scd = this.$store.getters.getSchedules;
-    for (let i in scd) {
+    for (let item of this.getScd) {
       const schedule = {
         customData: {
-          name: scd[i].name,
-          date: scd[i].hour + ":" + String(scd[i].minute).padStart(2, "0"),
+          name: item.name,
+          date: item.hour + ":" + String(item.minute).padStart(2, "0"),
         },
-        dates: new Date(scd[i].year, scd[i].month, scd[i].date),
+        dates: new Date(item.year, item.month, item.date),
       };
       this.schedules.push(schedule);
     }
@@ -52,7 +51,25 @@ export default {
     currentClass() {
       return this.isRoutingDpView ? "cld_dpview" : "cld_view";
     },
+    getScd() {
+      return this.$store.getters.getSchedules;
+    }
   },
+  watch: {
+    getScd(el) {
+      this.schedules=[];
+      for (let item of el) {
+      const schedule = {
+        customData: {
+          name: item.name,
+          date: item.hour + ":" + String(item.minute).padStart(2, "0"),
+        },
+        dates: new Date(item.year, item.month, item.date),
+      };
+      this.schedules.push(schedule);
+    }
+    }
+  }
 };
 </script>
 

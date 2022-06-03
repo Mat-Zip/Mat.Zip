@@ -47,7 +47,7 @@
 <script>
 export default {
   props: {
-    // props로 장소 객체만 전달받으면 알아서 출력
+    // props로 장소 객체만 전달받아서 출력
     place: Object,
   },
   methods: {
