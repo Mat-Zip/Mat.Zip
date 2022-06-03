@@ -11,11 +11,9 @@
       <template v-slot:day-content="{ day, attributes }">
         <div class="cld-dates">
           <span>{{ day.day }}</span>
-          <div class="cld-sche">
-            <div v-for="(attr, i) in attributes" :key="i">
-              <h4>{{ attr.customData.name }}</h4>
-              <p>{{ attr.customData.date }}</p>
-            </div>
+          <div class="cld-sche" v-for="(attr, i) in attributes" :key="i">
+            <span class="sche-name">{{ attr.customData.name }}</span>
+            <span class="sche-date">{{ attr.customData.date }}</span>
           </div>
         </div>
       </template>
@@ -88,7 +86,7 @@ export default {
 .cld-dates {
   width: 12vh;
   height: 12vh;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .cld-dates::-webkit-scrollbar {
@@ -97,5 +95,11 @@ export default {
 
 .cld-sche {
   overflow: hidden;
+  word-break: break-all;
+  margin-bottom: 5px;
+}
+
+.cld-sche .sche-name {
+  font-weight: bold;
 }
 </style>
