@@ -159,6 +159,7 @@ span {
   position: absolute;
   background-color: black;
   transition: all 0.6s ease;
+  transition-delay: 0.5s;
 }
 
 span:nth-child(1) {
@@ -171,20 +172,41 @@ span:nth-child(3) {
   top: 17px;
 }
 
+@keyframes trans_1 {
+  0% {
+    top : 10px;
+  }
+  70% {
+    top : 0px;
+  }
+  100% {
+    top : 10px;
+  }
+}
+@keyframes trans_2 {
+  0% {
+    top : 10px;
+  }
+  70% {
+    top : 20px;
+  }
+  100% {
+    top : 10px;
+  }
+}
+
 .sideOn:nth-child(1) {
+  animation: trans_1 0.5s;
   transform: rotate(45deg);
-  right: 220px;
-  top: 0px;
+  top: 10px;
 }
 .sideOn:nth-child(2) {
-  transform: rotate(-90deg);
-  right: 220px;
-  top: 0px;
+  top: 10px;
   opacity: 0;
 }
 .sideOn:nth-child(3) {
+  animation: trans_2 0.5s;
   transform: rotate(-45deg);
-  right: 220px;
-  top: 0px;
+  top: 10px;
 }
 </style>
