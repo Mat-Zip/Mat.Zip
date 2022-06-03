@@ -54,6 +54,11 @@ export default {
 </script>
 
 <style scoped>
+.login {
+  width: 80vw;
+  height: 80vh;
+}
+
 .login_container {
   position: fixed;
   top: 18%;

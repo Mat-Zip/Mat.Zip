@@ -8,7 +8,7 @@
       <button class="modal_btn" @click="$router.push(`/mypage/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
       <button class="modal_btn" @click="toDatePicker"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
     </modal-comp>
-    <a v-show="!$store.getters.getAlertData&&!$store.getters.getShowModal" class="up_btn" @click="toTop">맨위로</a>
+    <a v-show="isToTop" class="up_btn" @click="toTop"><font-awesome-icon icon="fa-regular fa-square-caret-up" /></a>
   </div>
 </template>
 
@@ -49,7 +49,12 @@ export default {
       }
     },
     toTop() {
-      window.scroll({top: 0, behavior: 'smooth'});
+      window.scroll(0,0);
+    }
+  },
+  computed: {
+    isToTop() {
+      return !(this.$store.getters.getShowSideMenu||this.$store.getters.getShowModal);
     }
   }
 }
@@ -77,8 +82,8 @@ export default {
   width: 40px;
   height: 40px;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: #202020;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
 }
 </style>

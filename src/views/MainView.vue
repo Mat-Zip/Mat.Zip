@@ -51,7 +51,7 @@ export default {
       }
     },
     toTop() {
-      window.scroll({top: 0, behavior: 'smooth'});
+      window.scroll(0,0);
     }
   },
   computed: {
@@ -87,7 +87,8 @@ export default {
   width: 40px;
   height: 40px;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
 }
 </style>
