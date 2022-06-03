@@ -1,153 +1,108 @@
-.card-img {
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-}
-
-.container {
-  width: 30%;
-  height: 50%;
-  perspective: 800px;
-  float: left;
-  margin-left: 20px;
-  margin-bottom: 30px;
-}
-
+/* default */
 .card {
-  width: 100%;
-  height: 100%;
-  /* 뒷면 가시성 */
-  backface-visibility: hidden;
-  transition: 0.5s;
-  border-radius: 20px;
+  display: flex;
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 10px;
 }
 
-.front {
+.card .cimg .i1 {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.cinfo {
   position: absolute;
-  background-color: white;
-  box-shadow: 5px 5px 5px gray;
-  /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
+  bottom: 0;
+  margin: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
-.back {
-  position: absolute;
-  box-shadow: 5px 5px 5px gray;
-  color: white;
-  opacity: 0;
+.card:hover .cinfo .i1,
+.card:hover .cinfo .i2 {
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
-.frontcard-text {
-  font-family: "Noto Sans KR", sans-serif;
-  transition-duration: 0.3s;
-}
-
-.frontcard-text tr .finfo1 {
+.cinfo .i1 {
+  color: salmon;
   font-size: 16px;
-  position: absolute;
-  top: 81%;
-  left: 10%;
-  color: darkgray;
 }
 
-.frontcard-text tr .finfo2 {
-  font-size: 20px;
-  position: absolute;
-  top: 85%;
-  left: 10%;
+.cinfo .i2 {
   color: white;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.backcard-text {
+/* hover */
+.card-hover {
   position: absolute;
-  left: 10%;
-  top: 5%;
-  font-family: "Noto Sans KR", sans-serif;
+  width: 500px;
+  height: 500px;
+  opacity: 0;
+
+  transition: all 0.3s ease;
 }
 
-.backcard-text tr .binfo1 {
-  text-align: left;
-}
-
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  border-radius: 20px;
-  top: 0;
-  opacity: 0.5;
-}
-
-.container:hover .front {
-  z-index: -2;
+.card-hover:hover {
   opacity: 1;
+  background: rgba(0, 0, 0, 0.35);
 }
 
-.container:hover .back {
-  opacity: 1;
-}
-
-.container:hover .back .overlay {
-  z-index: -1;
-}
-
-.container:hover .frontcard-text {
-  color: transparent;
-}
-
-.readmore {
+.btn-bar {
   position: absolute;
-  right: 6%;
-  top: 84%;
-  width: 120px;
-  height: 40px;
-  line-height: 40px;
+  bottom: 0;
+  right: 0;
+  margin: 30px;
+}
+
+.like-btn {
+  width: 60px;
+  height: 60px;
   text-align: center;
-  color: black;
-  transition-delay: 0.3s;
-  transition-duration: 0.5s;
-  font-family: "Noto Sans KR", sans-serif;
-  cursor: pointer;
-}
-.container:hover .back .readmore {
-  color: white;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.icon_btn {
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+  font-size: 30px;
   background-color: white;
   border: none;
   border-radius: 50%;
   box-shadow: 0px 2px 10px 1px black;
-  margin: 20px 20px;
+  opacity: 0.7;
 }
 
-.icon_btn:hover {
-  cursor: pointer;
+.like-btn:hover {
+  opacity: 0.9;
+  transition: all 0.3s ease;
 }
 
-.button-bar {
-  float: right;
+.hinfo {
+  position: absolute;
+  left: 0;
+  margin: 30px;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
-.likedplace {
-  color: red;
+.hinfo .i2 {
+  color: white;
+  padding-bottom: 5px;
 }
 
-@media (max-width: 1024px) {
-  .container {
-    width: 45%;
-  }
+.hinfo .i1,
+.hinfo .i3 {
+  color: salmon;
+  padding-bottom: 5px;
 }
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-  }
+
+.readmore-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.readmore-btn:hover {
+  opacity: 1;
+  transition: all 0.3s ease;
 }
