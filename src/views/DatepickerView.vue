@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dp-view">
     <dp-comp class="dp-comp" :isRoutingDpView="true" />
     <cld-comp class="cld-comp" :isRoutingDpView="true" />
   </div>
@@ -13,13 +13,11 @@ export default {
 </script>
 
 <style scoped>
-.dp-comp {
-  float: left;
-  width: 20%;
+.dp-view {
+  display: flex;
 }
 
 .cld-comp {
-  float: right;
   width: 80%;
 }
 </style>

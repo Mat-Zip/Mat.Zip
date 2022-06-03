@@ -60,11 +60,13 @@ export default {
 
 <style scoped>
 .dp_dpview {
+  width: 100%;
   height: 70vh;
   border-radius: 20px 0 0 20px;
 }
 
 .dp_view {
+  width: 100%;
   border-radius: 20px;
 }
 

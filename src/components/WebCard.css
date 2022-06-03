@@ -1,139 +1,153 @@
 .card-img {
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
 }
 
 .container {
-    width: 30%;
-    height: 50%;
-    perspective: 800px;
-    float: left;
-    margin-left: 20px;
-    margin-bottom: 30px;
+  width: 30%;
+  height: 50%;
+  perspective: 800px;
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 30px;
 }
 
 .card {
-    width: 100%;
-    height: 100%;
-    /* 뒷면 가시성 */
-    backface-visibility: hidden;
-    transition: 0.5s;
-    border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  /* 뒷면 가시성 */
+  backface-visibility: hidden;
+  transition: 0.5s;
+  border-radius: 20px;
 }
 
 .front {
-    position: absolute;
-    background-color: white;
-    box-shadow: 5px 5px 5px gray;
-    /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
+  position: absolute;
+  background-color: white;
+  box-shadow: 5px 5px 5px gray;
+  /* deg => 각의 단위 degree, 원 한바퀴를 360도로 표현하는 방법 */
 }
 
 .back {
-    position: absolute;
-    box-shadow: 5px 5px 5px gray;
-    color: white;
-    opacity: 0;
+  position: absolute;
+  box-shadow: 5px 5px 5px gray;
+  color: white;
+  opacity: 0;
 }
 
 .frontcard-text {
-    position: absolute;
-    top: 85%;
-    right: 10%;
-    font-size: 20px;
-    font-family: 'Noto Sans KR', sans-serif;
-    color: #e0e0e0;
-    transition-duration: 0.3s;
+  font-family: "Noto Sans KR", sans-serif;
+  transition-duration: 0.3s;
+}
+
+.frontcard-text tr .finfo1 {
+  font-size: 16px;
+  position: absolute;
+  top: 81%;
+  left: 10%;
+  color: darkgray;
+}
+
+.frontcard-text tr .finfo2 {
+  font-size: 20px;
+  position: absolute;
+  top: 85%;
+  left: 10%;
+  color: white;
 }
 
 .backcard-text {
-    position: absolute;
-    left: 5%;
-    top: 5%;
-    font-family: 'Noto Sans KR', sans-serif;
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.backcard-text tr .binfo1 {
+  text-align: left;
 }
 
 .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    border-radius: 20px;
-    top: 0;
-    opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 20px;
+  top: 0;
+  opacity: 0.5;
 }
 
-.container:hover .front {   
-    z-index: -2; 
-    opacity: 1;
+.container:hover .front {
+  z-index: -2;
+  opacity: 1;
 }
 
 .container:hover .back {
-    opacity: 1;
+  opacity: 1;
 }
 
-.container:hover .back .overlay {    
-    z-index: -1;
+.container:hover .back .overlay {
+  z-index: -1;
 }
 
 .container:hover .frontcard-text {
-    color: transparent;
+  color: transparent;
 }
 
 .readmore {
-    position : absolute;
-    right: 6%;
-    top: 84%;
-    width : 120px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    color: black;
-    transition-delay: 0.3s;
-    transition-duration: 0.5s;
-    font-family: 'Noto Sans KR', sans-serif;
-    cursor: pointer;
+  position: absolute;
+  right: 6%;
+  top: 84%;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: black;
+  transition-delay: 0.3s;
+  transition-duration: 0.5s;
+  font-family: "Noto Sans KR", sans-serif;
+  cursor: pointer;
 }
 .container:hover .back .readmore {
-    color: white;
+  color: white;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .icon_btn {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 50%;
-    box-shadow:  4px 4px 5px #202020;
-    margin: 5px 5px;
-    color: black;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 2px 10px 1px black;
+  margin: 20px 20px;
 }
 
 .icon_btn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .button-bar {
-    float: right;
+  float: right;
 }
 
 .likedplace {
-    color: red;
+  color: red;
 }
 
-@media (max-width : 1024px) {
-    .container {
-        width: 45%;
-    }
+@media (max-width: 1024px) {
+  .container {
+    width: 45%;
+  }
 }
-@media (max-width : 768px) { 
-    .container {
-        width: 100%;
-    }
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
 }
