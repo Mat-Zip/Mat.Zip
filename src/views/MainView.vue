@@ -9,6 +9,7 @@
       <button class="modal_btn" @click="$router.push(`/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
       <button class="modal_btn" @click="toDatePicker"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
     </modal-comp>
+    <a class="up_btn" @click="toTop">맨위로</a>
   </div>
 </template>
 
@@ -48,6 +49,9 @@ export default {
           }
         })
       }
+    },
+    toTop() {
+      window.scroll({top: 0, behavior: 'smooth'});
     }
   }
 }
@@ -72,5 +76,14 @@ export default {
   margin: 5px 5px;
   color: black;
   cursor: pointer;
+}
+
+.up_btn {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #202020;
 }
 </style>
