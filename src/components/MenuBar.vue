@@ -135,6 +135,11 @@ export default {
   width: 30px;
   height: 30px;
 }
+
+.side_btn:hover {
+  cursor: pointer;
+}
+
 .slide-enter-active {
   transition: all 0.5s ease-out;
 }

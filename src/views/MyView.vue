@@ -8,7 +8,7 @@
       <button class="modal_btn" @click="$router.push(`/mypage/map/${$route.params.id}`).catch(()=>{})"><font-awesome-icon icon="fa-regular fa-map" /></button>
       <button class="modal_btn" @click="toDatePicker"><font-awesome-icon icon="fa-regular fa-calendar" /></button>
     </modal-comp>
-    <a class="up_btn" @click="toTop">맨위로</a>
+    <a v-show="!$store.getters.getAlertData&&!$store.getters.getShowModal" class="up_btn" @click="toTop">맨위로</a>
   </div>
 </template>
 
