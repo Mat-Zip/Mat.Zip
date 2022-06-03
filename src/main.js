@@ -17,9 +17,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // font awesome icons 추가
-import { faHeart, faMap, faCalendar, faUser, faBarChart, faArrowAltCircleLeft, faSquareCaretUp} from '@fortawesome/free-regular-svg-icons'
+import { faHeart as farHeart, faMap, faCalendar, faUser, faBarChart, faArrowAltCircleLeft, faSquareCaretUp } from '@fortawesome/free-regular-svg-icons'
+import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faHeart, faMap, faCalendar, faUser, faBarChart, faArrowAltCircleLeft, faSquareCaretUp)
+library.add(farHeart, fasHeart, faMap, faCalendar, faUser, faBarChart, faArrowAltCircleLeft, faSquareCaretUp)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

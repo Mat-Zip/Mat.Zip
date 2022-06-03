@@ -14,12 +14,14 @@
         <button
           class="modal_btn"
           @click="$router.push(`/detail/${$route.params.id}`).catch(() => {})"
+          :class="detail"
         >
           <font-awesome-icon icon="fa-regular fa-chart-bar" />
         </button>
         <button
           class="modal_btn"
           @click="$router.push(`/map/${$route.params.id}`).catch(() => {})"
+          :class="map"
         >
           <font-awesome-icon icon="fa-regular fa-map" />
         </button>
@@ -78,6 +80,12 @@ export default {
   computed: {
     isToTop() {
       return !(this.$store.getters.getShowSideMenu||this.$store.getters.getShowModal);
+    },
+    detail() {
+      return this.$route.path.includes('detail') ? 'now' : '';
+    },
+    map() {
+      return this.$route.path.includes('map') ? 'now' : '';
     }
   }
 }
@@ -114,5 +122,9 @@ export default {
   bottom: 20px;
   right: 20px;
   font-size: 30px;
+}
+
+.now {
+  color: salmon;
 }
 </style>
