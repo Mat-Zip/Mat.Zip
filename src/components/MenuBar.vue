@@ -10,7 +10,6 @@
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
-
           <div class="sidebar_text">
             <p @click="$router.push('/login')">로그인</p>
           </div>
@@ -51,16 +50,10 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      showBar: false,
-    };
-  },
   methods: {
     showSideMenu: function () {
       if(this.$store.getters.getAlertData==null&&!this.$store.getters.getShowModal) {
         this.$store.commit("setShowSideMenu", true);
-        this.sidebar = true;
       }
     },
     Logout : function() {

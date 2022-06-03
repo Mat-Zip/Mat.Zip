@@ -47,6 +47,10 @@ var router = new VueRouter({
           path: "map/:id",
           component: () => import("../views/MapView.vue"),
         },
+        {
+          path: "datepicker/:id",
+          component: () => import("../views/DatepickerView.vue")
+        },
       ],
     },
     {

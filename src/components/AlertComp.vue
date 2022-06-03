@@ -26,7 +26,7 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(2.5px);
 }
 
 .alert_box {
