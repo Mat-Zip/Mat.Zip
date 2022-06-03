@@ -17,9 +17,10 @@
       <span class="btn-bar">
         <button class="like-btn" @click.stop="addLike">
           <font-awesome-icon
+          v-show="!check"
             icon="fa-regular fa-heart"
-            :class="{ likedplace: check }"
           />
+          <font-awesome-icon v-show="check" icon="fa-solid fa-heart" style="color: salmon;"/>
         </button>
       </span>
       <span class="hinfo">
