@@ -1,7 +1,7 @@
 <template>
   <div id="menu_bar">
     <transition name="slide">
-      <div v-show="$store.getters.getShowSideMenu" id="schedule">
+      <div v-show="$store.getters.getShowSideMenu" id="schedule" @click.stop="()=>{}">
         <!-- 로그인 하기 전 -->
         <div v-show="!logged" class="sidebar_content">
           <div class="sidebar_text">
@@ -52,8 +52,13 @@
 export default {
   methods: {
     showSideMenu: function () {
-      if(this.$store.getters.getAlertData==null&&!this.$store.getters.getShowModal) {
-        this.$store.commit("setShowSideMenu", true);
+      if(this.$store.getters.getAlertData==null) {
+        if(this.$store.getters.getShowSideMenu) {
+          this.$store.commit("setShowSideMenu", false);
+        }
+        else {
+          this.$store.commit("setShowSideMenu", true);
+        }
       }
     },
     Logout : function() {
@@ -134,6 +139,7 @@ export default {
   font-size: 20px;
   width: 30px;
   height: 30px;
+  z-index: 10;
 }
 
 .side_btn:hover {
@@ -164,7 +170,6 @@ span {
   position: absolute;
   background-color: black;
   transition: all 0.6s ease;
-  transition-delay: 0.5s;
 }
 
 span:nth-child(1) {
@@ -177,31 +182,7 @@ span:nth-child(3) {
   top: 17px;
 }
 
-@keyframes trans_1 {
-  0% {
-    top : 10px;
-  }
-  70% {
-    top : 0px;
-  }
-  100% {
-    top : 10px;
-  }
-}
-@keyframes trans_2 {
-  0% {
-    top : 10px;
-  }
-  70% {
-    top : 20px;
-  }
-  100% {
-    top : 10px;
-  }
-}
-
 .sideOn:nth-child(1) {
-  animation: trans_1 0.5s;
   transform: rotate(45deg);
   top: 10px;
 }
@@ -210,7 +191,6 @@ span:nth-child(3) {
   opacity: 0;
 }
 .sideOn:nth-child(3) {
-  animation: trans_2 0.5s;
   transform: rotate(-45deg);
   top: 10px;
 }
