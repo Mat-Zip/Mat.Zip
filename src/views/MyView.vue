@@ -27,7 +27,7 @@ export default {
   methods: {
     toDatePicker() {
       if(this.$store.getters.getLogged) {
-        this.$router.push(`/datepicker/${this.$route.params.id}`).catch(()=>{});
+        this.$router.push(`/mypage/datepicker/${this.$route.params.id}`).catch(()=>{});
       }
       else {
         this.$store.commit('setAlertData', {

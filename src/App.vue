@@ -63,8 +63,7 @@ nav a.router-link-exact-active {
   z-index: 100;
 }
 
-.trans-enter-active,
-.trans-leave-active {
+.trans-enter-active {
   transition: all .2s ease;
 }
 .trans-enter,
