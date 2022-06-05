@@ -97,7 +97,6 @@ export default {
   height: 100%;
   position: relative;
   overflow: hidden;
-  border-radius:20px;
 }
 
 .map_wrap {

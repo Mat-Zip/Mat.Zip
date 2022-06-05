@@ -76,7 +76,8 @@ export default {
 <style scoped>
 .cld_dpview {
   height: 70vh;
-  border-radius: 0 20px 20px 0;
+  border-radius: 0;
+  border: none;
 }
 
 .cld_view {

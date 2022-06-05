@@ -2,10 +2,7 @@
   <div class="card">
     <!-- 카드 정보 -->
     <span class="cimg">
-      <img
-        class="i1"
-        :src="require(`@/assets/place/${place.name}/${place.img[0]}`)"
-      />
+      <img class="i1" :src="require(`@/assets/place/${place.name}/${place.img[0]}`)" />
     </span>
     <span class="cinfo">
       <p class="i1">{{ place.category }}</p>
@@ -13,14 +10,11 @@
     </span>
 
     <!-- 카드 호버링 시 정보 -->
-    <div class="card-hover">
+    <div class="card-hover" @click="showDetail">
       <span class="btn-bar">
         <button class="like-btn" @click.stop="addLike">
-          <font-awesome-icon
-          v-show="!check"
-            icon="fa-regular fa-heart"
-          />
-          <font-awesome-icon v-show="check" icon="fa-solid fa-heart" style="color: salmon;"/>
+          <font-awesome-icon v-show="!check" icon="fa-regular fa-heart" />
+          <font-awesome-icon v-show="check" icon="fa-solid fa-heart" style="color: salmon;" />
         </button>
       </span>
       <span class="hinfo">
@@ -29,7 +23,7 @@
         <p class="i3">OPEN : {{ place.time }}</p>
       </span>
     </div>
-    <a class="readmore-btn" @click="showDetail">READ MORE</a>
+    <a class="readmore-btn">READ MORE</a>
   </div>
 </template>
 

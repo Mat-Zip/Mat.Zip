@@ -18,6 +18,6 @@ export default {
 }
 
 .cld-comp {
-  width: 80%;
+  width: 100%;
 }
 </style>

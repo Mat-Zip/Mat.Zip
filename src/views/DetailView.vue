@@ -51,8 +51,8 @@ export default {
 .swiper {
   width: 45%;
   height: 90%;
-  border-radius: 20px;
   top: 5%;
+  border-radius: 5px;
   margin: 0 2.5% 0 2.5%;
 }
 

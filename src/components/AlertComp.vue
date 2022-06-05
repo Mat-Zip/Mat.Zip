@@ -27,26 +27,29 @@ export default {
     width: 100vw;
     height: 100vh;
     backdrop-filter: blur(2.5px);
+    background-color: rgba(0,0,0,0.35);
+    border: none;
 }
 
 .alert_box {
     position: absolute;
-    top: 200px;
+    top: 30%;
     left: 40%;
     width: 350px;
     height: 200px;
     background-color: white;
     border: 1px solid black;
-    border-radius:20px;
     color: black;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.35);
 }
 .alert_close {
     position: absolute;
-    top : 5px;
-    right: 5px;
+    top : 8px;
+    right: 8px;
     border : none;
     background-color: white;
-    border-radius:20px;
+    font-size: 16px;
 }
 .alert_text {
     position: absolute;
@@ -57,10 +60,22 @@ export default {
 
 .alert_btnbox {
     position: absolute;
-    bottom: 5px;
-    right: 10px;
+    width: 250px;
+    bottom: 20px;
+    left: 50px;
+    display: flex;
+    justify-content: center;
 }
 .alert_btn {
-    margin-right: 10px;
+    border: none;
+    background-color: lightgray;
+    color: black;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.alert_btn:hover {
+    background-color: black;
+    color: white;
 }
 </style>
