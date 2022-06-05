@@ -1,19 +1,17 @@
 <template>
   <transition name="fade">
     <!-- 전체 모달창 onclick=>모달창 닫기 -->
-    <div
-      v-show="$store.getters.getShowModal"
-      class="modal_route"
-      @click.self="backSpace"
-    >
-      <!-- 커스텀 버튼 -->
-      <div class="modal_btn_box">
-        <slot></slot>
-      </div>
-      <button class="close_btn" @click="backSpace">X</button>
+    <div v-show="$store.getters.getShowModal" class="modal_route" @click.self="backSpace">
+
+
       <!-- 모달 컨텐츠 -->
       <div class="modal_content">
         <router-view />
+        <!-- 커스텀 버튼 -->
+        <div class="modal_btn_box">
+          <slot></slot>
+          <button class="close_btn" @click="backSpace">X</button>
+        </div>
       </div>
     </div>
   </transition>
@@ -31,9 +29,11 @@ export default {
     },
   },
 };
-</script>
+</script>8
 
 <style scoped>
+
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.33s ease-in;
@@ -59,32 +59,31 @@ export default {
 .modal_route > .modal_content {
   width: 65%;
   height: 70%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 15%;
+  left: 17.5%;
   background: white;
-  /* border-radius: 20px; */
-  box-shadow: 5px 5px 10px #404040;
+  box-shadow: 2px 2px 10px rgba(00, 00, 00, 0.5);
 }
 
 .close_btn {
   border: 0px;
   box-shadow: 0 0;
-  background-color: transparent;
-  position: fixed;
-  color: white;
-  top: 9%;
-  right: 16.5%;
+  position: absolute;
+  color: black;
+  right: 0;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  font-size: 25px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  background-color: white;
 }
 
 .modal_btn_box {
-  position: fixed;
-  top: 11%;
-  left: 17.5%;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  background-color: white;
 }
 </style>

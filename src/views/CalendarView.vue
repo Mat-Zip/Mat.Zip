@@ -15,5 +15,6 @@ export default {
 .cld_view {
   width: 70vw;
   margin: auto;
+  height: calc(100vh-82px);
 }
 </style>
