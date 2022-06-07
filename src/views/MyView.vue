@@ -1,35 +1,41 @@
 <template>
   <div class="about">
-    <!-- MainView 주석 참조 -->
-    <web-card
-      v-show="$store.getters.getLikedPlaces"
-      v-for="place in $store.getters.getLikedPlaces"
-      :key="place.id"
-      :place="place"
-    ></web-card>
-    <div v-if="$store.getters.getLikedPlaces.length == 0">
-      좋아요를 눌러주세요!
+    <div class="container">
+      <!-- MainView 주석 참조 -->
+      <web-card
+        v-show="$store.getters.getLikedPlaces"
+        v-for="place in $store.getters.getLikedPlaces"
+        :key="place.id"
+        :place="place"
+      ></web-card>
+      <div v-if="$store.getters.getLikedPlaces.length == 0">
+        좋아요를 눌러주세요!
+      </div>
+      <modal-comp :parents="currentURL">
+        <button
+          class="modal_btn"
+          @click="
+            $router.push(`/mypage/detail/${$route.params.id}`).catch(() => {})
+          "
+        >
+          <font-awesome-icon icon="fa-regular fa-chart-bar" />
+        </button>
+        <button
+          class="modal_btn"
+          @click="
+            $router.push(`/mypage/map/${$route.params.id}`).catch(() => {})
+          "
+        >
+          <font-awesome-icon icon="fa-regular fa-map" />
+        </button>
+        <button class="modal_btn" @click="toDatePicker">
+          <font-awesome-icon icon="fa-regular fa-calendar" />
+        </button>
+      </modal-comp>
     </div>
-    <modal-comp :parents="currentURL">
-      <button
-        class="modal_btn"
-        @click="
-          $router.push(`/mypage/detail/${$route.params.id}`).catch(() => {})
-        "
-      >
-        <font-awesome-icon icon="fa-regular fa-chart-bar" />
-      </button>
-      <button
-        class="modal_btn"
-        @click="$router.push(`/mypage/map/${$route.params.id}`).catch(() => {})"
-      >
-        <font-awesome-icon icon="fa-regular fa-map" />
-      </button>
-      <button class="modal_btn" @click="toDatePicker">
-        <font-awesome-icon icon="fa-regular fa-calendar" />
-      </button>
-    </modal-comp>
-    <a v-show="isToTop" class="up_btn" @click="toTop"><font-awesome-icon icon="fa-regular fa-square-caret-up" /></a>
+    <a v-show="isToTop" class="up_btn" @click="toTop"
+      ><font-awesome-icon icon="fa-regular fa-square-caret-up"
+    /></a>
   </div>
 </template>
 
@@ -72,22 +78,30 @@ export default {
       }
     },
     toTop() {
-      window.scroll(0,0);
-    }
+      window.scroll(0, 0);
+    },
   },
   computed: {
     isToTop() {
-      return !(this.$store.getters.getShowSideMenu||this.$store.getters.getShowModal);
-    }
-  }
-}
+      return !(
+        this.$store.getters.getShowSideMenu || this.$store.getters.getShowModal
+      );
+    },
+  },
+};
 </script>
 
 <style scoped>
 .about {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+}
+
+.container {
+  width: 1570px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
 }
 
 .modal_btn {
