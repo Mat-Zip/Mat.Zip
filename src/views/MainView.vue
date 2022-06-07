@@ -29,7 +29,9 @@
           <font-awesome-icon icon="fa-regular fa-calendar" />
         </button>
       </modal-comp>
-      <a v-show="isToTop" class="up_btn" @click="toTop"><font-awesome-icon icon="fa-regular fa-square-caret-up" /></a>
+      <a v-show="isToTop" class="up_btn" @click="toTop"
+        ><font-awesome-icon icon="fa-regular fa-square-caret-up"
+      /></a>
     </div>
   </div>
 </template>
@@ -74,24 +76,26 @@ export default {
       }
     },
     toTop() {
-      window.scroll(0,0);
-    }
+      window.scroll(0, 0);
+    },
   },
   computed: {
     isToTop() {
-      return !(this.$store.getters.getShowSideMenu||this.$store.getters.getShowModal);
+      return !(
+        this.$store.getters.getShowSideMenu || this.$store.getters.getShowModal
+      );
     },
     detail() {
-      return this.$route.path.includes('detail') ? 'now' : '';
+      return this.$route.path.includes("detail") ? "now" : "";
     },
     map() {
-      return this.$route.path.includes('map') ? 'now' : '';
+      return this.$route.path.includes("map") ? "now" : "";
     },
     datepicker() {
-      return this.$route.path.includes('datepicker') ? 'now' : '';
-    }
-  }
-}
+      return this.$route.path.includes("datepicker") ? "now" : "";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -101,7 +105,7 @@ export default {
 }
 
 .container {
-  width: 1560px;
+  width: 1570px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
