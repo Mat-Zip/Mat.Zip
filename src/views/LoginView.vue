@@ -91,19 +91,19 @@ export default {
   width: 80%;
   height: 50px;
   border-radius: 10px;
-  border: 1px solid #fcfcfc;
+  border: 0;
   right: 10%;
-  color: white;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 15px;
   box-shadow: 4px 4px 5px gray;
+  background-color: #f0f0f0;
+  color: black;
+  cursor: pointer;
 }
 .email {
-  background-image: linear-gradient(to bottom, black, green);
   bottom: 25%;
 }
 .google {
-  background-image: linear-gradient(to bottom, black, blue);
   bottom: 15%;
 }
 </style>

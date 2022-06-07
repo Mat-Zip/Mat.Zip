@@ -42,11 +42,12 @@ export default {
 }
 .alert_close {
     position: absolute;
-    top : 5px;
-    right: 5px;
+    top : 8px;
+    right: 8px;
     border : none;
     background-color: white;
-    border-radius:20px;
+    border-radius:50%;
+    box-shadow: 2px 2px 5px gray;
 }
 .alert_text {
     position: absolute;
@@ -57,10 +58,15 @@ export default {
 
 .alert_btnbox {
     position: absolute;
-    bottom: 5px;
+    bottom: 8px;
     right: 10px;
 }
 .alert_btn {
     margin-right: 10px;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 2px 2px 5px gray;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 5px;
 }
 </style>
