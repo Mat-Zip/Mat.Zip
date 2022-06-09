@@ -1,7 +1,11 @@
 <template>
   <div id="menu_bar">
     <transition name="slide">
-      <div v-show="$store.getters.getShowSideMenu" id="schedule" @click.stop="()=>{}">
+      <div
+        v-show="$store.getters.getShowSideMenu"
+        id="schedule"
+        @click.stop="() => {}"
+      >
         <!-- 로그인 하기 전 -->
         <div v-show="!logged" class="sidebar_content">
           <div class="sidebar_text">
@@ -52,18 +56,17 @@
 export default {
   methods: {
     showSideMenu: function () {
-      if(this.$store.getters.getAlertData==null) {
-        if(this.$store.getters.getShowSideMenu) {
+      if (this.$store.getters.getAlertData == null) {
+        if (this.$store.getters.getShowSideMenu) {
           this.$store.commit("setShowSideMenu", false);
-        }
-        else {
+        } else {
           this.$store.commit("setShowSideMenu", true);
         }
       }
     },
-    Logout : function() {
+    Logout: function () {
       this.$store.dispatch("logout");
-    }
+    },
   },
   computed: {
     logged() {
@@ -71,8 +74,8 @@ export default {
     },
     hamburger() {
       return this.$store.getters.getShowSideMenu ? "sideOn" : "";
-    }
-  }
+    },
+  },
 };
 </script>
 

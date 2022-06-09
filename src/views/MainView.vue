@@ -105,10 +105,22 @@ export default {
 }
 
 .container {
-  width: 1570px;
+  width: 1560px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 1560px) {
+  .container {
+    width: 1040px;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .container {
+    width: 520px;
+  }
 }
 
 .modal_btn {

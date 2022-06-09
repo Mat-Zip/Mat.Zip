@@ -2,19 +2,27 @@
   <div id="app" @click="SideMenuOff">
     <nav>
       <router-link to="/">
-        <img class="login_image" src="./assets/MAT.ZIP-logo.png" width="100px" height="100px" />
+        <img
+          class="login_image"
+          src="./assets/MAT.ZIP-logo.png"
+          width="100px"
+          height="100px"
+        />
       </router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <router-view />
     <transition name="trans">
-      <alert-comp v-if="$store.getters.getAlertData" :alertData="$store.getters.getAlertData"></alert-comp>
+      <alert-comp
+        v-if="$store.getters.getAlertData"
+        :alertData="$store.getters.getAlertData"
+      ></alert-comp>
     </transition>
   </div>
 </template>
 
 <script>
-import AlertComp from './components/AlertComp.vue';
+import AlertComp from "./components/AlertComp.vue";
 import MenuBar from "./components/MenuBar.vue";
 
 export default {
@@ -53,7 +61,7 @@ nav {
 }
 
 .trans-enter-active {
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 .trans-enter,
 .trans-leave-to {
@@ -63,4 +71,6 @@ nav {
 .trans-enter-to {
   opacity: 1;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
 </style>

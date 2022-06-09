@@ -1,7 +1,12 @@
 <template>
   <div class="login">
     <div class="login_container">
-      <img class="login_image" src="../assets/MAT.ZIP-logo.png" width="150px" height="130px" />
+      <img
+        class="login_image"
+        src="../assets/MAT.ZIP-logo.png"
+        width="150px"
+        height="130px"
+      />
       <form>
         <div class="login_box">
           <input
@@ -104,7 +109,7 @@ export default {
   color: lightgray;
 }
 .login_text:focus::placeholder {
-  color : salmon;
+  color: salmon;
 }
 .login_text:focus {
   outline: 1px solid salmon;
@@ -120,7 +125,7 @@ export default {
   bottom: 15%;
 }
 .login_btn:hover {
-  background-color: black;
+  background-color: gray;
   color: white;
   border: 0;
 }
