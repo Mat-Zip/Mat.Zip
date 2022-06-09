@@ -29,13 +29,11 @@ export default {
   z-index: 1;
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 20px 0 0 20px;
 }
 .info_img {
     object-fit: cover;
     width: 100%;
     height: 55%;
-    border-radius: 20px 0 0 0;
 }
 .info_text {
     position: absolute;

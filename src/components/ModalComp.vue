@@ -2,8 +2,6 @@
   <transition name="fade">
     <!-- 전체 모달창 onclick=>모달창 닫기 -->
     <div v-show="$store.getters.getShowModal" class="modal_route" @click.self="backSpace">
-
-
       <!-- 모달 컨텐츠 -->
       <div class="modal_content">
         <router-view />
@@ -70,13 +68,17 @@ export default {
   border: 0px;
   box-shadow: 0 0;
   position: absolute;
-  color: black;
+  color: gray;
   right: 0;
   cursor: pointer;
   width: 40px;
   height: 40px;
   font-size: 20px;
   background-color: white;
+}
+
+.close_btn:hover {
+  color: black;
 }
 
 .modal_btn_box {

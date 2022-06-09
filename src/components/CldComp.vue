@@ -85,7 +85,7 @@ export default {
 }
 
 .cld-dates {
-  width: 12vh;
+  width: 3vw;
   height: 12vh;
   overflow-y: auto;
 }

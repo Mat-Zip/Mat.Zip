@@ -49,7 +49,11 @@ export default {
     right: 8px;
     border : none;
     background-color: white;
-    font-size: 16px;
+    color: gray;
+    font-size: 18px;
+}
+.alert_close:hover {
+    color: black;
 }
 .alert_text {
     position: absolute;

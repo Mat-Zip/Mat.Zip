@@ -6,7 +6,7 @@
       is-dark
       :minute-increment="5"
       is-expanded
-      :class="currentClass"
+      class="dp_view"
     >
     </v-date-picker>
     <button @click="addSchedule" class="add-btn">일정 추가</button>
@@ -15,12 +15,10 @@
 
 <script>
 export default {
-  props: {
-    isRoutingDpView: Boolean,
-  },
   data() {
     return {
       date: new Date(),
+      width: 0
     };
   },
   methods: {
@@ -50,24 +48,13 @@ export default {
       this.$store.commit("setAlertData", newAlert);
     },
   },
-  computed: {
-    currentClass() {
-      return this.isRoutingDpView ? "dp_dpview" : "dp_view";
-    },
-  },
 };
 </script>
 
 <style scoped>
-.dp_dpview {
-  width: 300px;
+.dp_view {
   height: 70vh;
   border-radius: 0;
-}
-
-.dp_view {
-  width: 100%;
-  border-radius: 20px;
 }
 
 .add-btn {
