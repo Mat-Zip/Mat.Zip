@@ -118,8 +118,7 @@ export default {
   font-size: 20px;
   background-color: white;
   border: none;
-  /* border-radius: 50%;
-  opacity: 0.7; */
+  cursor: pointer;
 }
 
 .up_btn {
@@ -129,6 +128,7 @@ export default {
   bottom: 20px;
   right: 20px;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .now {

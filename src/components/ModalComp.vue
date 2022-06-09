@@ -61,11 +61,11 @@ export default {
   top: 15%;
   left: 17.5%;
   background: white;
-  box-shadow: 2px 2px 10px rgba(00, 00, 00, 0.5);
+  box-shadow: 3px 3px 10px -2px rgba(00, 00, 00, 0.5);
 }
 
 .close_btn {
-  border: 0px;
+  border: none;
   box-shadow: 0 0;
   position: absolute;
   color: gray;
@@ -87,5 +87,7 @@ export default {
   left: 0;
   width: 100%;
   background-color: white;
+  box-shadow: 2px -1.5px 10px -2px rgba(00, 00, 00, 0.5);
+  z-index: 100;
 }
 </style>
