@@ -1,7 +1,7 @@
 <template>
   <div class="dp-view">
-    <dp-comp :class="currentClass" />
-    <cld-comp v-show="isMobile" class="cld-comp" :isRoutingDpView="true" />
+    <dp-comp class="dp-comp" />
+    <cld-comp class="cld-comp" :isRoutingDpView="true" />
   </div>
 </template>
 <script>
@@ -9,14 +9,6 @@ import DpComp from "@/components/DpComp.vue";
 import CldComp from "@/components/CldComp.vue";
 export default {
   components: { DpComp, CldComp },
-  computed: {
-    isMobile() {
-      return window.innerWidth>=1200;
-    },
-    currentClass() {
-      return this.isMobile ? 'web_view' : 'mobile_view'
-    }
-  }
 };
 </script>
 
@@ -30,11 +22,16 @@ export default {
   width: 100%;
 }
 
-.web_view {
+.dp-comp {
   width: 43%;
 }
 
-.mobile_view {
-  width: 100%;
+@media screen and (max-width: 1200px){ 
+  .cld-comp {
+    display: none;
+  }
+  .dp-comp {
+    width: 100%;
+  }
 }
 </style>

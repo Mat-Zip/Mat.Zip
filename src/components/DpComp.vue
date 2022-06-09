@@ -66,11 +66,15 @@ export default {
   top: 330px;
   left: 33px;
   z-index: 1;
-
+  cursor: pointer;
   padding: 8px;
   background-color: rgb(74, 85, 104);
   border-radius: 4px;
   border-style: none;
   color: white;
+}
+
+.add-btn:hover {
+  background-color: rgb(66, 153, 225);
 }
 </style>

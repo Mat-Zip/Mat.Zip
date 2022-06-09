@@ -51,6 +51,7 @@ export default {
     background-color: white;
     color: gray;
     font-size: 18px;
+    cursor: pointer;
 }
 .alert_close:hover {
     color: black;
@@ -76,6 +77,7 @@ export default {
     color: black;
     padding: 10px 20px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .alert_btn:hover {
