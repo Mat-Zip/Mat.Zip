@@ -11,8 +11,7 @@ export default {
   components: { DpComp, CldComp },
   computed: {
     isMobile() {
-      const modalContent=document.querySelector('.modal_content');
-      return modalContent.offsetWidth>700;
+      return window.innerWidth>=1200;
     },
     currentClass() {
       return this.isMobile ? 'web_view' : 'mobile_view'

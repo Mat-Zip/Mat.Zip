@@ -37,8 +37,12 @@ export default {
 
       const newAlert = {
         alertText: "일정이 추가되었습니다",
-        buttonText1: "확인하기",
+        buttonText1: "돌아가기",
         buttonFunc1: () => {
+          this.$store.commit("setAlertData", null);
+        },
+        buttonText2: "확인하기",
+        buttonFunc2: () => {
           this.$router.push("/calendar");
           this.$store.commit("setShowModal", false);
           this.$store.commit("setAlertData", null);
