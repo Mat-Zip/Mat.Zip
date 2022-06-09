@@ -99,13 +99,28 @@ export default {
 </script>
 
 <style scoped>
-/* .home {
-} */
+.home {
+  display: flex;
+  justify-content: center;
+}
 
 .container {
+  width: 1560px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 1560px) {
+  .container {
+    width: 1040px;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .container {
+    width: 520px;
+  }
 }
 
 .modal_btn {
@@ -115,6 +130,7 @@ export default {
   font-size: 20px;
   background-color: white;
   border: none;
+  cursor: pointer;
 }
 
 .up_btn {
@@ -124,6 +140,7 @@ export default {
   bottom: 20px;
   right: 20px;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .now {

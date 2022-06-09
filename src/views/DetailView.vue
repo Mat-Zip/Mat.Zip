@@ -49,7 +49,7 @@ export default {
 }
 
 .swiper {
-  width: 45%;
+  width: 46%;
   height: 90%;
   top: 5%;
   border-radius: 5px;

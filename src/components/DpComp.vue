@@ -6,7 +6,7 @@
       is-dark
       :minute-increment="5"
       is-expanded
-      :class="currentClass"
+      class="dp_view"
     >
     </v-date-picker>
     <button @click="addSchedule" class="add-btn">일정 추가</button>
@@ -15,12 +15,10 @@
 
 <script>
 export default {
-  props: {
-    isRoutingDpView: Boolean,
-  },
   data() {
     return {
       date: new Date(),
+      width: 0
     };
   },
   methods: {
@@ -39,8 +37,12 @@ export default {
 
       const newAlert = {
         alertText: "일정이 추가되었습니다",
-        buttonText1: "확인하기",
+        buttonText1:"돌아가기",
         buttonFunc1: () => {
+          this.$store.commit("setAlertData", null);
+        },
+        buttonText2: "확인하기",
+        buttonFunc2: () => {
           this.$router.push("/calendar");
           this.$store.commit("setShowModal", false);
           this.$store.commit("setAlertData", null);
@@ -50,24 +52,13 @@ export default {
       this.$store.commit("setAlertData", newAlert);
     },
   },
-  computed: {
-    currentClass() {
-      return this.isRoutingDpView ? "dp_dpview" : "dp_view";
-    },
-  },
 };
 </script>
 
 <style scoped>
-.dp_dpview {
-  width: 300px;
+.dp_view {
   height: 70vh;
   border-radius: 0;
-}
-
-.dp_view {
-  width: 100%;
-  border-radius: 20px;
 }
 
 .add-btn {
@@ -75,11 +66,15 @@ export default {
   top: 330px;
   left: 33px;
   z-index: 1;
-
   padding: 8px;
   background-color: rgb(74, 85, 104);
   border-radius: 4px;
   border-style: none;
   color: white;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: rgb(66, 153, 225);
 }
 </style>
