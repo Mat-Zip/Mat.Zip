@@ -99,13 +99,10 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  display: flex;
-  justify-content: center;
-}
+/* .home {
+} */
 
 .container {
-  width: 1570px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
@@ -118,8 +115,6 @@ export default {
   font-size: 20px;
   background-color: white;
   border: none;
-  /* border-radius: 50%;
-  opacity: 0.7; */
 }
 
 .up_btn {

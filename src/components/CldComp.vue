@@ -32,7 +32,7 @@ export default {
       masks: {
         weekdays: "WWWW",
       },
-      schedules: []
+      schedules: [],
     };
   },
   created() {
@@ -53,11 +53,11 @@ export default {
     },
     getScd() {
       return this.$store.getters.getSchedules;
-    }
+    },
   },
   watch: {
     getScd(el) {
-      this.schedules=[];
+      this.schedules = [];
       for (let item of el) {
         const schedule = {
           customData: {
@@ -68,8 +68,8 @@ export default {
         };
         this.schedules.push(schedule);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
