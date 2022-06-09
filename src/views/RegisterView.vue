@@ -104,7 +104,10 @@ export default {
   font-size: 15px;
 }
 .email {
-  background-image: linear-gradient(to bottom, black, green);
+  background-color: salmon;
   bottom: 25%;
+}
+.login_btn:hover {
+  background-color: black;
 }
 </style>
