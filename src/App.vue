@@ -1,7 +1,9 @@
 <template>
   <div id="app" @click="SideMenuOff">
     <nav>
-      <router-link to="/">Main</router-link>
+      <router-link to="/">
+        <img class="login_image" src="./assets/logo.jpg" width="100px" height="100px" />
+      </router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
     <router-view />
@@ -34,24 +36,11 @@ export default {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   background-color: #fcfcfc;
 }
 
 nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  padding: 0 10px 0 10px;
 }
 
 .menu-bar1 {

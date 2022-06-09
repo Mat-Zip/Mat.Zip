@@ -1,8 +1,7 @@
 <template>
   <div class="login">
     <div class="login_container">
-      <img class="login_image" src="../assets/logo.png" alt="" width="30px" />
-      <h2>부산인데</h2>
+      <img class="login_image" src="../assets/logo.jpg" width="150px" height="130px" />
       <form>
         <div class="login_box">
           <input
@@ -65,15 +64,14 @@ export default {
   left: 30%;
   width: 40%;
   height: 70%;
-  background-color: #e0e0e0;
+  background-color: white;
   text-align: center;
   font-family: "Noto Sans KR", sans-serif;
-  border-radius: 20px;
-  box-shadow: 8px 8px 10px gray;
+  border-radius: 10px;
+  border: 1px solid lightgray;
 }
 .login_image {
-  margin-top: 10%;
-  margin-bottom: 5%;
+  margin-top: 5%;
 }
 .login_box {
   width: 100%;
@@ -88,27 +86,42 @@ export default {
   height: 50px;
   border-radius: 10px;
   font-size: 18px;
-  box-shadow: 4px 4px 5px gray;
-  border: 1px solid #fcfcfc;
+  border: 1px solid lightgray;
 }
 .login_btn {
   position: absolute;
   width: 80%;
   height: 50px;
   border-radius: 10px;
-  border: 1px solid #fcfcfc;
+  border: 1px solid lightgray;
   right: 10%;
   color: white;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 15px;
-  box-shadow: 4px 4px 5px gray;
+}
+.login_text::placeholder {
+  font-family: "Noto Sans KR", sans-serif;
+  color: lightgray;
+}
+.login_text:focus::placeholder {
+  color : salmon;
+}
+.login_text:focus {
+  outline: 1px solid salmon;
 }
 .email {
-  background-image: linear-gradient(to bottom, black, green);
+  background-color: salmon;
   bottom: 25%;
 }
 .google {
-  background-image: linear-gradient(to bottom, black, blue);
+  background-color: white;
+  color: salmon;
+  border: 1px solid salmon;
   bottom: 15%;
+}
+.login_btn:hover {
+  background-color: black;
+  color: white;
+  border: 0;
 }
 </style>
