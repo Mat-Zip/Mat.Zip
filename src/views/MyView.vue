@@ -112,7 +112,6 @@ export default {
   background-color: white;
   border: none;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 .up_btn {
@@ -122,6 +121,5 @@ export default {
   bottom: 20px;
   right: 20px;
   font-size: 30px;
-  cursor: pointer;
 }
 </style>

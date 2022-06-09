@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="login_container">
-      <img class="login_image" src="../assets/logo.jpg" alt="" width="150px" height="130px" />
+      <img class="login_image" src="../assets/MAT.ZIP-logo.png" alt="" width="150px" height="130px" />
       <form>
         <div class="login_box">
           <input

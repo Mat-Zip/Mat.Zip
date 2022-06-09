@@ -118,7 +118,6 @@ export default {
   font-size: 20px;
   background-color: white;
   border: none;
-  cursor: pointer;
   /* border-radius: 50%;
   opacity: 0.7; */
 }
@@ -130,7 +129,6 @@ export default {
   bottom: 20px;
   right: 20px;
   font-size: 30px;
-  cursor: pointer;
 }
 
 .now {

@@ -37,12 +37,8 @@ export default {
 
       const newAlert = {
         alertText: "일정이 추가되었습니다",
-        buttonText1: "돌아가기",
+        buttonText1: "확인하기",
         buttonFunc1: () => {
-          this.$store.commit("setAlertData", null);
-        },
-        buttonText2: "확인하기",
-        buttonFunc2: () => {
           this.$router.push("/calendar");
           this.$store.commit("setShowModal", false);
           this.$store.commit("setAlertData", null);
@@ -66,15 +62,11 @@ export default {
   top: 330px;
   left: 33px;
   z-index: 1;
-  cursor: pointer;
+
   padding: 8px;
   background-color: rgb(74, 85, 104);
   border-radius: 4px;
   border-style: none;
   color: white;
-}
-
-.add-btn:hover {
-  background-color: rgb(66, 153, 225);
 }
 </style>

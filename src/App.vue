@@ -2,7 +2,7 @@
   <div id="app" @click="SideMenuOff">
     <nav>
       <router-link to="/">
-        <img class="login_image" src="./assets/logo.jpg" width="100px" height="100px" />
+        <img class="login_image" src="./assets/MAT.ZIP-logo.png" width="100px" height="100px" />
       </router-link>
     </nav>
     <menu-bar class="menu-bar1"></menu-bar>
