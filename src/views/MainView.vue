@@ -78,6 +78,16 @@ export default {
     toTop() {
       window.scroll(0, 0);
     },
+    scrollEvent() {
+      const cards = document.querySelectorAll('.web-card');
+      for(const card of cards) {
+        if(!card.classList.contains('show')) {
+          if(window.innerHeight > card.getBoundingClientRect().top + 200) {
+            card.classList.add('show');
+          }
+        }
+      }
+    }
   },
   computed: {
     isToTop() {
@@ -94,6 +104,10 @@ export default {
     datepicker() {
       return this.$route.path.includes("datepicker") ? "now" : "";
     },
+  },
+  mounted() {
+    this.scrollEvent();
+    window.addEventListener('scroll', this.scrollEvent);
   },
 };
 </script>
@@ -122,6 +136,16 @@ export default {
     width: 520px;
   }
 }
+
+.web-card {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.web-card.show {
+  opacity: 1;
+}
+
 
 .modal_btn {
   width: 40px;

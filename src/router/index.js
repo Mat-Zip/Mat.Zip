@@ -52,6 +52,10 @@ var router = new VueRouter({
           component: () => import("../views/DatepickerView.vue")
         },
       ],
+      beforeEnter: (to, from, next) => {
+        window.scroll(0, 0);
+        next();
+      }
     },
     {
       path: "/calendar",

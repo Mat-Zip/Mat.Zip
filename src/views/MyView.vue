@@ -7,7 +7,7 @@
     <div class="container" v-if="$store.getters.getLikedPlaces.length>0">
       <!-- MainView 주석 참조 -->
       <web-card
-        
+        class="web-card"
         v-for="place in $store.getters.getLikedPlaces"
         :key="place.id"
         :place="place"
@@ -82,6 +82,16 @@ export default {
     toTop() {
       window.scroll(0, 0);
     },
+    scrollEvent() {
+      const cards = document.querySelectorAll('.web-card');
+      for(const card of cards) {
+        if(!card.classList.contains('show')) {
+          if(window.innerHeight > card.getBoundingClientRect().top + 200) {
+            card.classList.add('show');
+          }
+        }
+      }
+    }
   },
   computed: {
     isToTop() {
@@ -89,6 +99,10 @@ export default {
         this.$store.getters.getShowSideMenu || this.$store.getters.getShowModal
       );
     },
+  },
+  mounted() {
+    this.scrollEvent();
+    window.addEventListener('scroll', this.scrollEvent);
   },
 };
 </script>
@@ -104,6 +118,15 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+
+.web-card {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.web-card.show {
+  opacity: 1;
 }
 
 .blanked {
