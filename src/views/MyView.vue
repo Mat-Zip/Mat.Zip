@@ -1,16 +1,18 @@
 <template>
   <div class="about">
-    <div class="container">
+    <div class="blanked" v-if="$store.getters.getLikedPlaces.length == 0">
+        <p>좋아요 한 장소가 없습니다</p>
+        <button @click="$router.push('/')">보러 가기</button>
+    </div>
+    <div class="container" v-if="$store.getters.getLikedPlaces.length>0">
       <!-- MainView 주석 참조 -->
       <web-card
-        v-show="$store.getters.getLikedPlaces"
+        
         v-for="place in $store.getters.getLikedPlaces"
         :key="place.id"
         :place="place"
       ></web-card>
-      <div v-if="$store.getters.getLikedPlaces.length == 0">
-        좋아요를 눌러주세요!
-      </div>
+      
       <modal-comp :parents="currentURL">
         <button
           class="modal_btn"
@@ -102,6 +104,32 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+
+.blanked {
+  margin-top: 11vh;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.blanked p {
+  font-size: 25px;
+  text-align: center;
+  margin: 15px;
+}
+
+.blanked button {
+  border: none;
+  padding: 10px 20px;
+  background-color: lightgray;
+  color: black;
+}
+
+.blanked button:hover {
+  background-color: gray;
+  color: white;
 }
 
 @media screen and (max-width: 1560px) {

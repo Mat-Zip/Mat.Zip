@@ -46,27 +46,58 @@ export default {
   display: flex;
   height: 100%;
   width: 100%;
+  overflow-y: auto;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .swiper {
-  width: 46%;
-  height: 90%;
+  width: 29vw;
+  height: 63vh;
   top: 5%;
   border-radius: 5px;
   margin: 0 2.5% 0 2.5%;
 }
 
 .slide-img {
-  position: absolute;
-  top: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: salmon;
+}
+
 .intro {
-  width: 45%;
-  height: 90%;
-  padding: 3% 2.5% 0 2.5%;
+  width: 27vw;
+  height: 63vh;
+  padding: 2.5%;
+}
+
+.intro h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .swiper {
+    width: 58vw;
+  }
+  .intro {
+    width: 58vw;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper {
+    width: 60vw;
+    max-height: 40%;
+  }
+  .intro {
+    width: 60vw;
+    margin-top: 25px;
+  }
 }
 </style>
