@@ -73,8 +73,9 @@
 }
 
 .like-btn:hover {
-  opacity: 0.9;
+  opacity: 0.92;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .readmore {
