@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     backSpace() {
-      this.$router.push(this.parents);
+      this.$router.push(this.parents).catch(()=>{});
       this.$store.commit("setShowModal", false);
     },
   },
