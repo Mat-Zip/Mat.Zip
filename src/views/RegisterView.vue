@@ -9,23 +9,19 @@
         height="130px"
       />
       <form>
-        <div class="login_box">
-          <input
-            class="login_text"
-            type="text"
-            placeholder="ID(email)"
-            v-model="userID"
-          />
-        </div>
-        <div class="login_box">
-          <input
-            class="login_text"
-            type="password"
-            placeholder="password(6자이상)"
-            v-model="userPW"
-          />
-        </div>
-        <button class="login_btn email" @click.prevent="registerUser()">
+        <input
+          class="login_input"
+          type="text"
+          placeholder="ID(email)"
+          v-model="userID"
+        />
+        <input
+          class="login_input"
+          type="password"
+          placeholder="password(6자이상)"
+          v-model="userPW"
+        />
+        <button class="login_btn" @click.prevent="registerUser()">
           회원가입
         </button>
       </form>
@@ -54,16 +50,19 @@ export default {
 
 <style scoped>
 .login {
-  width: 80vw;
-  height: 80vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 .login_container {
-  position: fixed;
-  top: 18%;
-  left: 30%;
-  width: 40%;
-  height: 70%;
+  width: 40vw;
+  height: 100%;
+  padding: 30px 10px;
+  margin: auto;
+  margin-top: 60px;
   background-color: white;
   text-align: center;
   font-family: "Noto Sans KR", sans-serif;
@@ -73,47 +72,52 @@ export default {
 .login_image {
   margin-top: 5%;
 }
-.login_box {
-  width: 100%;
-  height: 100px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.login_text {
+.login_input {
   width: 80%;
   height: 50px;
   border-radius: 10px;
   font-size: 18px;
   border: 1px solid lightgray;
+  margin-top: 30px;
 }
-.login_text::placeholder {
+.login_input::placeholder {
   font-family: "Noto Sans KR", sans-serif;
   color: lightgray;
 }
-.login_text:focus::placeholder {
+.login_input:focus::placeholder {
   color: salmon;
 }
-.login_text:focus {
+.login_input:focus {
   outline: 1px solid salmon;
 }
 .login_btn {
-  position: absolute;
   width: 80%;
   height: 50px;
   border-radius: 10px;
   border: 1px solid #fcfcfc;
-  right: 10%;
   color: white;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 15px;
-}
-.email {
   background-color: salmon;
-  bottom: 25%;
+  margin-top: 60px;
 }
 .login_btn:hover {
   background-color: #bdbdbd;
+}
+
+@media screen and (max-width: 1200px) {
+  .login_container {
+    width: 60vw;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login_container {
+    width: 75vw;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
 }
 </style>

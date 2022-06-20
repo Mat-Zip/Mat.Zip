@@ -9,7 +9,7 @@
     </swiper>
     <div class="intro">
       <h1>{{ place.title }}</h1>
-      <p>{{ place.intro }}</p>
+      <p style="word-break: keep-all; line-height: 30px; margin-top:25px">{{ place.intro }}</p>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   components: { swiper, swiperSlide },
   data() {
     return {
-      place: this.$store.getters.getPlaces[this.$route.params.id],
+      place: this.$store.getters.getPlaces.find(el => el.id==this.$route.params.id),
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 0,

@@ -1,9 +1,6 @@
 <template>
   <div class="alert_wrap" @click.self="$store.commit('setAlertData', null)">
     <div class="alert_box">
-      <button class="alert_close" @click="$store.commit('setAlertData', null)">
-        X
-      </button>
       <h2 class="alert_text">{{ alertData.alertText }}</h2>
       <div class="alert_btnbox">
         <button
@@ -22,6 +19,9 @@
         </button>
       </div>
     </div>
+    <button class="alert_close" @click="$store.commit('setAlertData', null)">
+        X
+    </button>
   </div>
 </template>
 
@@ -43,12 +43,12 @@ export default {
   backdrop-filter: blur(2.5px);
   background-color: rgba(0, 0, 0, 0.35);
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .alert_box {
-  position: absolute;
-  top: 30%;
-  left: 40%;
   width: 350px;
   height: 200px;
   background-color: white;
@@ -56,11 +56,16 @@ export default {
   color: black;
   border: none;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: -60px;
 }
 .alert_close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
+  position: relative;
+  top: -115px;
+  right: 25px;
   border: none;
   background-color: white;
   color: #bdbdbd;
@@ -71,17 +76,16 @@ export default {
   color: black;
 }
 .alert_text {
-  position: absolute;
-  top: 30%;
   font-family: "Noto Sans KR", sans-serif;
   left: 5%;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .alert_btnbox {
-  position: absolute;
   width: 250px;
-  bottom: 20px;
-  left: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
 }

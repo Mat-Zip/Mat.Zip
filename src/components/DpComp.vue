@@ -24,7 +24,7 @@ export default {
   methods: {
     addSchedule() {
       const id = this.$store.getters.getSchedules.length;
-      const name = this.$store.getters.getPlaces[this.$route.params.id].name;
+      const name = this.$store.getters.getPlaces.find(el => el.id==this.$route.params.id).name;
       const year = this.date.getFullYear();
       const month = this.date.getMonth();
       const date = this.date.getDate();
