@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="container">
+      <banner-comp></banner-comp>
       <!-- 받아온 data를 카드로 생성 -->
       <web-card
         class="web-card"
@@ -39,12 +40,14 @@
 <script>
 import WebCard from "../components/WebCard.vue";
 import ModalComp from "../components/ModalComp.vue";
+import BannerComp from "../components/BannerComp.vue";
 
 export default {
   name: "HomeView",
   components: {
     WebCard,
     ModalComp,
+    BannerComp,
   },
   data() {
     return {
@@ -79,15 +82,15 @@ export default {
       window.scroll(0, 0);
     },
     scrollEvent() {
-      const cards = document.querySelectorAll('.web-card');
-      for(const card of cards) {
-        if(!card.classList.contains('show')) {
-          if(window.innerHeight > card.getBoundingClientRect().top + 200) {
-            card.classList.add('show');
+      const cards = document.querySelectorAll(".web-card");
+      for (const card of cards) {
+        if (!card.classList.contains("show")) {
+          if (window.innerHeight > card.getBoundingClientRect().top + 200) {
+            card.classList.add("show");
           }
         }
       }
-    }
+    },
   },
   computed: {
     isToTop() {
@@ -107,7 +110,7 @@ export default {
   },
   mounted() {
     this.scrollEvent();
-    window.addEventListener('scroll', this.scrollEvent);
+    window.addEventListener("scroll", this.scrollEvent);
   },
 };
 </script>
@@ -145,7 +148,6 @@ export default {
 .web-card.show {
   opacity: 1;
 }
-
 
 .modal_btn {
   width: 40px;

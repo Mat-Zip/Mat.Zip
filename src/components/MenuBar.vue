@@ -91,7 +91,7 @@ export default {
   width: 300px;
   height: 100vh;
   top: -20px;
-  background-color: rgba(00, 00, 00, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
 .sidebar_content {

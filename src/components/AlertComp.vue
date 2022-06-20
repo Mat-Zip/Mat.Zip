@@ -63,7 +63,7 @@ export default {
   right: 8px;
   border: none;
   background-color: white;
-  color: gray;
+  color: #bdbdbd;
   font-size: 18px;
   cursor: pointer;
 }
@@ -95,7 +95,7 @@ export default {
 }
 
 .alert_btn:hover {
-  background-color: gray;
+  background-color: #bdbdbd;
   color: white;
 }
 </style>
