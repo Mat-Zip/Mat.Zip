@@ -9,7 +9,7 @@
     </swiper>
     <div class="intro">
       <h1>{{ place.title }}</h1>
-      <p>{{ place.intro }}</p>
+      <p style="word-break: keep-all; line-height: 30px; margin-top:25px">{{ place.intro }}</p>
     </div>
   </div>
 </template>
