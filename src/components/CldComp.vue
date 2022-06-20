@@ -36,15 +36,17 @@ export default {
     };
   },
   created() {
-    for (let item of this.getScd) {
-      const schedule = {
-        customData: {
-          name: item.name,
-          date: item.hour + ":" + String(item.minute).padStart(2, "0"),
-        },
-        dates: new Date(item.year, item.month, item.date),
-      };
-      this.schedules.push(schedule);
+    if(this.getScd!=[]) {
+      for (let item of this.getScd) {
+        const schedule = {
+          customData: {
+            name: item.name,
+            date: item.hour + ":" + String(item.minute).padStart(2, "0"),
+          },
+          dates: new Date(item.year, item.month, item.date),
+        };
+        this.schedules.push(schedule);
+      }
     }
   },
   computed: {

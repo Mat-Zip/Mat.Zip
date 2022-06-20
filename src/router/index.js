@@ -95,4 +95,9 @@ router.beforeEach(function (to, from, next) {
   }
 })
 
+router.beforeEach((to, from, next) => {
+  store.commit('setShowSideMenu', false);
+  next();
+})
+
 export default router;

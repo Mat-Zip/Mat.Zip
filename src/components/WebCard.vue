@@ -15,7 +15,7 @@
     <!-- 카드 호버링 시 정보 -->
     <div class="card-hover" @click="showDetail">
       <span class="btn-bar">
-        <button class="like-btn" @click.stop="addLike">
+        <button class="like-btn" @click.stop="addLikeDB">
           <font-awesome-icon v-show="!check" icon="fa-regular fa-heart" />
           <font-awesome-icon
             v-show="check"
@@ -79,17 +79,38 @@ export default {
       this.$router.push(`${currentPath}/detail/${this.place.id}`);
       this.$store.commit("setShowModal", true);
     },
+    addLikeDB() {
+      if(this.$store.getters.getLogged) {
+        if(this.$store.getters.getLiked.includes(this.place.id)) {
+          this.$store.dispatch('deleteLikeDB', this.place.id);
+        }
+        else {
+          this.$store.dispatch('addLikeDB', this.place.id)
+        }
+      }
+      else {
+        this.$store.commit("setAlertData", {
+          alertText: "로그인이 필요한 서비스입니다",
+          buttonText1: "회원가입",
+          buttonFunc1: () => {
+            this.$router.push("/register");
+            this.$store.commit("setShowModal", false);
+            this.$store.commit("setAlertData", null);
+          },
+          buttonText2: "로그인",
+          buttonFunc2: () => {
+            this.$router.push("/login");
+            this.$store.commit("setShowModal", false);
+            this.$store.commit("setAlertData", null);
+          },
+        });
+      }
+    }
   },
   computed: {
     check() {
       // 좋아요 눌렀는지 체크 -> style 변경
-      if (
-        this.$store.getters.getLiked.some((item) => item.id == this.place.id)
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+      return this.$store.getters.getLiked.includes(this.place.id);
     },
   },
 };

@@ -33,7 +33,7 @@ export default {
 
       const scheInfo = { id, name, year, month, date, hour, minute };
 
-      this.$store.commit("addSchedule", scheInfo);
+      this.$store.dispatch("addScheduleDB", scheInfo);
 
       const newAlert = {
         alertText: "일정이 추가되었습니다",
