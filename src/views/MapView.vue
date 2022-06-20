@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     initMap() {
-      const centerId=this.$store.getters.getLocations[this.$route.params.id].position;
+      const centerId=this.$store.getters.getLocations.find(el => el.id==this.$route.params.id).position;
       const container=document.getElementById('map');
       const options={
         center: new kakao.maps.LatLng(centerId.lat, centerId.lng),
@@ -76,13 +76,13 @@ export default {
     },
     showInfo(id) {
       return function() {
-        if(this.infoPlace==this.$store.getters.getPlaces[id]&&this.showInfoMap==true)
+        if(this.infoPlace==this.$store.getters.getPlaces.find(el => el.id==id)&&this.showInfoMap==true)
         {
           this.showInfoMap=false;
         }
         else
         {
-          this.infoPlace=this.$store.getters.getPlaces[id];
+          this.infoPlace=this.$store.getters.getPlaces.find(el => el.id==id);
           this.showInfoMap=true;
         }
       }

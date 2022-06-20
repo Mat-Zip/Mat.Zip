@@ -128,15 +128,15 @@ export default {
   justify-content: flex-start;
 }
 
-@media screen and (max-width: 1560px) {
+@media screen and (max-width: 1580px) {
   .container {
-    width: 1040px;
+    width: 1060px;
   }
 }
 
-@media screen and (max-width: 1040px) {
+@media screen and (max-width: 1060px) {
   .container {
-    width: 520px;
+    width: 540px;
   }
 }
 
