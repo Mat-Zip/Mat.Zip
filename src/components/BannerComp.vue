@@ -14,7 +14,13 @@
 
 <script>
 export default {
-  computed: {},
+  computed: {
+    getRandom() {
+      const num = Math.random();
+      
+      return console.log(num);
+    },
+  },
 };
 </script>
 
@@ -47,5 +53,15 @@ export default {
 .detail {
   color: white;
   font-size: 20px;
+}
+
+@media screen and (max-width: 1040px) {
+  .banner {
+    width: 500px;
+  }
+
+  .bintro {
+    position: absolute;
+  }
 }
 </style>
