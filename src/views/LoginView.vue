@@ -116,6 +116,7 @@ export default {
 }
 .email {
   background-color: salmon;
+  border: 1px solid salmon;
   bottom: 25%;
 }
 .google {
@@ -125,8 +126,8 @@ export default {
   bottom: 15%;
 }
 .login_btn:hover {
-  background-color: gray;
-  color: white;
-  border: 0;
+  opacity: 0.7;
+  box-shadow: 1px 1px 10px salmon;
+  cursor: pointer;
 }
 </style>

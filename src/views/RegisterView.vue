@@ -114,6 +114,6 @@ export default {
   bottom: 25%;
 }
 .login_btn:hover {
-  background-color: gray;
+  background-color: #bdbdbd;
 }
 </style>

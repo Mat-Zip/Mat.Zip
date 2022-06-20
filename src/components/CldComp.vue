@@ -12,8 +12,8 @@
         <div class="cld-dates">
           <span>{{ day.day }}</span>
           <div class="cld-sche" v-for="(attr, i) in attributes" :key="i">
-            <span class="sche-name">{{ attr.customData.name }}</span>
-            <span class="sche-date">{{ attr.customData.date }}</span>
+            <div class="sche-name">{{ attr.customData.name }}</div>
+            <div class="sche-date">{{ attr.customData.date }}</div>
           </div>
         </div>
       </template>
@@ -87,7 +87,7 @@ export default {
 }
 
 .cld-dates {
-  width: 3vw;
+  width: 6vw;
   height: 12vh;
   overflow-y: auto;
 }
@@ -98,8 +98,10 @@ export default {
 
 .cld-sche {
   overflow: hidden;
-  word-break: break-all;
+  word-break: normal;
   margin-bottom: 5px;
+
+  justify-content: center;
 }
 
 .cld-sche .sche-name {

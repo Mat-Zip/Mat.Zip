@@ -151,7 +151,7 @@ export default {
 }
 
 .blanked button:hover {
-  background-color: gray;
+  background-color: #bdbdbd;
   color: white;
 }
 
