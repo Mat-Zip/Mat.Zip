@@ -15,10 +15,10 @@
 <script>
 export default {
   computed: {
-    getRandom() {
-      const num = Math.random();
+    getRandomNum() {
+      const randomNum = Math.random();
 
-      return console.log(num);
+      return console.log(randomNum);
     },
   },
 };
