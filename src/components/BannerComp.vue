@@ -17,7 +17,7 @@ export default {
   computed: {
     getRandom() {
       const num = Math.random();
-      
+
       return console.log(num);
     },
   },
@@ -57,11 +57,26 @@ export default {
 
 @media screen and (max-width: 1040px) {
   .banner {
+    justify-content: center;
+    position: relative;
+  }
+
+  .bimg {
     width: 500px;
   }
 
   .bintro {
     position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .detail {
+    font-size: 16px;
   }
 }
 </style>
