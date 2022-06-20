@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import PlaceData from '../dummy.json'
-import ScheduleData from '../datesdummy.json'
-import CoordData from '../coordinate.json'
+import PlaceData from '@/dummy.json'
+import CoordData from '@/coordinate.json'
 import '@/datasources/firebase'
 import {
   getAuth,
@@ -11,15 +10,18 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
+import { getDatabase, ref, set, child, get } from "firebase/database";
 import router from "@/router";
+
 const auth = getAuth();
+const database = getDatabase();
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     places: PlaceData,
-    schedules: ScheduleData,
+    schedules: [],
     locations: CoordData,
     liked: [],
     alertData: null,
@@ -33,7 +35,7 @@ export default new Vuex.Store({
     },
     getLikedPlaces(state) {
       const result = state.places.filter((item) =>
-        state.liked.some((el) => item.id == el.id)
+        state.liked.includes(item.id)
       );
       return result;
     },
@@ -60,13 +62,6 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    addLikePlace(state, payload) {
-      state.liked.push(payload);
-    },
-    deleteLikePlace(state, id) {
-      const i = state.liked.findIndex((item) => item.id == id);
-      state.liked.splice(i, 1);
-    },
     setShowModal(state, bool) {
       state.showModal = bool;
     },
@@ -76,6 +71,18 @@ export default new Vuex.Store({
     setUser(state, payload) {
       state.user = payload;
     },
+    initLikePlace(state, payload) {
+      state.liked = payload;
+    },
+    addLikePlace(state, payload) {
+      state.liked.push(payload);
+    },
+    deleteLikePlace(state, payload) {
+      state.liked=state.liked.filter((item) => item != payload);
+    },
+    initSchedule(state, payload) {
+      state.schedules = payload;
+    },
     addSchedule(state, payload) {
       state.schedules.push(payload);
     },
@@ -84,7 +91,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    emailLogin({ commit }, payload) {
+    emailLogin({ commit, dispatch }, payload) {
       signInWithEmailAndPassword(auth, payload.userid, payload.userpw)
         .then((userinfo) => {
           commit("setUser", {
@@ -92,13 +99,14 @@ export default new Vuex.Store({
             name: userinfo.user.displayname,
           });
           commit("setShowModal", false);
+          dispatch('setUserData');
           router.push("/");
         })
         .catch((err) => {
           console.log(err.message);
         });
     },
-    googleLogin({ commit }) {
+    googleLogin({ commit, dispatch }) {
       const oProvider = new GoogleAuthProvider();
       oProvider.addScope("profile");
       oProvider.addScope("email");
@@ -109,19 +117,22 @@ export default new Vuex.Store({
             name: userinfo.user.displayname,
           });
           commit("setShowModal", false);
+          dispatch('setUserData');
           router.push("/");
         })
         .catch((err) => {
           console.log(err.message);
         });
     },
-    registerUser({ commit }, payload) {
+    registerUser({ commit, dispatch }, payload) {
       createUserWithEmailAndPassword(auth, payload.userid, payload.userpw)
         .then((userinfo) => {
           commit("setUser", {
             id: userinfo.user.uid,
             name: userinfo.user.displayname,
           });
+          commit("setShowModal", false);
+          dispatch('setUserData');
           router.push("/");
         })
         .catch((err) => {
@@ -133,6 +144,8 @@ export default new Vuex.Store({
       user.delete()
         .then(() => {
           commit('setUser', null);
+          commit('initLikePlace', []);
+          commit('initSchedule', []);
           router.push("/");
           commit('setAlertData', {
             alertText: "로그아웃되었습니다",
@@ -146,6 +159,41 @@ export default new Vuex.Store({
           console.log(err.message);
         })
     },
+    setUserData({ state, commit }) {
+      get(child(ref(database), 'users/' + state.user.id)).then((snapshot) => {
+        if (snapshot.exists()) {
+          commit('initLikePlace', snapshot.val().liked);
+          commit('initSchedule', snapshot.val().schedules);
+        }
+        else {
+          commit('initLikePlace', []);
+          commit('initSchedule', []);
+        }
+      }).catch((err) => {
+        console.error(err);
+      })
+    },
+    addLikeDB({state, commit}, payload) {
+      commit('addLikePlace', payload);
+      set(ref(database, 'users/' + state.user.id), {
+        liked: [...state.liked],
+        schedules: [...state.schedules]
+      });
+    },
+    deleteLikeDB({ state, commit }, payload) {
+      commit('deleteLikePlace', payload);
+      set(ref(database, 'users/' + state.user.id), {
+        liked: [...state.liked],
+        schedules: [...state.schedules]
+      });
+    },
+    addScheduleDB({ state, commit }, payload) {
+      commit('addSchedule', payload);
+      set(ref(database, 'users/' + state.user.id), {
+        liked: [...state.liked],
+        schedules: [...state.schedules]
+      });
+    }
   },
   modules: {},
 });
