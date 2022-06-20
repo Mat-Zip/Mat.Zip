@@ -22,7 +22,7 @@ export default {
   components: { swiper, swiperSlide },
   data() {
     return {
-      place: this.$store.getters.getPlaces[this.$route.params.id],
+      place: this.$store.getters.getPlaces.find(el => el.id==this.$route.params.id),
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 0,
