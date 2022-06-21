@@ -155,12 +155,6 @@ export default {
   .container {
     width: 540px;
   }
-
-  /* .banner {
-    } */
-
-  /* .web-card {
-  } */
 }
 
 .web-card.show {

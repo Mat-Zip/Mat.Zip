@@ -123,6 +123,10 @@ export default {
 .web-card {
   opacity: 0;
   transition: all 0.5s ease;
+  margin: 10px;
+
+  width: 500px;
+  height: 500px;
 }
 
 .web-card.show {
@@ -158,11 +162,15 @@ export default {
 
 @media screen and (max-width: 1580px) {
   .container {
-    width: 1060px;
+    width: 1040px;
   }
 }
 
 @media screen and (max-width: 1060px) {
+  .home {
+    overflow: hidden;
+  }
+
   .container {
     width: 540px;
   }
