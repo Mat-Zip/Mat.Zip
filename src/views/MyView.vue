@@ -1,14 +1,14 @@
 <template>
   <div class="about">
-    <div class="blanked" v-if="$store.getters.getLikedPlaces.length == 0">
+    <div class="blanked" v-if="$store.getters.getLiked.length == 0">
         <p>좋아요 한 장소가 없습니다</p>
         <button @click="$router.push('/')">보러 가기</button>
     </div>
-    <div class="container" v-if="$store.getters.getLikedPlaces.length>0">
+    <div class="container" v-if="$store.getters.getLiked.length>0">
       <!-- MainView 주석 참조 -->
       <web-card
         class="web-card"
-        v-for="place in $store.getters.getLikedPlaces"
+        v-for="place in $store.getters.getLiked"
         :key="place.id"
         :place="place"
       ></web-card>
@@ -148,6 +148,7 @@ export default {
   padding: 10px 20px;
   background-color: lightgray;
   color: black;
+  cursor: pointer;
 }
 
 .blanked button:hover {

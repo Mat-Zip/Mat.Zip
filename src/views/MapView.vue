@@ -61,7 +61,7 @@ export default {
         for(let item of this.$store.getters.getLocations)
         {
           const markerPosition=new kakao.maps.LatLng(item.position.lat, item.position.lng);
-          const markerImage=new kakao.maps.MarkerImage('/favicon.ico', new kakao.maps.Size(25,25), {offset: new kakao.maps.Point(12,25)});
+          const markerImage=new kakao.maps.MarkerImage('/marker.png', new kakao.maps.Size(25,35), {offset: new kakao.maps.Point(12,25)});
           const newMarker=new kakao.maps.Marker({
             map: this.map,
             position: markerPosition,

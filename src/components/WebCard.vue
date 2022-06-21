@@ -41,38 +41,6 @@ export default {
     place: Object,
   },
   methods: {
-    addLike: function () {
-      if (this.$store.getters.getLogged) {
-        // Liked에 없다면 장소의 아이디를 유저의 데이터에 추가
-        if (
-          !this.$store.getters.getLiked.some((el) => this.place.id == el.id)
-        ) {
-          this.$store.commit("addLikePlace", {
-            id: this.place.id,
-          });
-        }
-        // Liked에 있다면 삭제
-        else {
-          this.$store.commit("deleteLikePlace", this.place.id);
-        }
-      } else {
-        this.$store.commit("setAlertData", {
-          alertText: "로그인이 필요한 서비스입니다",
-          buttonText1: "회원가입",
-          buttonFunc1: () => {
-            this.$router.push("/register");
-            this.$store.commit("setShowModal", false);
-            this.$store.commit("setAlertData", null);
-          },
-          buttonText2: "로그인",
-          buttonFunc2: () => {
-            this.$router.push("/login");
-            this.$store.commit("setShowModal", false);
-            this.$store.commit("setAlertData", null);
-          },
-        });
-      }
-    },
     showDetail: function () {
       // 현재 주소가 / 일 경우 생기는 에러 방지
       let currentPath = this.$route.path == "/" ? "" : this.$route.path;
@@ -81,11 +49,11 @@ export default {
     },
     addLikeDB() {
       if(this.$store.getters.getLogged) {
-        if(this.$store.getters.getLiked.includes(this.place.id)) {
+        if(this.$store.getters.getLiked.some((el) => el.id==this.place.id)) {
           this.$store.dispatch('deleteLikeDB', this.place.id);
         }
         else {
-          this.$store.dispatch('addLikeDB', this.place.id)
+          this.$store.dispatch('addLikeDB', this.place)
         }
       }
       else {
@@ -110,7 +78,7 @@ export default {
   computed: {
     check() {
       // 좋아요 눌렀는지 체크 -> style 변경
-      return this.$store.getters.getLiked.includes(this.place.id);
+      return this.$store.getters.getLiked.some((el) => el.id==this.place.id);
     },
   },
 };
