@@ -100,7 +100,7 @@ export default new Vuex.Store({
           router.push("/");
         })
         .catch((err) => {
-          console.log(err.message);
+          console.error(err);
         });
     },
     googleLogin({ commit, dispatch }) {
@@ -118,7 +118,7 @@ export default new Vuex.Store({
           router.push("/");
         })
         .catch((err) => {
-          console.log(err.message);
+          console.error(err);
         });
     },
     registerUser({ commit, dispatch }, payload) {
@@ -133,22 +133,27 @@ export default new Vuex.Store({
           router.push("/");
         })
         .catch((err) => {
-          console.log(err.message);
+          console.error(err);
         });
     },
     logout({ commit }) {
-      signOut();
-      commit('setUser', null);
-      commit('initLikePlace', []);
-      commit('initSchedule', []);
-      router.push("/");
-      commit('setAlertData', {
-        alertText: "로그아웃되었습니다",
-        buttonText1: "확인",
-        buttonFunc1: () => {
-          commit('setAlertData', null);
-        }
-      });
+      signOut(auth)
+        .then(() => {
+          commit('setUser', null);
+          commit('initLikePlace', []);
+          commit('initSchedule', []);
+          router.push("/");
+          commit('setAlertData', {
+            alertText: "로그아웃되었습니다",
+            buttonText1: "확인",
+            buttonFunc1: () => {
+              commit('setAlertData', null);
+            }
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+      })
     },
     setUserData({ state, commit }) {
       get(child(ref(database), 'users/' + state.user.id)).then((snapshot) => {
