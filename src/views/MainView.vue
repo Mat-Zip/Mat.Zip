@@ -130,7 +130,7 @@ export default {
 
 @media screen and (max-width: 1580px) {
   .container {
-    width: 1060px;
+    width: 1040px;
   }
 }
 
