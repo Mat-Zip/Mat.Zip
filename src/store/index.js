@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   createUserWithEmailAndPassword,
+  signOut
 } from "firebase/auth";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import router from "@/router";
@@ -136,24 +137,18 @@ export default new Vuex.Store({
         });
     },
     logout({ commit }) {
-      const user = auth.currentUser;
-      user.delete()
-        .then(() => {
-          commit('setUser', null);
-          commit('initLikePlace', []);
-          commit('initSchedule', []);
-          router.push("/");
-          commit('setAlertData', {
-            alertText: "로그아웃되었습니다",
-            buttonText1: "확인",
-            buttonFunc1: () => {
-              commit('setAlertData', null);
-            }
-          })
-        })
-        .catch((err) => {
-          console.log(err.message);
-        })
+      signOut();
+      commit('setUser', null);
+      commit('initLikePlace', []);
+      commit('initSchedule', []);
+      router.push("/");
+      commit('setAlertData', {
+        alertText: "로그아웃되었습니다",
+        buttonText1: "확인",
+        buttonFunc1: () => {
+          commit('setAlertData', null);
+        }
+      });
     },
     setUserData({ state, commit }) {
       get(child(ref(database), 'users/' + state.user.id)).then((snapshot) => {
