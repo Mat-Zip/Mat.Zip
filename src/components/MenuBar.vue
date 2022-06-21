@@ -9,13 +9,13 @@
         <!-- 로그인 하기 전 -->
         <div v-show="!logged" class="sidebar_content">
           <div class="sidebar_text">
-            <p @click="$router.push('/register')">회원가입</p>
+            <p @click="$router.push('/register').catch(() => {})">회원가입</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
           <div class="sidebar_text">
-            <p @click="$router.push('/login')">로그인</p>
+            <p @click="$router.push('/login').catch(() => {})">로그인</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
@@ -24,13 +24,13 @@
         <!-- 로그인 후 -->
         <div v-show="logged" class="sidebar_content">
           <div class="sidebar_text">
-            <p @click="$router.push('/mypage')">마이페이지</p>
+            <p @click="$router.push('/mypage').catch(() => {})">마이페이지</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
           <div class="sidebar_text">
-            <p @click="$router.push('/calendar')">캘린더</p>
+            <p @click="$router.push('/calendar').catch(() => {})">캘린더</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
