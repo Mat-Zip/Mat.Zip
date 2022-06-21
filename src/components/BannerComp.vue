@@ -28,7 +28,6 @@ export default {
 .banner {
   width: 100%;
   height: 250px;
-  margin: 10px;
   background-color: #bdbdbd;
 
   display: flex;
