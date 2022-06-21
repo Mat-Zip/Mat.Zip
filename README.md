@@ -37,4 +37,6 @@ npm run serve
  <a href="mailto:jae5419@naver.com"><img src="https://img.shields.io/badge/Mail-EA4335?style=flat&logo=Gmail&logoColor=white"/></a> 
  <br>
  🧑김준용 <a href="https://github.com/jae5419"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a><br>
- 👱‍♂️구자경 <a href="https://github.com/jae5419"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a>
+ 👱‍♂️구자경 :telephone_receiver: 010-4860-9963
+ <a href="https://github.com/koqun"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a>
+ <a href="mailto:plzkoiu0912@naver.com"><img src="https://img.shields.io/badge/Mail-EA4335?style=flat&logo=Gmail&logoColor=white"/></a> 
