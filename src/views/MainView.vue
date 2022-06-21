@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="container">
-      <banner-comp></banner-comp>
+      <banner-comp class="banner" />
       <!-- 받아온 data를 카드로 생성 -->
       <web-card
         class="web-card"
@@ -128,21 +128,39 @@ export default {
   justify-content: flex-start;
 }
 
-@media screen and (max-width: 1580px) {
-  .container {
-    width: 1060px;
-  }
-}
-
-@media screen and (max-width: 1060px) {
-  .container {
-    width: 540px;
-  }
+.banner {
+  margin: 10px;
 }
 
 .web-card {
   opacity: 0;
   transition: all 0.5s ease;
+  margin: 10px;
+
+  width: 500px;
+  height: 500px;
+}
+
+@media screen and (max-width: 1580px) {
+  .container {
+    width: 1040px;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .home {
+    overflow: hidden;
+  }
+
+  .container {
+    width: 540px;
+  }
+
+  /* .banner {
+    } */
+
+  /* .web-card {
+  } */
 }
 
 .web-card.show {

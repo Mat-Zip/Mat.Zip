@@ -28,7 +28,6 @@ export default {
 .banner {
   width: 100%;
   height: 250px;
-  margin: 10px;
   background-color: #bdbdbd;
 
   display: flex;
@@ -55,13 +54,9 @@ export default {
   font-size: 20px;
 }
 
-@media screen and (max-width: 1040px) {
+@media screen and (max-width: 1060px) {
   .banner {
     justify-content: center;
-    position: relative;
-  }
-
-  .bimg {
     width: 500px;
   }
 
