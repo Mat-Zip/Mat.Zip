@@ -21,26 +21,21 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     places: PlaceData,
-    schedules: [],
     locations: CoordData,
-    liked: [],
     alertData: null,
     showModal: false,
     showSideMenu: false,
     user: null,
+    schedules: [],
+    liked: [],
   },
   getters: {
     getPlaces(state) {
       return state.places;
     },
-    getLikedPlaces(state) {
-      const result = state.places.filter((item) =>
-        state.liked.includes(item.id)
-      );
-      return result;
-    },
     getLiked(state) {
-      return state.liked;
+      const reverse = [...state.liked].reverse();
+      return reverse;
     },
     getShowModal(state) {
       return state.showModal;
@@ -78,7 +73,8 @@ export default new Vuex.Store({
       state.liked.push(payload);
     },
     deleteLikePlace(state, payload) {
-      state.liked=state.liked.filter((item) => item != payload);
+      const index = state.liked.findIndex((el) => el.id == payload);
+      state.liked.splice(index, 1);
     },
     initSchedule(state, payload) {
       state.schedules = payload;
@@ -162,8 +158,8 @@ export default new Vuex.Store({
     setUserData({ state, commit }) {
       get(child(ref(database), 'users/' + state.user.id)).then((snapshot) => {
         if (snapshot.exists()) {
-          commit('initLikePlace', snapshot.val().liked);
-          commit('initSchedule', snapshot.val().schedules);
+          commit('initLikePlace', snapshot.val().liked ? snapshot.val().liked : []);
+          commit('initSchedule', snapshot.val().schedules ? snapshot.val().schedules : []);
         }
         else {
           commit('initLikePlace', []);
@@ -173,7 +169,7 @@ export default new Vuex.Store({
         console.error(err);
       })
     },
-    addLikeDB({state, commit}, payload) {
+    addLikeDB({ state, commit }, payload) {
       commit('addLikePlace', payload);
       set(ref(database, 'users/' + state.user.id), {
         liked: [...state.liked],
