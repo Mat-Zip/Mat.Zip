@@ -57,10 +57,6 @@ var router = new VueRouter({
           meta: { authRequired: true, showModal: true },
         },
       ],
-      beforeEnter: (to, from, next) => {
-        window.scroll(0, 0);
-        next();
-      }
     },
     {
       path: "/calendar",
@@ -102,6 +98,7 @@ router.beforeEach(function (to, from, next) {
 
 router.beforeEach((to, from, next) => {
   store.commit('setShowSideMenu', false);
+  window.scroll(0, 0);
   next();
 })
 

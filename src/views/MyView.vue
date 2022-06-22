@@ -107,7 +107,6 @@ export default {
 }
 
 .web-card {
-  opacity: 0;
   transition: all 0.5s ease;
   margin: 10px;
 
@@ -115,9 +114,6 @@ export default {
   height: 500px;
 }
 
-.web-card.show {
-  opacity: 1;
-}
 
 .blanked {
   margin-top: 11vh;
