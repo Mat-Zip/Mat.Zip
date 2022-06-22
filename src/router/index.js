@@ -16,15 +16,17 @@ var router = new VueRouter({
         {
           path: "detail/:id",
           component: () => import("../views/DetailView.vue"),
+          meta: { showModal: true }
         },
         {
           path: "map/:id",
           component: () => import("../views/MapView.vue"),
+          meta: { showModal: true }
         },
         {
           path: "datepicker/:id",
           component: () => import("../views/DatepickerView.vue"),
-          meta: { authRequired: true },
+          meta: { authRequired: true, showModal: true },
         },
       ],
     },
@@ -42,14 +44,17 @@ var router = new VueRouter({
         {
           path: "detail/:id",
           component: () => import("../views/DetailView.vue"),
+          meta: { showModal: true }
         },
         {
           path: "map/:id",
           component: () => import("../views/MapView.vue"),
+          meta: { showModal: true }
         },
         {
           path: "datepicker/:id",
-          component: () => import("../views/DatepickerView.vue")
+          component: () => import("../views/DatepickerView.vue"),
+          meta: { authRequired: true, showModal: true },
         },
       ],
       beforeEnter: (to, from, next) => {

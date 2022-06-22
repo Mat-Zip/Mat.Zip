@@ -9,21 +9,20 @@
       />
       <form>
         <input
-          class="login_input"
           type="text"
           placeholder="ID"
           v-model="userID"
         />
         <input
-          class="login_input"
           type="password"
           placeholder="password"
           v-model="userPW"
           />
-        <button class="login_btn email" @click.prevent="emailLogin()">
+        <p>{{ message }}</p>
+        <button class="email" @click.prevent="emailLogin()">
           LOGIN
         </button>
-        <button class="login_btn google" @click.prevent="googleLogin()">
+        <button class="google" @click.prevent="googleLogin()">
           Google Login
         </button>
       </form>
@@ -37,6 +36,7 @@ export default {
     return {
       userID: "",
       userPW: "",
+      message: ""
     };
   },
   methods: {
@@ -44,6 +44,8 @@ export default {
       this.$store.dispatch("emailLogin", {
         userid: this.userID,
         userpw: this.userPW,
+      }).catch(() => {
+        this.message="아이디 혹은 비밀번호가 틀렸습니다."
       });
     },
     googleLogin() {
@@ -74,10 +76,10 @@ export default {
   border-radius: 10px;
   border: 1px solid lightgray;
 }
-.login_image {
+img {
   margin-top: 5%;
 }
-.login_input {
+input {
   width: 80%;
   height: 50px;
   border-radius: 10px;
@@ -85,24 +87,23 @@ export default {
   border: 1px solid lightgray;
   margin-top: 30px;
 }
-.login_btn {
-  width: 80%;
-  height: 50px;
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  color: white;
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 15px;
-}
-.login_input::placeholder {
+input::placeholder {
   font-family: "Noto Sans KR", sans-serif;
   color: lightgray;
 }
-.login_input:focus::placeholder {
+input:focus::placeholder {
   color: salmon;
 }
-.login_input:focus {
+input:focus {
   outline: 1px solid salmon;
+}
+button {
+  width: 80%;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 15px;
 }
 .email {
   background-color: salmon;
@@ -116,7 +117,7 @@ export default {
   margin-top: 15px;
   margin-bottom: 40px;
 }
-.login_btn:hover {
+button:hover {
   opacity: 0.7;
   box-shadow: 1px 1px 10px salmon;
   cursor: pointer;

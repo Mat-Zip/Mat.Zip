@@ -81,16 +81,6 @@ export default {
     },
     toTop() {
       window.scroll(0, 0);
-    },
-    scrollEvent() {
-      const cards = document.querySelectorAll('.web-card');
-      for(const card of cards) {
-        if(!card.classList.contains('show')) {
-          if(window.innerHeight > card.getBoundingClientRect().top + 200) {
-            card.classList.add('show');
-          }
-        }
-      }
     }
   },
   computed: {
@@ -99,10 +89,6 @@ export default {
         this.$store.getters.getShowSideMenu || this.$store.getters.getShowModal
       );
     },
-  },
-  mounted() {
-    this.scrollEvent();
-    window.addEventListener('scroll', this.scrollEvent);
   },
 };
 </script>
