@@ -143,6 +143,7 @@ export default {
   width: 30px;
   height: 30px;
   z-index: 10;
+  /* pointer-events: none; */
 }
 
 .side_btn:hover {

@@ -18,17 +18,20 @@
         :alertData="$store.getters.getAlertData"
       ></alert-comp>
     </transition>
+    <footer-comp></footer-comp>
   </div>
 </template>
 
 <script>
 import AlertComp from "./components/AlertComp.vue";
 import MenuBar from "./components/MenuBar.vue";
+import FooterComp from "./components/FooterComp.vue";
 
 export default {
   components: {
     MenuBar,
     AlertComp,
+    FooterComp
   },
   methods: {
     SideMenuOff: function () {
@@ -49,6 +52,8 @@ export default {
 
 nav {
   padding: 0 10px 0 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .menu-bar1 {

@@ -112,6 +112,9 @@ export default {
     this.scrollEvent();
     window.addEventListener("scroll", this.scrollEvent);
   },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.scrollEvent);
+  }
 };
 </script>
 

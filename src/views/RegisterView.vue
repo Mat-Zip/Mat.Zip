@@ -1,8 +1,7 @@
 <template>
-  <div class="login">
-    <div class="login_container">
+  <div class="resister">
+    <div class="resister_container">
       <img
-        class="login_image"
         src="../assets/MAT.ZIP-logo.png"
         alt=""
         width="150px"
@@ -10,18 +9,17 @@
       />
       <form>
         <input
-          class="login_input"
           type="text"
           placeholder="ID(email)"
           v-model="userID"
         />
         <input
-          class="login_input"
           type="password"
           placeholder="password(6자이상)"
           v-model="userPW"
         />
-        <button class="login_btn" @click.prevent="registerUser()">
+        <p>{{ message }}</p>
+        <button @click.prevent="registerUser()">
           회원가입
         </button>
       </form>
@@ -45,11 +43,16 @@ export default {
       });
     },
   },
+  computed: {
+    message() {
+      return this.userPW.length>=6 || this.userPW=="" ? "" : "비밀번호를 6자 이상 입력해주세요.";
+    }
+  }
 };
 </script>
 
 <style scoped>
-.login {
+.resister {
   width: auto;
   height: auto;
   display: flex;
@@ -57,7 +60,7 @@ export default {
   overflow-x: hidden;
 }
 
-.login_container {
+.resister_container {
   width: 40vw;
   height: 100%;
   padding: 30px 10px;
@@ -69,10 +72,10 @@ export default {
   border-radius: 10px;
   border: 1px solid lightgray;
 }
-.login_image {
+img {
   margin-top: 5%;
 }
-.login_input {
+input {
   width: 80%;
   height: 50px;
   border-radius: 10px;
@@ -80,41 +83,49 @@ export default {
   border: 1px solid lightgray;
   margin-top: 30px;
 }
-.login_input::placeholder {
+input::placeholder {
   font-family: "Noto Sans KR", sans-serif;
   color: lightgray;
 }
-.login_input:focus::placeholder {
+input:focus::placeholder {
   color: salmon;
 }
-.login_input:focus {
+input:focus {
   outline: 1px solid salmon;
 }
-.login_btn {
+p {
+  height: 50px;
+  margin-top: 10px;
+  color: rgb(231, 65, 65);
+}
+button {
   width: 80%;
   height: 50px;
   border-radius: 10px;
-  border: 1px solid #fcfcfc;
+  border: 1px solid salmon;
   color: white;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 15px;
   background-color: salmon;
-  margin-top: 60px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
-.login_btn:hover {
-  background-color: #bdbdbd;
+button:hover {
+  opacity: 0.7;
+  box-shadow: 1px 1px 10px salmon;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) {
-  .login_container {
+  .resister_container {
     width: 60vw;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 20px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .login_container {
+  .resister_container {
     width: 75vw;
     margin-top: 30px;
     margin-bottom: 20px;
