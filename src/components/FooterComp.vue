@@ -1,9 +1,11 @@
 <template>
     <div class="footer">
         <div>
-            <a href="https://github.com/Mat-Zip/Mat.Zip" target="_blank"><span>Mat.Zip</span><img src="@/assets/github-logo.png" width="18px" height="18px" /></a>
-            <span> host by Firebase</span>
-            <p>Contact: iwytbbtss00@naver.com</p>
+            <a href="https://github.com/Mat-Zip/Mat.Zip" target="_blank">
+                <span>Mat.Zip</span>
+                <img src="@/assets/github-logo.png" width="18px" height="18px" />
+            </a>
+            <span> Contact: iwytbbtss00@naver.com</span>
         </div>
         <div>
             <span>Members:</span>
@@ -34,7 +36,7 @@ export default {
 <style scoped>
     .footer {
         width: 80vw;
-        height: 150px;
+        height: 110px;
         text-align: center;
         margin: auto;
         line-height: 30px;
