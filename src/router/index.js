@@ -98,7 +98,6 @@ router.beforeEach(function (to, from, next) {
 
 router.beforeEach((to, from, next) => {
   store.commit('setShowSideMenu', false);
-  window.scroll(0, 0);
   next();
 })
 

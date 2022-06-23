@@ -31,7 +31,7 @@ export default {
   components: {
     MenuBar,
     AlertComp,
-    FooterComp
+    FooterComp,
   },
   methods: {
     SideMenuOff: function () {
@@ -44,6 +44,10 @@ export default {
 <style>
 * {
   margin: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 #app {
