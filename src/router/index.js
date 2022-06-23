@@ -16,17 +16,15 @@ var router = new VueRouter({
         {
           path: "detail/:id",
           component: () => import("../views/DetailView.vue"),
-          meta: { showModal: true }
         },
         {
           path: "map/:id",
           component: () => import("../views/MapView.vue"),
-          meta: { showModal: true }
         },
         {
           path: "datepicker/:id",
           component: () => import("../views/DatepickerView.vue"),
-          meta: { authRequired: true, showModal: true },
+          meta: { authRequired: true },
         },
       ],
     },
@@ -44,19 +42,21 @@ var router = new VueRouter({
         {
           path: "detail/:id",
           component: () => import("../views/DetailView.vue"),
-          meta: { showModal: true }
         },
         {
           path: "map/:id",
           component: () => import("../views/MapView.vue"),
-          meta: { showModal: true }
         },
         {
           path: "datepicker/:id",
           component: () => import("../views/DatepickerView.vue"),
-          meta: { authRequired: true, showModal: true },
+          meta: { authRequired: true },
         },
       ],
+      beforeEnter: (to, from, next) => {
+        window.scroll(0, 0);
+        next();
+      }
     },
     {
       path: "/calendar",
@@ -65,14 +65,21 @@ var router = new VueRouter({
       component: function () {
         return import("../views/CalendarView.vue");
       },
+      beforeEnter: (to, from, next) => {
+        window.scroll(0, 0);
+        next();
+      }
     },
     {
       path: "/login",
       name: "login",
-
       component: function () {
         return import("../views/LoginView.vue");
       },
+      beforeEnter: (to, from, next) => {
+        window.scroll(0, 0);
+        next();
+      }
     },
     {
       path: "/register",
@@ -80,6 +87,10 @@ var router = new VueRouter({
       component: function () {
         return import("../views/RegisterView.vue");
       },
+      beforeEnter: (to, from, next) => {
+        window.scroll(0, 0);
+        next();
+      }
     },
   ],
 });
