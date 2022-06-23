@@ -26,8 +26,18 @@ export default {
       this.$store.commit("setShowModal", false);
     },
   },
+  watch: {
+    $route(to) {
+      if(to.path=='/' || to.path=='/mypage') {
+        this.$store.commit('setShowModal', false);
+      }
+      else {
+        this.$store.commit('setShowModal', true);
+      }
+    }
+  }
 };
-</script>8
+</script>
 
 <style scoped>
 

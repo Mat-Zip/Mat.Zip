@@ -19,6 +19,7 @@
           @click="
             $router.push(`/mypage/detail/${$route.params.id}`).catch(() => {})
           "
+          :class="detail"
         >
           <font-awesome-icon icon="fa-regular fa-chart-bar" />
         </button>
@@ -27,10 +28,11 @@
           @click="
             $router.push(`/mypage/map/${$route.params.id}`).catch(() => {})
           "
+          :class="map"
         >
           <font-awesome-icon icon="fa-regular fa-map" />
         </button>
-        <button class="modal_btn" @click="toDatePicker">
+        <button class="modal_btn" @click="toDatePicker" :class="datepicker">
           <font-awesome-icon icon="fa-regular fa-calendar" />
         </button>
       </modal-comp>
@@ -88,6 +90,15 @@ export default {
       return !(
         this.$store.getters.getShowSideMenu || this.$store.getters.getShowModal
       );
+    },
+    detail() {
+      return this.$route.path.includes("detail") ? "now" : "";
+    },
+    map() {
+      return this.$route.path.includes("map") ? "now" : "";
+    },
+    datepicker() {
+      return this.$route.path.includes("datepicker") ? "now" : "";
     },
   },
 };
@@ -176,5 +187,9 @@ export default {
   right: 20px;
   font-size: 30px;
   cursor: pointer;
+}
+
+.now {
+  color: salmon;
 }
 </style>
