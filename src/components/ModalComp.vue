@@ -64,7 +64,7 @@ export default {
   background-color: rgba(00, 00, 00, 0.5);
 }
 
-.modal_route > .modal_content {
+.modal_content {
   width: 65%;
   height: 70%;
   position: fixed;
@@ -99,5 +99,29 @@ export default {
   background-color: white;
   box-shadow: 2px -1.5px 10px -2px rgba(00, 00, 00, 0.5);
   z-index: 100;
+}
+
+@media screen and (max-width: 1200px) {
+  .modal_content {
+    width: 85%;
+    height: 80%;
+    top: 11.5%;
+    left: 7.5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal_content {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+
+  .modal_btn_box {
+    height: 40px;
+    position: relative;
+    bottom: 0;
+  }
 }
 </style>

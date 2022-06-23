@@ -72,7 +72,7 @@ export default {
 
 .intro {
   width: 27vw;
-  height: 63vh;
+  height: auto;
   padding: 2.5%;
 }
 
@@ -92,12 +92,13 @@ export default {
 
 @media screen and (max-width: 768px) {
   .swiper {
-    width: 60vw;
+    width: 70vw;
     max-height: 40%;
+    margin-top: 40px;
   }
   .intro {
-    width: 60vw;
-    margin-top: 25px;
+    width: 70vw;
+    margin-top: 30px;
   }
 }
 </style>
