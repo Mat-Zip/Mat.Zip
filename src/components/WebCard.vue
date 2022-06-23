@@ -45,7 +45,7 @@ export default {
       // 현재 주소가 / 일 경우 생기는 에러 방지
       let currentPath = this.$route.path == "/" ? "" : this.$route.path;
       this.$router.push(`${currentPath}/detail/${this.place.id}`);
-      this.$store.commit("setShowModal", true);
+      //this.$store.commit("setShowModal", true);
     },
     addLikeDB() {
       if(this.$store.getters.getLogged) {
