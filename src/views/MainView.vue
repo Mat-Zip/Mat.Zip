@@ -30,10 +30,12 @@
           <font-awesome-icon icon="fa-regular fa-calendar" />
         </button>
       </modal-comp>
-      <a v-show="isToTop" class="up_btn" @click="toTop"
-        ><font-awesome-icon icon="fa-regular fa-square-caret-up"
-      /></a>
     </div>
+    <transition name="slide">
+        <div v-show="isToTop" class="up_btn" @click="toTop">
+          <font-awesome-icon icon="fa-regular fa-arrow-alt-circle-up"/>
+        </div>
+    </transition>
   </div>
 </template>
 
@@ -52,6 +54,7 @@ export default {
   data() {
     return {
       currentURL: this.$route.path,
+      scrolled: false
     };
   },
   methods: {
@@ -91,12 +94,20 @@ export default {
         }
       }
     },
+    showUpBtn() {
+      if(window.scrollY>400) {
+        this.scrolled=true;
+      }
+      else {
+        this.scrolled=false;
+      }
+    }
   },
   computed: {
     isToTop() {
       return !(
         this.$store.getters.getShowSideMenu || this.$store.getters.getShowModal
-      );
+      ) && this.scrolled;
     },
     detail() {
       return this.$route.path.includes("detail") ? "now" : "";
@@ -111,10 +122,12 @@ export default {
   mounted() {
     this.scrollEvent();
     window.addEventListener("scroll", this.scrollEvent);
+    window.addEventListener("scroll", this.showUpBtn);
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.scrollEvent);
-  },
+    window.removeEventListener("scroll", this.showUpBtn);
+  }
 };
 </script>
 
@@ -178,10 +191,31 @@ export default {
   width: 40px;
   height: 40px;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
   font-size: 30px;
   cursor: pointer;
+  color: #bdbdbd;
+}
+
+.up_btn:hover {
+  color: gray;
+}
+
+.slide-enter-active {
+  transition: all 0.5s ease-out;
+}
+.slide-leave-active {
+  transition: all 0.35s ease-in;
+}
+.slide-enter,
+.slide-leave-to {
+  bottom: -40px;
+}
+.slide-enter-to,
+.slide-leave {
+  bottom: 0;
 }
 
 .now {
