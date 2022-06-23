@@ -23,7 +23,8 @@ export default {
         return ({
             members: [
                 {name: "우재윤", github: "https://github.com/iwytbbtss", instagram: "https://www.instagram.com/wo_ojy"},
-                {name: "김준용", github: "https://github.com/djdj4275", instagram: "https://www.instagram.com/jun_aay"}
+                {name: "김준용", github: "https://github.com/djdj4275", instagram: "https://www.instagram.com/jun_aay"},
+                {name: "구자경", github: "https://github.com/koqun", instagram: "https://www.instagram.com/rnwkrud_"}
             ]
         })
     }
