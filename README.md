@@ -17,18 +17,36 @@
 ```
 
 ### :newspaper: 주요 기능
+##### 🙍‍♂️비회원
 ```
-뭐적지
+매거진(디테일) 보기
+추천장소 지도(kakaomap sdk) 보기
+회원가입
+```
+##### 🙋‍♂️회원
+```
+좋아요한 장소 모아보기(마이페이지)
+일정 추가하기, 일정 보기(v-calendar)
+```
+##### 부가기능
+```
+firebase realtime database를 통한 회원관리
+github action&firebase를 연동한 CI/CD
 ```
 
-## :computer: Project setup
+### :computer: Develope setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 ```
 npm run serve
+```
+
+### 🚩 개발을 진행하면서 고민했던 점
+```
+우재윤 - 
 ```
 
 ### :mailbox_with_mail: Contact
