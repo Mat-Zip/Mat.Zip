@@ -30,7 +30,7 @@
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
           <div class="sidebar_text">
-            <p @click="Logout">로그아웃</p>
+            <p @click="logOut">로그아웃</p>
           </div>
           <div class="arrow">
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
@@ -50,7 +50,7 @@
       </div>
       <div v-show="logged">
         <router-link to="/mypage">마이페이지</router-link> |
-        <a @click="Logout">로그아웃</a>
+        <a @click="logOut">로그아웃</a>
       </div>
     </div>
   </div>
@@ -68,8 +68,21 @@ export default {
         }
       }
     },
-    Logout: function () {
-      this.$store.dispatch("logOut");
+    logOut: function () {
+      this.$store.dispatch("logOut").then(() => {
+        this.$router.push("/").catch(() => {});
+        this.$store.commit("setAlertData", {
+          alertText: "로그아웃되었습니다",
+          buttonText1: "확인",
+          buttonFunc1: () => {
+            this.$router.push("/").catch(() => {});
+            this.$store.commit("setUser", null);
+            this.$store.commit("initLikePlace", []);
+            this.$store.commit("initSchedule", []);
+            this.$store.commit("setAlertData", null);
+          },
+        });
+      })
     },
   },
   computed: {

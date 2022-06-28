@@ -129,6 +129,7 @@ export default new Vuex.Store({
           commit("setShowModal", false);
           dispatch("setUserData");
           router.push("/");
+          console.log(auth.currentUser);
         })
         .catch((err) => {
           console.error(err);
@@ -143,6 +144,7 @@ export default new Vuex.Store({
           });
           commit("setShowModal", false);
           dispatch("setUserData");
+          dispatch("updatePhotoURL", "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2016/10/31/e1f20f9b-1ee3-478a-a3a0-ca16ee82b9f8.gif");
           router.push("/");
         })
         .catch((err) => {
@@ -155,26 +157,31 @@ export default new Vuex.Store({
           commit("setUser", null);
           commit("initLikePlace", []);
           commit("initSchedule", []);
-          router.push("/").catch(() => {});
-          commit("setAlertData", {
-            alertText: "로그아웃되었습니다",
-            buttonText1: "확인",
-            buttonFunc1: () => {
-              commit("setAlertData", null);
-            },
-          });
         })
         .catch((err) => {
           console.error(err);
         });
     },
-    withdrawalUser({ commit }) {
+    withdrawalUser({ commit, dispatch }) {
+      commit("setAlertData", null);
       deleteUser(auth.currentUser)
-          .then(() => {
-            commit("setUser", null);
+        .then(() => {
+          router.push("/");
+          commit("setUser", null);
+          commit("initLikePlace", []);
+          commit("initSchedule", []);
+          commit("setAlertData", null);
           })
-          .catch((err) => {
-            console.error(err);
+        .catch(() => {
+          dispatch("logOut");
+          router.push("/login");
+          commit("setAlertData", {
+            alertText: "인증이 만료되었습니다. 다시 로그인 해주세요.",
+            buttonText1: "닫기",
+            buttonFunc1: () => {
+              commit("setAlertData", null);
+            }
+          })
       })
     },
     setUserData({ state, commit }) {

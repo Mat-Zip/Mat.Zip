@@ -14,9 +14,9 @@
             <p>&emsp;좋아요 한 갯수 {{ $store.getters.getLiked.length }}</p>
             <span @click="$router.push('/calendar').catch(() => {})">&emsp;캘린더</span> |
             <span @click="$store.dispatch('logOut')">로그아웃</span> |
+
             <span @click="withdrawalUser">회원탈퇴</span>
-        </div>
-        
+        </div> 
     </div>
 </template>
 
@@ -40,7 +40,23 @@ export default {
                     this.$store.dispatch("withdrawalUser");
                 }
             })
-        }
+        },
+        logOut: function () {
+        this.$store.dispatch("logOut").then(() => {
+            this.$router.push("/").catch(() => {});
+            this.$store.commit("setAlertData", {
+            alertText: "로그아웃되었습니다",
+            buttonText1: "확인",
+            buttonFunc1: () => {
+                this.$router.push("/").catch(() => {});
+                this.$store.commit("setUser", null);
+                this.$store.commit("initLikePlace", []);
+                this.$store.commit("initSchedule", []);
+                this.$store.commit("setAlertData", null);
+            },
+            });
+        })
+    },
     }
 }
 </script>
