@@ -1,9 +1,9 @@
 <template>
-  <div id="menu_bar">
+  <div class="menu_bar">
     <transition name="slide">
       <div
         v-show="$store.getters.getShowSideMenu"
-        id="schedule"
+        class="sidebar"
         @click.stop="() => {}"
       >
         <!-- 로그인 하기 전 -->
@@ -30,12 +30,6 @@
             <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
           </div>
           <div class="sidebar_text">
-            <p @click="$router.push('/calendar').catch(() => {})">캘린더</p>
-          </div>
-          <div class="arrow">
-            <font-awesome-icon icon="far fa-arrow-alt-circle-left" />
-          </div>
-          <div class="sidebar_text">
             <p @click="Logout">로그아웃</p>
           </div>
           <div class="arrow">
@@ -48,6 +42,16 @@
       <span :class="hamburger"></span>
       <span :class="hamburger"></span>
       <span :class="hamburger"></span>
+    </div>
+    <div class="nav">
+      <div v-show="!logged">
+        <router-link to="/register">회원가입</router-link> |
+        <router-link to="/login">로그인</router-link>
+      </div>
+      <div v-show="logged">
+        <router-link to="/mypage">마이페이지</router-link> |
+        <a @click="Logout">로그아웃</a>
+      </div>
     </div>
   </div>
 </template>
@@ -65,7 +69,7 @@ export default {
       }
     },
     Logout: function () {
-      this.$store.dispatch("logout");
+      this.$store.dispatch("logOut");
     },
   },
   computed: {
@@ -83,14 +87,28 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
 
 .menu_bar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
 }
-
-#schedule {
+.nav {
   position: absolute;
-  width: 300px;
+  top: 50px;
+  right: 50px;
+  width: 200px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.sidebar {
+  position: absolute;
+  width: 250px;
   height: 100vh;
-  top: -20px;
+  top: 0;
+  right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
@@ -98,7 +116,7 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 80px;
+  top: 110px;
   text-align: center;
 }
 .sidebar_text {
@@ -137,12 +155,13 @@ export default {
 }
 .side_btn {
   position: absolute;
-  top: 15px;
-  right: -250px;
+  top: 40px;
+  right: 30px;
   font-size: 20px;
   width: 30px;
   height: 30px;
   z-index: 10;
+  display: none;
   /* pointer-events: none; */
 }
 
@@ -158,11 +177,11 @@ export default {
 }
 .slide-enter,
 .slide-leave-to {
-  left: 300px;
+  right: -250px;
 }
 .slide-enter-to,
 .slide-leave {
-  left: 0px;
+  right: 0;
 }
 
 span {
@@ -197,5 +216,14 @@ span:nth-child(3) {
 .sideOn:nth-child(3) {
   transform: rotate(-45deg);
   top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .side_btn {
+    display: inherit;
+  }
 }
 </style>

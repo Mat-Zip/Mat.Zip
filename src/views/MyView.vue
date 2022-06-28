@@ -5,6 +5,7 @@
         <button @click="$router.push('/')">보러 가기</button>
     </div>
     <div class="container" v-if="$store.getters.getLiked.length>0">
+      <profile-comp></profile-comp>
       <!-- MainView 주석 참조 -->
       <web-card
         class="web-card"
@@ -48,16 +49,18 @@
 <script>
 import WebCard from "../components/WebCard.vue";
 import ModalComp from "../components/ModalComp.vue";
+import ProfileComp from '@/components/ProfileComp.vue';
 
 export default {
   components: {
     WebCard,
     ModalComp,
+    ProfileComp
   },
   data() {
-    return {
-      currentURL: this.$route.path,
-      scrolled: false
+      return {
+        currentURL: this.$route.path,
+        scrolled: false
     };
   },
   methods: {

@@ -10,6 +10,8 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signOut,
+  updateProfile,
+  deleteUser,
 } from "firebase/auth";
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import router from "@/router";
@@ -52,6 +54,9 @@ export default new Vuex.Store({
     },
     getLogged(state) {
       return state.user != null;
+    },
+    getUser(state) {
+      return state.user;
     },
     getAlertData(state) {
       return state.alertData;
@@ -100,7 +105,7 @@ export default new Vuex.Store({
         .then((userinfo) => {
           commit("setUser", {
             id: userinfo.user.uid,
-            name: userinfo.user.displayname,
+            name: userinfo.user.displayName,
           });
           commit("setShowModal", false);
           dispatch("setUserData");
@@ -118,7 +123,8 @@ export default new Vuex.Store({
         .then((userinfo) => {
           commit("setUser", {
             id: userinfo.user.uid,
-            name: userinfo.user.displayname,
+            name: userinfo.user.displayName,
+            photoURL: userinfo.user.photoURL
           });
           commit("setShowModal", false);
           dispatch("setUserData");
@@ -133,7 +139,7 @@ export default new Vuex.Store({
         .then((userinfo) => {
           commit("setUser", {
             id: userinfo.user.uid,
-            name: userinfo.user.displayname,
+            name: userinfo.user.displayName,
           });
           commit("setShowModal", false);
           dispatch("setUserData");
@@ -143,13 +149,13 @@ export default new Vuex.Store({
           console.error(err);
         });
     },
-    logout({ commit }) {
+    logOut({ commit }) {
       signOut(auth)
         .then(() => {
           commit("setUser", null);
           commit("initLikePlace", []);
           commit("initSchedule", []);
-          router.push("/");
+          router.push("/").catch(() => {});
           commit("setAlertData", {
             alertText: "로그아웃되었습니다",
             buttonText1: "확인",
@@ -161,6 +167,15 @@ export default new Vuex.Store({
         .catch((err) => {
           console.error(err);
         });
+    },
+    withdrawalUser({ commit }) {
+      deleteUser(auth.currentUser)
+          .then(() => {
+            commit("setUser", null);
+          })
+          .catch((err) => {
+            console.error(err);
+      })
     },
     setUserData({ state, commit }) {
       get(child(ref(database), "users/" + state.user.id))
@@ -204,6 +219,15 @@ export default new Vuex.Store({
         schedules: [...state.schedules],
       });
     },
+    updatePhotoURL({ state, commit }, payload) {
+      updateProfile(auth.currentUser, {
+        photoURL: payload
+      }).then(() => {
+        commit("setUser", { ...state.user, photoURL: payload })
+      }).catch((err) => {
+        console.error(err);
+      });
+    }
   },
   modules: {},
 });

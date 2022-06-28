@@ -4,7 +4,7 @@
             <a href="https://github.com/Mat-Zip/Mat.Zip" target="_blank">
                 <span>Mat.Zip</span>
                 <img src="@/assets/github-logo.png" width="18px" height="18px" />
-            </a>
+            </a> |
             <span> Contact: iwytbbtss00@naver.com</span>
         </div>
         <div>
@@ -12,7 +12,7 @@
             <span v-for="(member, i) in members" :key="i">
             <span> {{ member.name }}</span>
                 <a :href="member.github" target="_blank"><img src="@/assets/github-logo.png" width="18px" height="18px" /></a>
-                <a :href="member.instagram" target="_blank"><img src="@/assets/instagram-logo.png" width="18px" height="18px" /> </a>
+                <a :href="member.instagram" target="_blank"><img src="@/assets/instagram-logo.png" width="18px" height="18px" /> </a> |
             </span>
         </div>
         <span>Copyright 2022. Mat.Zip Co. all rights reserved.</span>

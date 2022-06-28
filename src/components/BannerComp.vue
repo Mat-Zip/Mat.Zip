@@ -29,7 +29,7 @@ export default {
   width: 100%;
   height: 250px;
   background-color: #bdbdbd;
-
+  margin: 10px;
   display: flex;
 }
 

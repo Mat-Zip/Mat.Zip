@@ -52,6 +52,21 @@
   cursor: pointer;
 }
 
+@keyframes arrow {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.card-hover:hover .readmore {
+  animation: arrow 0.75s infinite alternate;
+  transition-duration: 0.5s;
+}
+
 .btn-bar {
   position: absolute;
   bottom: 0;
