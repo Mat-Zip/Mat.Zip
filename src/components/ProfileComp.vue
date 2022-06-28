@@ -1,15 +1,22 @@
 <template>
     <div class="profile">
-        <img :src="$store.getters.getUser.photoURL" @error="'https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png'" />
-        <div>
-            <p>{{ $store.getters.getUser.name }} 님 반갑습니다.</p>
-            <p>내가 쓴 댓글</p>
-            <p>좋아요 한 갯수 {{ $store.getters.getLiked.length }}</p>
-            <span @click="$router.push('/calendar').catch(() => {})">캘린더</span> |
+        <div class="imgBox">
+            <img :src="$store.getters.getUser.photoURL" @error="'https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_960_720.png'" />
+            <div class="filebox">
+                <label for="file">Edit</label>
+                <input id="file" type="file" @change="handleFile" accept=".gif, .jpg, .png, .jpeg">
+            </div>
+        </div>
+        
+        <div class="textBox">
+            <h1>{{ $store.getters.getUser.name }} 님 반갑습니다.</h1>
+            <p>&emsp;내가 쓴 댓글</p>
+            <p>&emsp;좋아요 한 갯수 {{ $store.getters.getLiked.length }}</p>
+            <span @click="$router.push('/calendar').catch(() => {})">&emsp;캘린더</span> |
             <span @click="$store.dispatch('logOut')">로그아웃</span> |
             <span @click="withdrawalUser">회원탈퇴</span>
         </div>
-        <input type="file" @change="handleFile">
+        
     </div>
 </template>
 
@@ -40,6 +47,7 @@ export default {
 
 <style scoped>
     .profile {
+        position: relative;
         background-color: #bdbdbd;
         width: 100%;
         height: 250px;
@@ -47,9 +55,55 @@ export default {
         margin: 10px;
     }
 
+    .imgBox {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .profile img {
-        width: 60px;
-        height: 60px;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
+    }
+
+    .filebox {
+        position: absolute;
+        display: block;
+        width: 60px;
+        height: 30px;
+        background-color: #f0f0f0;
+        z-index: 200;
+        bottom: 25px;
+        right: 25px;
+        text-align: center;
+        line-height: 30px;
+        border: 1px solid lightgrey;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+
+    #file {
+        display: none;
+    }
+
+    .textBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        line-height: 50px;
+        text-align: center;
+    }
+
+    span {
+        cursor: pointer;
+    }
+
+    span:hover {
+        color : white;
     }
 </style>
