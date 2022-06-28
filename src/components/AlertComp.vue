@@ -81,6 +81,7 @@ export default {
   width: 100%;
   text-align: center;
   margin-top: 15px;
+  word-break: normal;
 }
 
 .alert_btnbox {
