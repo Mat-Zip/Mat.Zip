@@ -60,15 +60,6 @@ nav {
   margin-top: 10px;
 }
 
-.menu-bar1 {
-  position: fixed;
-  top: 20px;
-  right: 270px;
-  width: 25px;
-  height: 25px;
-  z-index: 100;
-}
-
 .trans-enter-active {
   transition: all 0.2s ease;
 }

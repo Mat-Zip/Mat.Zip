@@ -144,10 +144,6 @@ export default {
   justify-content: flex-start;
 }
 
-.banner {
-  margin: 10px;
-}
-
 .web-card {
   opacity: 0;
   transition: all 0.5s ease;
