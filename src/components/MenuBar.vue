@@ -99,12 +99,6 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
 
-.menu_bar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 100;
-}
 .nav {
   position: absolute;
   top: 50px;
