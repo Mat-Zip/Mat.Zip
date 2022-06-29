@@ -65,7 +65,7 @@ export default {
     .profile {
         position: relative;
         background-color: #bdbdbd;
-        width: 100%;
+        width: 1540px;
         height: 250px;
         display: flex;
         margin: 10px;
@@ -121,5 +121,17 @@ export default {
 
     span:hover {
         color : white;
+    }
+
+    @media screen and (max-width: 1580px) {
+        .profile {
+            width: 1020px;
+        }
+    }
+
+    @media screen and (max-width: 1060px) {
+        .profile {
+            width: 500px;
+        }
     }
 </style>

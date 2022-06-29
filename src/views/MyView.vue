@@ -1,11 +1,11 @@
 <template>
   <div class="about">
+    <profile-comp></profile-comp>
     <div class="blanked" v-if="$store.getters.getLiked.length == 0">
         <p>좋아요 한 장소가 없습니다</p>
         <button @click="$router.push('/')">보러 가기</button>
     </div>
     <div class="container" v-if="$store.getters.getLiked.length>0">
-      <profile-comp></profile-comp>
       <!-- MainView 주석 참조 -->
       <web-card
         class="web-card"
@@ -128,6 +128,7 @@ export default {
 .about {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .container {
@@ -148,13 +149,14 @@ export default {
 
 .blanked {
   margin-top: 11vh;
-  width: 350px;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .blanked p {
+  width: 100%;
   font-size: 25px;
   text-align: center;
   margin: 15px;
