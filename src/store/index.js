@@ -12,12 +12,18 @@ import {
   signOut,
   updateProfile,
   deleteUser,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  reauthenticateWithPopup
 } from "firebase/auth";
-import { getDatabase, ref, set, child, get } from "firebase/database";
+import { getDatabase, ref, set, child, get, remove } from "firebase/database";
 import router from "@/router";
 
 const auth = getAuth();
 const database = getDatabase();
+const provider = new GoogleAuthProvider();
+provider.addScope("profile");
+provider.addScope("email");
 
 Vue.use(Vuex);
 
@@ -106,20 +112,19 @@ export default new Vuex.Store({
           commit("setUser", {
             id: userinfo.user.uid,
             name: userinfo.user.displayName,
+            photoURL: userinfo.user.photoURL
           });
           commit("setShowModal", false);
           dispatch("setUserData");
           router.push("/");
+          console.log(auth.currentUser);
         })
         .catch((err) => {
           console.error(err);
         });
     },
     googleLogin({ commit, dispatch }) {
-      const oProvider = new GoogleAuthProvider();
-      oProvider.addScope("profile");
-      oProvider.addScope("email");
-      signInWithPopup(auth, oProvider)
+      signInWithPopup(auth, provider)
         .then((userinfo) => {
           commit("setUser", {
             id: userinfo.user.uid,
@@ -164,25 +169,20 @@ export default new Vuex.Store({
     },
     withdrawalUser({ commit, dispatch }) {
       commit("setAlertData", null);
-      deleteUser(auth.currentUser)
-        .then(() => {
-          router.push("/");
-          commit("setUser", null);
-          commit("initLikePlace", []);
-          commit("initSchedule", []);
-          commit("setAlertData", null);
+      if (auth.currentUser.providerData[0].providerId == 'google.com') {
+        reauthenticateWithPopup(auth.currentUser, provider)
+          .then(() => {
+            dispatch("removeUserDB");
           })
-        .catch(() => {
-          dispatch("logOut");
-          router.push("/login");
-          commit("setAlertData", {
-            alertText: "인증이 만료되었습니다. 다시 로그인 해주세요.",
-            buttonText1: "닫기",
-            buttonFunc1: () => {
-              commit("setAlertData", null);
-            }
-          })
-      })
+      }
+      else if (auth.currentUser.providerData[0].providerId == 'password') {
+        const password = "123456";
+        const credential = EmailAuthProvider.credential(auth.currentUser.email, password);
+        reauthenticateWithCredential(auth.currentUser, credential)
+          .then(() => {
+            dispatch("removeUserDB");
+        })
+      }
     },
     setUserData({ state, commit }) {
       get(child(ref(database), "users/" + state.user.id))
@@ -234,6 +234,25 @@ export default new Vuex.Store({
       }).catch((err) => {
         console.error(err);
       });
+    },
+    removeUserDB({ state, commit }) {
+      remove(ref(database, "users/" + state.user.id))
+        .then(() => {
+          deleteUser(auth.currentUser)
+            .then(() => {
+              router.push("/");
+              commit("setUser", null);
+              commit("initLikePlace", []);
+              commit("initSchedule", []);
+              commit("setAlertData", null);
+            })
+            .catch((err) => {
+              console.error(err);
+            })
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   },
   modules: {},
